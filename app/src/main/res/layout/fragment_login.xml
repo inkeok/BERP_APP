@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment"
+    android:background="#222E3C"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#222E3C"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/top1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_menu" />
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_toEndOf="@+id/top1"
+            android:src="@drawable/ic_launcher_foreground" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="170dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="20dp"
+        />
+
+
+    <EditText
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edge_round"
+        android:layout_gravity="center"
+        android:hint="    아이디를 입력하세요"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edge_round"
+        android:layout_gravity="center"
+        android:hint="    비밀번호를 입력하세요"
+        android:textColor="@color/white"
+        />
+
+    <LinearLayout
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="60dp"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="#7EFFFFFF"
+        android:text="아이디/"/>
+
+    <TextView
+        android:textColor="#7EFFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:text="비밀번호 찾기"/>
+
+    </LinearLayout>
+
+</LinearLayout>
