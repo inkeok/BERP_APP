@@ -64,7 +64,6 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.menu_parent, parent, false);
         TextView tv_parent = convertView.findViewById(R.id.tv_parent);
-
         tv_parent.setText(parent_menu.get(groupPosition));
 
 
@@ -76,11 +75,8 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.menu_child, parent, false);
         TextView tv_child = convertView.findViewById(R.id.tv_child);
-
         ArrayList<String> child = menu_list.get(parent_menu.get(groupPosition));
-
         tv_child.setText(child.get(childPosition));
-
 
         return convertView;
     }

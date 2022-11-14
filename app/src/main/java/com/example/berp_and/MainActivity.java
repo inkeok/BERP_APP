@@ -18,7 +18,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private View drawerView;
-    ImageButton menu_button;
+    ImageView menu_button;
     HashMap<String, ArrayList<String>> menu_list = new HashMap<>();
 
     ArrayList<String> parent_menu = new ArrayList<>();
