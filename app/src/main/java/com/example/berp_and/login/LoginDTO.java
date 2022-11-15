@@ -1,4 +1,4 @@
-package com.example.berp_and;
+package com.example.berp_and.login;
 
 public class LoginDTO {
     private String EMAIL, ID, PW, NAME, GENDER, PHONE, ADDRESS, JOIN_CHECK;
