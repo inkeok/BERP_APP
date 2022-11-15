@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BERP_AND">
         <activity
+            android:name=".login.JoinActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

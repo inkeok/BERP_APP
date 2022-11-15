@@ -30,7 +30,7 @@ public class CommonAskTask extends AsyncTask<String, String, String> {
     public CommonAskTask(String url, Context context) {
         this.url = url; //Spring에 있는 여러 mapping에 접근
         this.context = context; //progressDialog 보여주려고
-        this.params = params;
+        this.params = new HashMap<>();
         this.dialog = new ProgressDialog(context);
     }
     public void addParam(String key, Object value){
@@ -87,5 +87,7 @@ public class CommonAskTask extends AsyncTask<String, String, String> {
     public interface AsynkTaskCallback{
         void onResult(String data, boolean inResult);
     }
+
+
 
 }
