@@ -16,13 +16,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private DrawerLayout drawerLayout;
-    private View drawerView;
-    ImageView menu_button;
-    HashMap<String, ArrayList<String>> menu_list = new HashMap<>();
 
+    HashMap<String, ArrayList<String>> menu_list = new HashMap<>();
     ArrayList<String> parent_menu = new ArrayList<>();
-    int lastPosition = -1;
     ExpandableListView exp_menu;
 
     @Override
@@ -30,25 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        drawerView = (View) findViewById(R.id.drawerView);
-        drawerLayout.setDrawerListener(listener);
-
-        menu_button = findViewById(R.id.menu_button);
-
-
-
         exp_menu = findViewById(R.id.exp_menu);
-
-        menu_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout. openDrawer(drawerView);
-
-            }
-        });
-
 
         menu_hash();
 
@@ -58,30 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
-        @Override
-        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-        }
-
-        @Override
-        public void onDrawerOpened(@NonNull View drawerView) {
-            drawerLayout.openDrawer(drawerView);
-        }
-
-        @Override
-        public void onDrawerClosed(@NonNull View drawerView) {
-        }
-
-        @Override
-        public void onDrawerStateChanged(int newState) {
-        }
-    };
-
-
 
 
     public void menu_hash(){
-        parent_menu.add("회사정보");
+        parent_menu.add("마이페이지");
         parent_menu.add("채용관리");
         parent_menu.add("인사관리");
         parent_menu.add("코드관리");
@@ -93,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         child_menu1.add(0, "출퇴근 관리");
         child_menu1.add(1, "개인정보 수정");
 
-        menu_list.put("회사정보", child_menu1);
+        menu_list.put("마이페이지", child_menu1);
 
 
         ArrayList<String> child_menu2= new ArrayList<>();
@@ -143,10 +101,6 @@ public class MainActivity extends AppCompatActivity {
         child_menu7.add(5, "공지사항");
 
         menu_list.put("업무관리", child_menu7);
-
-
-
-
 
     }
 

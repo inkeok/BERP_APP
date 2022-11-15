@@ -16,37 +16,34 @@
 
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer"
-        android:layout_width="280dp"
+        android:id="@+id/drawer_layout"
+        android:layout_width="350dp"
         android:layout_height="match_parent">
 
-
-        <LinearLayout
-
-            android:id="@+id/drawerView"
-            android:layout_width="280dp"
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="#222e3c">
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            >
 
             <ExpandableListView
+
                 android:id="@+id/exp_menu"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="100dp" />
-        </LinearLayout>
+                android:layout_marginTop="140dp" />
+
+        </com.google.android.material.navigation.NavigationView>
+
+
+
 
     </androidx.drawerlayout.widget.DrawerLayout>
 
 
-    <ImageView
-        android:id="@+id/menu_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/white"
-        android:padding="4dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/main_menubar" />
 
 
 </RelativeLayout>
