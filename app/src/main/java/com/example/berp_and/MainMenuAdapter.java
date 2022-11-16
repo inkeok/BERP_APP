@@ -23,7 +23,7 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
     int container;
     FragmentManager manager;
 
-    int cnt = 0;
+
 
     public MainMenuAdapter(LayoutInflater inflater, HashMap<String, ArrayList<MainActivity.MenuDTO>> menu_list, ArrayList<String> parent_menu, int container, FragmentManager manager) {
         this.inflater = inflater;

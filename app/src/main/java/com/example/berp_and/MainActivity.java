@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new EmpFragment()).commit();
 
         exp_menu = findViewById(R.id.exp_menu);
         nav_view = findViewById(R.id.nav_view);
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
         menu_hash();
 
-        menu();
+        exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, container, getSupportFragmentManager()));
+       // menu();
 
 
 
@@ -81,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        menu();
+        //menu();
     }
 
     public void menu(){
