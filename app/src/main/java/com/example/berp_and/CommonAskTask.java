@@ -85,7 +85,7 @@ public class CommonAskTask extends AsyncTask<String, String, String> {
     }
     //콜백을 위한 인터페이스 정의.
     public interface AsynkTaskCallback{
-        void onResult(String data, boolean inResult);
+        void onResult(String data, boolean isResult);
     }
 
 

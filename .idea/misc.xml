@@ -3,23 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.38229166666666664" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/edge_round.xml" value="0.38229166666666664" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/ic_circle.xml" value="0.38229166666666664" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/main_menubar.xml" value="0.38229166666666664" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/rond_btn.xml" value="0.38229166666666664" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/rond_txt.xml" value="0.38229166666666664" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/activity_join.xml" value="0.33" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_company.xml" value="0.30842391304347827" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_join.xml" value="0.25" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_login.xml" value="0.30842391304347827" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/menu_child.xml" value="0.36614583333333334" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/menu_parent.xml" value="0.36614583333333334" />
-        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/nav_header_main.xml" value="0.36614583333333334" />
+
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22083333333333333" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.203125" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/main_menubar.xml" value="0.22083333333333333" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/activity_login.xml" value="0.2046875" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_company.xml" value="0.36614583333333334" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_join.xml" value="0.36614583333333334" />

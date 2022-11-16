@@ -14,6 +14,10 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.berp_and.login.LoginActivity;
+import com.google.android.material.navigation.NavigationView;
 
 import com.example.berp_and.login.JoinActivity;
 import com.example.berp_and.login.LoginDTO;
@@ -30,8 +34,16 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     HashMap<String, ArrayList<String>> menu_list = new HashMap<>();
+    HashMap<String, ArrayList<String>> menu_list_none = new HashMap<>();
     ArrayList<String> parent_menu = new ArrayList<>();
+    ArrayList<String> parent_menu_none = new ArrayList<>();
     ExpandableListView exp_menu;
+
+    TextView tv_logintop, tv_loginbot;
+
+
+    public static int LoginInfo = 0;
+    NavigationView nav_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +55,65 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         exp_menu = findViewById(R.id.exp_menu);
+        nav_view = findViewById(R.id.nav_view);
+        tv_logintop=findViewById(R.id.tv_logintop);
+        tv_loginbot=findViewById(R.id.tv_loginbot);
 
         menu_hash();
 
-        exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(),menu_list, parent_menu));
+        menu();
 
 
 
+        exp_menu.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                for (int i = 0; i < parent.getChildCount(); i++) {
 
+                    if (groupPosition == i) {
+                        parent.expandGroup(i);
+                    } else {
+                        parent.collapseGroup(i);
+                    }
+
+                }
+
+                return true;
+            }
+        });
+
+
+
+        onRestart();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        menu();
+    }
+
+    public void menu(){
+        if(LoginInfo == 0) {
+            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none));
+            tv_logintop.setText("로그인");
+            tv_loginbot.setText("회원가입");
+
+            tv_logintop.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+        }else if (LoginInfo == 1){
+            tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
+            tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
+
+            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu));
+        }
+    }
 
     public void menu_hash(){
         parent_menu.add("마이페이지");
@@ -117,6 +178,28 @@ public class MainActivity extends AppCompatActivity {
         child_menu7.add(5, "공지사항");
 
         menu_list.put("업무관리", child_menu7);
+
+
+
+        parent_menu_none.add("공지사항");
+        parent_menu_none.add("회사정보");
+        parent_menu_none.add("채용정보");
+
+
+        ArrayList<String> child_menu1_1= new ArrayList<>();
+
+        menu_list_none.put("공지사항", child_menu1_1);
+
+
+        ArrayList<String> child_menu2_1= new ArrayList<>();
+
+        menu_list_none.put("회사정보", child_menu2_1);
+
+        ArrayList<String> child_menu3_1= new ArrayList<>();
+        child_menu3_1.add(0, "채용공고보기");
+        child_menu3_1.add(1, "지원여부확인");
+
+        menu_list_none.put("채용정보", child_menu3_1);
 
     }
 
