@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new EmpFragment()).commit();
+
 
         exp_menu = findViewById(R.id.exp_menu);
         nav_view = findViewById(R.id.nav_view);
