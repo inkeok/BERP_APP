@@ -5,7 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,16 +18,19 @@ import java.util.HashMap;
 public class MainMenuAdapter extends BaseExpandableListAdapter {
 
     LayoutInflater inflater;
-    HashMap<String, ArrayList<String>> menu_list;
+    HashMap<String, ArrayList<MainActivity.MenuDTO>> menu_list;
     ArrayList<String> parent_menu;
+    int container;
+    FragmentManager manager;
 
     int cnt = 0;
 
-    public MainMenuAdapter(LayoutInflater inflater, HashMap<String, ArrayList<String>> menu_list, ArrayList<String> parent_menu) {
+    public MainMenuAdapter(LayoutInflater inflater, HashMap<String, ArrayList<MainActivity.MenuDTO>> menu_list, ArrayList<String> parent_menu, int container, FragmentManager manager) {
         this.inflater = inflater;
         this.menu_list = menu_list;
         this.parent_menu = parent_menu;
-
+        this.container = container;
+        this.manager = manager;
     }
 
     @Override
@@ -75,8 +83,17 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         convertView = inflater.inflate(R.layout.menu_child, parent, false);
         TextView tv_child = convertView.findViewById(R.id.tv_child);
-        ArrayList<String> child = menu_list.get(parent_menu.get(groupPosition));
-        tv_child.setText(child.get(childPosition));
+        LinearLayout child_layout = convertView.findViewById(R.id.child_layout);
+        ArrayList<MainActivity.MenuDTO> child = menu_list.get(parent_menu.get(groupPosition));
+        tv_child.setText(child.get(childPosition).getMenu_name());
+
+        child_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manager.beginTransaction().replace(container, child.get(childPosition).getFragment()).commit();
+            }
+        });
+
 
         return convertView;
     }
