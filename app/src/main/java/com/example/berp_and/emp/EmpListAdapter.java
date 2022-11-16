@@ -1,6 +1,8 @@
 package com.example.berp_and.emp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +35,7 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EmpListHolder h, int i) {
+    public void onBindViewHolder(@NonNull EmpListHolder h, @SuppressLint("RecyclerView") int i) {
 
         h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
         h.tv_employee_name.setText(list.get(i).getName());
@@ -44,6 +46,17 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
         h.img_empSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(context, EmpDetailActivity.class);
+                intent.putExtra("employee_id", list.get(i).getEmployee_id()+"");
+                intent.putExtra("name", list.get(i).getName());
+                intent.putExtra("department", list.get(i).getDepartment_name());
+                intent.putExtra("company", list.get(i).getCompany_name());
+                intent.putExtra("position", list.get(i).getPosition());
+                intent.putExtra("pattern", list.get(i).getEmployee_pattern());
+                intent.putExtra("admin", list.get(i).getAdmin());
+                context.startActivity(intent);
+
 
             }
         });
