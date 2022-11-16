@@ -14,6 +14,7 @@ import com.example.berp_and.ApiClient;
 import com.example.berp_and.ApiInterface;
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,8 +61,10 @@ public class JoinActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
+
+
                 CommonAskTask askTask = new CommonAskTask("andJoin.mem", JoinActivity.this);
-                askTask.addParam("list", joinList);
+                askTask.addParam("list", new Gson().toJson(joinList));
                 askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                     @Override
                     public void onResult(String data, boolean inResult) {

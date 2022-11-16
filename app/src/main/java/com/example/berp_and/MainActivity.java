@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListView exp_menu;
 
     TextView tv_logintop, tv_loginbot;
-
-
+    Button btn_logout;
     public static int LoginInfo = 0;
     NavigationView nav_view;
 
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         nav_view = findViewById(R.id.nav_view);
         tv_logintop=findViewById(R.id.tv_logintop);
         tv_loginbot=findViewById(R.id.tv_loginbot);
+        btn_logout = findViewById(R.id.btn_logout);
 
         menu_hash();
 
@@ -94,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void menu(){
+
         if(LoginInfo == 0) {
+            btn_logout.setVisibility(View.INVISIBLE);
             exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none));
             tv_logintop.setText("로그인");
             tv_loginbot.setText("회원가입");
@@ -116,10 +118,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         }else if (LoginInfo == 1){
-            tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
-            tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
+            btn_logout.setVisibility(View.VISIBLE);
 
-            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu));
+            if (LoginActivity.loginInfoList.get(0).getJoin_check().equals("Y")){
+                tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
+                tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
+
+                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu));
+            }else {
+                tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
+                tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
+                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none));
+            }
+
+
         }
     }
 
