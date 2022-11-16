@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Intent intent = new Intent(this, JoinActivity.class);
-        startActivity(intent);
 
         exp_menu = findViewById(R.id.exp_menu);
         nav_view = findViewById(R.id.nav_view);
@@ -84,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         onRestart();
     }
 
@@ -106,6 +106,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            tv_loginbot.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, JoinActivity.class);
+                    startActivity(intent);
+                }
+            });
+
 
         }else if (LoginInfo == 1){
             tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
