@@ -79,12 +79,13 @@
         >
 
         <AutoCompleteTextView
+            android:id="@+id/emp_item_filled_exposed2"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:padding="5dp"
             android:inputType="none"
             android:textSize="15dp"
-            android:text="직원선택" />
+            android:text="세부선택" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

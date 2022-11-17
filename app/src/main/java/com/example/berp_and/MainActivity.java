@@ -1,10 +1,14 @@
 package com.example.berp_and;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
+    Toolbar toolbar;
 
     HashMap<String, ArrayList<MenuDTO>> menu_list = new HashMap<>();
     HashMap<String, ArrayList<MenuDTO>> menu_list_none = new HashMap<>();
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        toolbar = findViewById(R.id.toolbar);
         exp_menu = findViewById(R.id.exp_menu);
         nav_view = findViewById(R.id.nav_view);
         tv_logintop=findViewById(R.id.tv_logintop);
@@ -56,8 +61,22 @@ public class MainActivity extends AppCompatActivity {
         btn_logout = findViewById(R.id.btn_logout);
         containerInt = R.id.container;
 
-        menu_hash();
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("YM NetWork");
 
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,drawer,toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+
+        );
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+        menu_hash();
         exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
        // menu();
 
