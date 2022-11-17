@@ -31,8 +31,10 @@
         android:layout_marginRight="5dp">
     <TextView
         android:layout_marginRight="10dp"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rond_txt"
+        android:gravity="center"
         android:text="사번"
         android:textSize="18dp"/>
     <TextView
@@ -51,8 +53,10 @@
         android:orientation="horizontal">
         <TextView
             android:layout_marginRight="10dp"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/rond_txt"
+            android:gravity="center"
             android:text="이름"
             android:textSize="18dp"/>
         <TextView
@@ -76,8 +80,10 @@
                     android:layout_marginRight="5dp">
                     <TextView
                         android:layout_marginRight="10dp"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rond_txt"
+                        android:gravity="center"
                         android:text="부서"
                         android:textSize="18dp"/>
                     <TextView
@@ -96,8 +102,10 @@
                     android:orientation="horizontal">
                     <TextView
                         android:layout_marginRight="10dp"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rond_txt"
+                        android:gravity="center"
                         android:text="입사일"
                         android:textSize="18dp"/>
                     <TextView
@@ -118,8 +126,10 @@
                 android:orientation="horizontal">
                 <TextView
                     android:layout_marginRight="10dp"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/rond_txt"
+                    android:gravity="center"
                     android:text="이메일"
                     android:textSize="18dp"/>
                 <TextView
@@ -130,9 +140,9 @@
                     android:layout_height="wrap_content"/>
                 <ImageView
                     android:id="@+id/img_empSearch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/joke_img"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/emp_modify_btn_img"/>
             </LinearLayout>
 
 

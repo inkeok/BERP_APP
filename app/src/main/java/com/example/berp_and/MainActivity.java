@@ -6,10 +6,15 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.login.LoginActivity;
@@ -39,7 +44,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+/* 유튜브에서 추가된 코드문 emp_drop_down
 
+        String[] type = new String[] {"사원, 사번, 역할, 뭐시기, 저시기"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, R.layout.emp_drop_down_item,
+                type
+        );
+
+        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.emp_item_filled_exposed);
+        autoCompleteTextView.setAdapter(adapter);
+
+        autoCompleteTextView.setOnClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, autoCompleteTextView.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });*/
 
 
         exp_menu = findViewById(R.id.exp_menu);
