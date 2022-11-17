@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.berp_and.emp.EmpFragment;
+import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.login.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> parent_menu = new ArrayList<>();
     ArrayList<String> parent_menu_none = new ArrayList<>();
     ExpandableListView exp_menu;
-    int container;
+    int containerInt;
+
 
     TextView tv_logintop, tv_loginbot;
     Button btn_logout;
@@ -47,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         tv_logintop=findViewById(R.id.tv_logintop);
         tv_loginbot=findViewById(R.id.tv_loginbot);
         btn_logout = findViewById(R.id.btn_logout);
-        container = R.id.container;
+        containerInt = R.id.container;
 
         menu_hash();
 
-        exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, container, getSupportFragmentManager()));
+        exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
        // menu();
 
 
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             tv_logintop.setClickable(true);
             tv_loginbot.setClickable(true);
             btn_logout.setVisibility(View.INVISIBLE);
-            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, container, getSupportFragmentManager()));
+            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager()));
             tv_logintop.setText("로그인");
             tv_loginbot.setText("회원가입");
 
@@ -122,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
                 tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
                 tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
 
-                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, container, getSupportFragmentManager()));
+                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
             }else {
                 tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
                 tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
-                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, container, getSupportFragmentManager()));
+                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager()));
             }
 
             btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -168,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<MenuDTO> child_menu3= new ArrayList<>();
 
-        child_menu3.add(new MenuDTO("부서관리"));
+        child_menu3.add(new MenuDTO("직원추가", new EmpInsertFragment()));
         child_menu3.add(new MenuDTO("직원관리", new EmpFragment()));
 
         menu_list.put("인사관리", child_menu3);

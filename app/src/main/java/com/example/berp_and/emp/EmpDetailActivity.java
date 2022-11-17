@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class EmpDetailActivity extends AppCompatActivity {
     TextView tv_employee_id_detail, tv_employee_name_detail;
     Spinner spinner_emp_department, spinner_emp_company, spinner_emp_position;
     RadioGroup rdg_emp_admin, rdg_emp_pattern;
+    Button btn_emp_close, btn_emp_delete, btn_modify;
 
 
     ArrayList<EmpVO> department_list = new ArrayList<>();
@@ -43,7 +45,9 @@ public class EmpDetailActivity extends AppCompatActivity {
         spinner_emp_position = findViewById(R.id.spinner_emp_position);
         rdg_emp_admin = findViewById(R.id.rdg_emp_admin);
         rdg_emp_pattern = findViewById(R.id.rdg_emp_pattern);
-
+        btn_modify = findViewById(R.id.btn_modify);
+        btn_emp_delete = findViewById(R.id.btn_emp_delete);
+        btn_emp_close = findViewById(R.id.btn_emp_close);
 
 
         Intent intent = getIntent();
@@ -103,7 +107,13 @@ public class EmpDetailActivity extends AppCompatActivity {
 
             }
         });
-       
+
+        btn_emp_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
 
