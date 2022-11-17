@@ -46,23 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-/* 유튜브에서 추가된 코드문 emp_drop_down
 
-        String[] type = new String[] {"사원, 사번, 역할, 뭐시기, 저시기"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, R.layout.emp_drop_down_item,
-                type
-        );
-
-        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.emp_item_filled_exposed);
-        autoCompleteTextView.setAdapter(adapter);
-
-        autoCompleteTextView.setOnClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, autoCompleteTextView.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
 
         exp_menu = findViewById(R.id.exp_menu);

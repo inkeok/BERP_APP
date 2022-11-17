@@ -124,7 +124,7 @@ public class EmpInsertFragment extends Fragment {
                     dto.setAdmin(rdg_admin_insert.getCheckedRadioButtonId() == R.id.emp_admin_Y ? "Y" : "N");
                     dto.setEmployee_pattern(rdg_pattern_insert.getCheckedRadioButtonId() == R.id.emp_pattern_H101 ? "H101" : "H102");
                     
-                    CommonAskTask askTask = new CommonAskTask("andInsertEmployee.hr", getContext());
+                   /* CommonAskTask askTask = new CommonAskTask("andInsertEmployee.hr", getContext());
                     askTask.addParam("vo", dto);
                     askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                         @Override
@@ -135,7 +135,7 @@ public class EmpInsertFragment extends Fragment {
                                 Toast.makeText(getActivity(), "사원 등록 실패", Toast.LENGTH_SHORT).show();
                             }
                         }
-                    });
+                    });*/
                 }
         });
 
