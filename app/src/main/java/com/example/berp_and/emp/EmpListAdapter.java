@@ -52,7 +52,8 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
                 intent.putExtra("name", list.get(i).getName());
                 intent.putExtra("department_id", list.get(i).getDepartment_id());
                 intent.putExtra("department_name", list.get(i).getDepartment_name());
-                intent.putExtra("company", list.get(i).getCompany_name());
+                intent.putExtra("company", list.get(i).getCompany_cd());
+                intent.putExtra("company_name", list.get(i).getCompany_name());
                 intent.putExtra("position", list.get(i).getPosition());
                 intent.putExtra("position_name", list.get(i).getPosition_name());
                 intent.putExtra("pattern", list.get(i).getEmployee_pattern());

@@ -70,7 +70,7 @@ public class EmpDetailActivity extends AppCompatActivity {
         department_id = intent.getIntExtra("department_id",0);
         spinner_emp_department.setText(intent.getStringExtra("department_name"));
         company_cd = intent.getStringExtra("company");
-        spinner_emp_company.setText(intent.getStringExtra("company"));
+        spinner_emp_company.setText(intent.getStringExtra("company_name"));
         position = intent.getStringExtra("position");
         spinner_emp_position.setText(intent.getStringExtra("position_name"));
 
@@ -161,7 +161,8 @@ public class EmpDetailActivity extends AppCompatActivity {
                     @Override
                     public void onResult(String data, boolean isResult) {
                         if (data.equals("1")){
-                            Toast.makeText(EmpDetailActivity.this, "사원 정보가 추가 되었습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmpDetailActivity.this, "사원 정보가 변경 되었습니다.", Toast.LENGTH_SHORT).show();
+                            finish();
                         }else {
                             Toast.makeText(EmpDetailActivity.this, "사원 등록 실패", Toast.LENGTH_SHORT).show();
                         }

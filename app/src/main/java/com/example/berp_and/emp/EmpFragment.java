@@ -46,22 +46,12 @@ public class EmpFragment extends Fragment {
 
         recv_empList = v.findViewById(R.id.recv_empList);
 
-        CommonAskTask askTask = new CommonAskTask("andEmpList.hr", getActivity());
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-            @Override
-            public void onResult(String data, boolean isResult) {
-                ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
-                }.getType());
+        origin_list();
 
-                recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
-                recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-            }
-        });
+
+
+
         value_add();
-
-
-
-
 
         String[] first_list = {"부서", "회사", "포지션", "패턴"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -99,6 +89,26 @@ public class EmpFragment extends Fragment {
 
         return v;
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        origin_list();
+    }
+
+    public void origin_list(){
+        CommonAskTask askTask = new CommonAskTask("andEmpList.hr", getActivity());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
+                }.getType());
+
+                recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
+                recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
+            }
+        });
     }
 
     public void first_item_selected(int i){

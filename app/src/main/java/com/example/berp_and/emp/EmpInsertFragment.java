@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 
 
 public class EmpInsertFragment extends Fragment {
-    TextView tv_employee_id_insert;
+
     EditText edt_employee_name_insert, edt_employee_email_insert, edt_employee_phone_insert;
     AutoCompleteTextView spinner_department_insert, spinner_company_insert, spinner_position_insert;
     RadioGroup rdg_pattern_insert, rdg_admin_insert;
@@ -36,6 +38,9 @@ public class EmpInsertFragment extends Fragment {
     ArrayList<String> department_list_real = new ArrayList<>();
     ArrayList<String> company_list_real = new ArrayList<>();
     ArrayList<String> position_list_real = new ArrayList<>();
+    int new_emp_id;
+    int department_id;
+    String company_cd, position;
 
 
     @Override
@@ -43,7 +48,7 @@ public class EmpInsertFragment extends Fragment {
                              Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.fragment_emp_insert, container, false);
 
-        tv_employee_id_insert = v.findViewById(R.id.tv_employee_id_insert);
+
         edt_employee_name_insert = v.findViewById(R.id.edt_employee_name_insert);
         edt_employee_email_insert = v.findViewById(R.id.edt_employee_email_insert);
         edt_employee_phone_insert = v.findViewById(R.id.edt_employee_phone_insert);
@@ -54,6 +59,8 @@ public class EmpInsertFragment extends Fragment {
         rdg_admin_insert = v.findViewById(R.id.rdg_admin_insert);
         btn_emp_insert = v.findViewById(R.id.btn_emp_insert);
         btn_emp_insert_close = v.findViewById(R.id.btn_emp_insert_close);
+
+
 
         CommonAskTask askTask_department = new CommonAskTask("andEmpListDepartment.hr", getContext());
         askTask_department.executeAsk(new CommonAskTask.AsynkTaskCallback() {
@@ -92,6 +99,7 @@ public class EmpInsertFragment extends Fragment {
             }
         });
 
+        spinner_maker();
 
         btn_emp_insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,24 +108,21 @@ public class EmpInsertFragment extends Fragment {
                 fragmentTransaction.replace(R.id.container, new EmpFragment()).commit();
 
                 EmpAndInsertDTO dto = new EmpAndInsertDTO();
-                dto.setDepartment_id(Integer.parseInt("10"));
-                dto.setCompany_cd("1000");
-                dto.setPosition("E101");
+                dto.setDepartment_id(department_id);
+                dto.setCompany_cd(company_cd);
+                dto.setPosition(position);
+                dto.setName(edt_employee_name_insert.getText()+"");
                 dto.setEmail(edt_employee_email_insert.getText()+"");
                 dto.setPhone(edt_employee_phone_insert.getText()+"");
                 dto.setAdmin(rdg_admin_insert.getCheckedRadioButtonId() == R.id.emp_admin_Y ? "Y" : "N");
                 dto.setEmployee_pattern(rdg_pattern_insert.getCheckedRadioButtonId() == R.id.emp_pattern_H101 ? "H101" : "H102");
 
                    CommonAskTask askTask = new CommonAskTask("andInsertEmployee.hr", getContext());
-                    askTask.addParam("vo", dto);
+                    askTask.addParam("dto",  new Gson().toJson(dto));
                     askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                         @Override
                         public void onResult(String data, boolean isResult) {
-                            if (data.equals("1")){
-                                 Toast.makeText(getActivity(), "사원 정보가 추가 되었습니다.", Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(), "사원 등록 실패", Toast.LENGTH_SHORT).show();
-                            }
+
                         }
                     });
             }
@@ -139,5 +144,34 @@ public class EmpInsertFragment extends Fragment {
 
 
         return v;
+    }
+
+
+    public void spinner_maker(){
+
+        spinner_department_insert.setAdapter(new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.emp_drop_down_item, department_list_real ));
+        spinner_company_insert.setAdapter(new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.emp_drop_down_item, company_list_real ));
+        spinner_position_insert.setAdapter(new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.emp_drop_down_item, position_list_real ));
+
+        spinner_department_insert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                department_id = department_list.get(i).getDepartment_id();
+            }
+        });
+
+        spinner_company_insert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                company_cd = company_list.get(i).getCompany_cd();
+            }
+        });
+
+        spinner_position_insert.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                position = position_list.get(i).getPosition();
+            }
+        });
     }
 }
