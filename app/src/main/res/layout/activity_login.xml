@@ -39,7 +39,7 @@
         android:layout_height="50dp"
         android:background="@drawable/edge_round"
         android:layout_gravity="center"
-        android:text="20121001"
+        android:text="20120001"
         android:textColor="@color/black"
         android:paddingLeft="20dp"
         />

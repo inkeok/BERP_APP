@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.login.LoginActivity;
@@ -230,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         menu_list_none.put("회사정보", child_menu2_1);
 
         ArrayList<MenuDTO> child_menu3_1= new ArrayList<>();
-        child_menu3_1.add(new MenuDTO("채용공고보기"));
+        child_menu3_1.add(new MenuDTO("채용공고보기", new ApplyListFragment()));
         child_menu3_1.add(new MenuDTO("지원여부확인"));
 
         menu_list_none.put("채용정보", child_menu3_1);

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".apply.ApplyListFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_toEndOf="@id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:background="@drawable/emp_top_background_round"
+        android:text="지원하기"/>
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/linear_Empsearch"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/emp_item_filled_exposed"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:inputType="none"
+            android:textSize="15dp"
+            android:text="뭘 조회?" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recv_apply_board"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
