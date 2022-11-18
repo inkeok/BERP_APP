@@ -122,7 +122,7 @@
             >
 
             <AutoCompleteTextView
-                android:id="@+id/emp_department"
+                android:id="@+id/spinner_emp_department"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
@@ -159,7 +159,7 @@
             >
 
             <AutoCompleteTextView
-                android:id="@+id/emp_company"
+                android:id="@+id/spinner_emp_company"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
@@ -196,7 +196,7 @@
             >
 
             <AutoCompleteTextView
-                android:id="@+id/emp_rank"
+                android:id="@+id/spinner_emp_position"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
@@ -312,7 +312,7 @@
 
 
         <Button
-            android:id="@+id/btn_modify"
+            android:id="@+id/btn_emp_modify"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
