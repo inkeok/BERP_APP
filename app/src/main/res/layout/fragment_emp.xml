@@ -8,26 +8,7 @@
     tools:context=".emp.EmpFragment"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/common_search"
-        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_menu" />
-
-        <ImageView
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="50dp"
-            android:src="@drawable/ic_launcher_foreground" />
-
-   </RelativeLayout>
 
     <TextView
         android:layout_toEndOf="@id/txt"

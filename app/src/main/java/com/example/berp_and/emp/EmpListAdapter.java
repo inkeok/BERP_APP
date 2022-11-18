@@ -48,11 +48,13 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, EmpDetailActivity.class);
-                intent.putExtra("employee_id", list.get(i).getEmployee_id()+"");
+                intent.putExtra("employee_id", list.get(i).getEmployee_id());
                 intent.putExtra("name", list.get(i).getName());
-                intent.putExtra("department", list.get(i).getDepartment_name());
+                intent.putExtra("department_id", list.get(i).getDepartment_id());
+                intent.putExtra("department_name", list.get(i).getDepartment_name());
                 intent.putExtra("company", list.get(i).getCompany_name());
                 intent.putExtra("position", list.get(i).getPosition());
+                intent.putExtra("position_name", list.get(i).getPosition_name());
                 intent.putExtra("pattern", list.get(i).getEmployee_pattern());
                 intent.putExtra("admin", list.get(i).getAdmin());
                 context.startActivity(intent);

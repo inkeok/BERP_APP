@@ -1,8 +1,16 @@
 package com.example.berp_and.emp;
 
-public class EmpInsertDTO {
-    private int department_id;
+public class EmpAndInsertDTO {
+    private int employee_id, department_id;
     private String company_cd, name, email, phone, admin, position, employee_pattern;
+
+    public int getEmployee_id() {
+        return employee_id;
+    }
+
+    public void setEmployee_id(int employee_id) {
+        this.employee_id = employee_id;
+    }
 
     public int getDepartment_id() {
         return department_id;

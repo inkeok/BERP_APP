@@ -59,7 +59,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/tv_employee_id_detail"
+            android:id="@+id/tv_employee_id_insert"
             android:text="20221015"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -77,8 +77,8 @@
             android:background="@drawable/rond_txt"
             android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/tv_employee_name_detail"
+        <EditText
+            android:id="@+id/edt_employee_name_insert"
             android:text="최인혁"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -173,7 +173,7 @@
             >
 
             <AutoCompleteTextView
-                android:id="@+id/emp_department"
+                android:id="@+id/spinner_department_insert"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
@@ -210,7 +210,7 @@
             >
 
             <AutoCompleteTextView
-                android:id="@+id/emp_company"
+                android:id="@+id/spinner_company_insert"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
@@ -247,7 +247,7 @@
             >
 
             <AutoCompleteTextView
-                android:id="@+id/emp_rank"
+                android:id="@+id/spinner_position_insert"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:padding="5dp"
@@ -284,7 +284,7 @@
             android:textColor="@color/black"/>
 
         <RadioGroup
-            android:id="@+id/rdg_emp_pattern"
+            android:id="@+id/rdg_pattern_insert"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -328,7 +328,7 @@
             android:textSize="18dp" />
 
         <RadioGroup
-            android:id="@+id/rdg_emp_admin"
+            android:id="@+id/rdg_admin_insert"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -363,7 +363,7 @@
 
 
         <Button
-            android:id="@+id/btn_modify"
+            android:id="@+id/btn_emp_insert"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
@@ -371,7 +371,7 @@
             android:backgroundTint="@color/common_search"/>
 
         <Button
-            android:id="@+id/btn_emp_close"
+            android:id="@+id/btn_emp_insert_close"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="취소"
