@@ -8,21 +8,17 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.work.HolidayFragment;
+import com.example.berp_and.work.HolidayInsertFragment;
+import com.example.berp_and.work.WorkFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import com.example.berp_and.login.JoinActivity;
@@ -210,8 +206,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<MenuDTO> child_menu5= new ArrayList<>();
 
-        child_menu5.add(new MenuDTO("휴일 관리"));
-        child_menu5.add(new MenuDTO("근무시간관리"));
+        child_menu5.add(new MenuDTO("휴일 관리", new HolidayFragment()));
+        child_menu5.add(new MenuDTO("휴일 신청", new HolidayInsertFragment()));
+        child_menu5.add(new MenuDTO("근무시간관리", new WorkFragment()));
 
         menu_list.put("근태관리", child_menu5);
 
