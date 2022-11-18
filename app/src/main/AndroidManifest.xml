@@ -16,9 +16,6 @@
             android:name=".emp.EmpDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".login.JoinActivity"
-            android:exported="true" />
-        <activity
             android:name=".login.LoginActivity"
             android:exported="true" />
         <activity

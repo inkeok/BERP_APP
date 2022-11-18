@@ -8,24 +8,15 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.login.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
-
-import com.example.berp_and.login.JoinActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         menu_hash();
-        exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
-       // menu();
+     //   exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
+        menu();
 
 
 
@@ -109,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        //menu();
+        menu();
     }
 
     public void menu(){
@@ -129,14 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-            tv_loginbot.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, JoinActivity.class);
-                    startActivity(intent);
 
-                }
-            });
 
 
         }else if (LoginInfo == 1){
@@ -144,16 +128,11 @@ public class MainActivity extends AppCompatActivity {
             tv_logintop.setClickable(false);
             tv_loginbot.setClickable(false);
 
-            if (LoginActivity.loginInfoList.get(0).getJoin_check().equals("Y")){
-                tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
-                tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
 
-                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
-            }else {
                 tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
-                tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmail()+"");
-                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager()));
-            }
+                tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmployee_id()+" / "+LoginActivity.loginInfoList.get(0).getPosition_name());
+                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
+
 
             btn_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -161,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                     LoginActivity.loginInfoList.clear();
                     LoginInfo = 0 ;
                     onRestart();
-
+                //★ 로그아웃하면 화면이 기본 화면으로 갈 수 있도록 설정해주세요.
                 }
             });
 

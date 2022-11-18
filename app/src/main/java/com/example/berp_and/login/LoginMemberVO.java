@@ -4,21 +4,14 @@ import java.sql.Date;
 
 public class LoginMemberVO {
 
-    private String email, id, pw, name, gender, phone, address, join_check, company_cd,  admin,  position, employee_pattern, department_name, company_name, position_name, employee_pattern_name;
+    private String email, pw, name, company_cd,  admin,  position, employee_pattern, department_name, company_name, position_name, employee_pattern_name;
     private int  employee_id, department_id;
     private Date hire_date;
-
     public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
         this.email = email;
-    }
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
     }
     public String getPw() {
         return pw;
@@ -31,30 +24,6 @@ public class LoginMemberVO {
     }
     public void setName(String name) {
         this.name = name;
-    }
-    public String getGender() {
-        return gender;
-    }
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-    public String getPhone() {
-        return phone;
-    }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    public String getJoin_check() {
-        return join_check;
-    }
-    public void setJoin_check(String join_check) {
-        this.join_check = join_check;
     }
     public String getCompany_cd() {
         return company_cd;
@@ -122,7 +91,6 @@ public class LoginMemberVO {
     public void setHire_date(Date hire_date) {
         this.hire_date = hire_date;
     }
-
 
 
 
