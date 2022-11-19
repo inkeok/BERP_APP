@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
+import com.example.berp_and.home.HomeFragment;
 import com.example.berp_and.home.HomeLoginFragment;
 import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.work.HolidayFragment;
@@ -71,9 +72,11 @@ public class MainActivity extends AppCompatActivity {
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close
 
+
         );
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
 
 
         menu_hash();
@@ -121,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager(), drawer));
             tv_logintop.setText("로그인");
             tv_loginbot.setText("회원가입");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
             tv_logintop.setOnClickListener(new View.OnClickListener() {
                 @Override

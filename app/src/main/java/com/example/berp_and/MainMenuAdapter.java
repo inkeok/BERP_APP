@@ -97,6 +97,7 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
                 if(drawer.isDrawerOpen(Gravity.LEFT)){
                     drawer.closeDrawers();
                     MainActivity.container_state = 1;
+
                 }
             }
         });
