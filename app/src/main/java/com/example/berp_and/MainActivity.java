@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> parent_menu = new ArrayList<>();
     ArrayList<String> parent_menu_none = new ArrayList<>();
     ExpandableListView exp_menu;
+    DrawerLayout drawer;
     int containerInt;
 
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("YM NetWork");
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,
@@ -107,13 +109,15 @@ public class MainActivity extends AppCompatActivity {
         menu();
     }
 
+
+
     public void menu(){
 
         if(LoginInfo == 0) {
             tv_logintop.setClickable(true);
             tv_loginbot.setClickable(true);
             btn_logout.setVisibility(View.INVISIBLE);
-            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager()));
+            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager(), drawer));
             tv_logintop.setText("로그인");
             tv_loginbot.setText("회원가입");
 
@@ -122,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    if(drawer.isDrawerOpen(Gravity.LEFT)){
+                        drawer.closeDrawers();
+                    }
                 }
             });
 
@@ -135,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
                 tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
                 tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmployee_id()+" / "+LoginActivity.loginInfoList.get(0).getPosition_name());
-                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
+                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager(), drawer));
 
 
             btn_logout.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.example.berp_and;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,15 +24,16 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
     ArrayList<String> parent_menu;
     int container;
     FragmentManager manager;
+    DrawerLayout drawer;
 
 
-
-    public MainMenuAdapter(LayoutInflater inflater, HashMap<String, ArrayList<MainActivity.MenuDTO>> menu_list, ArrayList<String> parent_menu, int container, FragmentManager manager) {
+    public MainMenuAdapter(LayoutInflater inflater, HashMap<String, ArrayList<MainActivity.MenuDTO>> menu_list, ArrayList<String> parent_menu, int container, FragmentManager manager, DrawerLayout drawer) {
         this.inflater = inflater;
         this.menu_list = menu_list;
         this.parent_menu = parent_menu;
         this.container = container;
         this.manager = manager;
+        this.drawer = drawer;
     }
 
     @Override
@@ -91,6 +94,9 @@ public class MainMenuAdapter extends BaseExpandableListAdapter {
             @Override
             public void onClick(View v) {
                 manager.beginTransaction().replace(container, child.get(childPosition).getFragment()).commit();
+                if(drawer.isDrawerOpen(Gravity.LEFT)){
+                    drawer.closeDrawers();
+                }
             }
         });
 
