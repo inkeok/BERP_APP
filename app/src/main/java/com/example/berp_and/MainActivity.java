@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
+import com.example.berp_and.home.HomeLoginFragment;
 import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.HolidayInsertFragment;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ExpandableListView exp_menu;
     DrawerLayout drawer;
     int containerInt;
+    public static int container_state = 0;
 
 
     TextView tv_logintop, tv_loginbot;
@@ -104,12 +107,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    protected void onResume() {
+        super.onResume();
         menu();
     }
-
-
 
     public void menu(){
 
@@ -144,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmployee_id()+" / "+LoginActivity.loginInfoList.get(0).getPosition_name());
                 exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager(), drawer));
 
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
 
             btn_logout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -277,6 +279,21 @@ public class MainActivity extends AppCompatActivity {
         public void setFragment(Fragment fragment) {
             this.fragment = fragment;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK :
+                if (container_state == 1) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
+                    container_state = 0;
+                    return true;
+                }
+                break;
+
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
 

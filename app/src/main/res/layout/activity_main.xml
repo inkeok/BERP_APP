@@ -54,7 +54,7 @@
                 android:id="@+id/ln_login"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:background="@drawable/side_nav_bar"
+                android:background="@drawable/shape_side_nav_bar"
                 android:gravity="bottom"
                 android:orientation="vertical"
                 android:padding="16dp"
