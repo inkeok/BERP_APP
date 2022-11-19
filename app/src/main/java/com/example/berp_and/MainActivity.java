@@ -17,6 +17,9 @@ import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.work.HolidayFragment;
+import com.example.berp_and.work.HolidayInsertFragment;
+import com.example.berp_and.work.WorkFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -190,8 +193,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<MenuDTO> child_menu5= new ArrayList<>();
 
-        child_menu5.add(new MenuDTO("휴일 관리"));
-        child_menu5.add(new MenuDTO("근무시간관리"));
+        child_menu5.add(new MenuDTO("휴일 관리", new HolidayFragment()));
+        child_menu5.add(new MenuDTO("휴일 신청", new HolidayInsertFragment()));
+        child_menu5.add(new MenuDTO("근무시간관리", new WorkFragment()));
 
         menu_list.put("근태관리", child_menu5);
 
