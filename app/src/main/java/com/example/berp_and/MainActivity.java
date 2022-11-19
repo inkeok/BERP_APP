@@ -156,8 +156,11 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     LoginActivity.loginInfoList.clear();
                     LoginInfo = 0 ;
-                    onRestart();
-                //★ 로그아웃하면 화면이 기본 화면으로 갈 수 있도록 설정해주세요.
+                    onResume();
+                    if(drawer.isDrawerOpen(Gravity.LEFT)){
+                        drawer.closeDrawers();
+
+                    }
                 }
             });
 
