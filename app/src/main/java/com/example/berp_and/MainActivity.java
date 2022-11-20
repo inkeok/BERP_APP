@@ -16,6 +16,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.example.berp_and.apply.ApplyListFragment;
+import com.example.berp_and.apply.MyApplyListFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.home.HomeFragment;
@@ -252,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<MenuDTO> child_menu3_1= new ArrayList<>();
         child_menu3_1.add(new MenuDTO("채용공고보기", new ApplyListFragment()));
-        child_menu3_1.add(new MenuDTO("지원여부확인"));
+        child_menu3_1.add(new MenuDTO("지원여부확인", new MyApplyListFragment()));
 
         menu_list_none.put("채용정보", child_menu3_1);
 
@@ -295,6 +296,10 @@ public class MainActivity extends AppCompatActivity {
                 if (container_state == 1) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
                     container_state = 0;
+                    return true;
+                }else if(container_state == 5){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+                    container_state = 4;
                     return true;
                 }
                 break;

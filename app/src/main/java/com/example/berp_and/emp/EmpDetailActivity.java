@@ -52,6 +52,8 @@ public class EmpDetailActivity extends AppCompatActivity {
         btn_emp_modify = findViewById(R.id.btn_emp_modify);
         btn_emp_delete = findViewById(R.id.btn_emp_delete);
         btn_emp_close = findViewById(R.id.btn_emp_close);
+        MainActivity.LoginInfo = 2;
+
 
 
         Intent intent = getIntent();
@@ -176,6 +178,7 @@ public class EmpDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+
             }
         });
 
