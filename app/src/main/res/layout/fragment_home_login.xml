@@ -119,17 +119,63 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_below="@+id/linear_main_layout"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/border_home_main_background"
         android:orientation="vertical">
-        <TextView
+
+        <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="뭐 넣지"
-            android:textSize="20dp"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="출근 시간 : "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/start_work_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text=""
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="퇴근 시간 : "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/end_work_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text=""
+                android:textSize="20dp" />
+        </LinearLayout>
 
 
     </LinearLayout>

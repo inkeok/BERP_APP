@@ -1,8 +1,11 @@
 package com.example.berp_and.home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,15 +15,22 @@ import android.widget.Button;
 
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.work.WorkAdapter;
+import com.example.berp_and.work.WorkResultVO;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -30,10 +40,9 @@ public class HomeLoginFragment extends Fragment {
 
     TextView tv_main_login_name;
     ImageView img_main_login_setting;
-
-
+    TextView start_work_text, end_work_text;
         Button start_work_btn, end_work_btn;
-
+    public static int i = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,28 +57,70 @@ public class HomeLoginFragment extends Fragment {
 
         start_work_btn = v.findViewById(R.id.start_work_btn);
         end_work_btn = v.findViewById(R.id.end_work_btn);
+        start_work_text = v.findViewById(R.id.start_work_text);
+        end_work_text = v.findViewById(R.id.end_work_text);
+
+
+
+
 
 
         start_work_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                TimeZone tz;                                        // 객체 생성
-                DateFormat dateFormat = new SimpleDateFormat("HH:mm:SS", Locale.KOREAN);
-                tz = TimeZone.getTimeZone("Asia/Seoul");        // TimeZone에 표준시 설정
-                dateFormat.setTimeZone(tz);                    //DateFormat에 TimeZone 설정
+            work_start_input();
 
-                Date date = new Date();                        // 현재 날짜가 담긴 Date 객체 생성
-                Log.d("DATE", dateFormat.format(date).toString());
-                
+
                 
             }
         });
+        end_work_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            work_end_input();
 
 
 
-
+            }
+        });
 
         return v;
+    }
+
+    public void work_start_input(){
+        CommonAskTask askTask = new CommonAskTask("andWork_start_input", getActivity());
+
+        String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
+
+        askTask.addParam("start_work", date);
+              askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+
+            @Override
+            public void onResult(String data, boolean isResult) {
+                if(i == 0){
+                start_work_text.setText(date);
+                i++;
+                }else {
+                    Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
+                }
+
+            }
+        });
+    } public void work_end_input(){
+        CommonAskTask askTask = new CommonAskTask("andWork_end_input", getActivity());
+
+        String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
+
+        askTask.addParam("end_work", date);
+              askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                end_work_text.setText(date);
+
+
+            }
+        });
     }
 }
