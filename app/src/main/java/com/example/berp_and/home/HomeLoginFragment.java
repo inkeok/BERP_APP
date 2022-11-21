@@ -1,14 +1,13 @@
 package com.example.berp_and.home;
 
+
 import android.content.Intent;
 import android.annotation.SuppressLint;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,19 +24,8 @@ import com.example.berp_and.mypage.MyPageActivity;
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
-import com.example.berp_and.work.WorkAdapter;
-import com.example.berp_and.work.WorkResultVO;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import org.w3c.dom.Text;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 
 public class HomeLoginFragment extends Fragment {
@@ -73,8 +61,11 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+            if( Search() != false){
+                start_work_btn.isEnabled();
+            }else{
             work_start_input();
-
+            }
 
                 
             }
@@ -104,6 +95,19 @@ public class HomeLoginFragment extends Fragment {
 
         return v;
     }
+
+    public boolean Search(){
+        CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
+
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+
+            }
+        });
+        return false;
+    }
+
 
     public void work_start_input(){
         CommonAskTask askTask = new CommonAskTask("andWork_start_input", getActivity());
