@@ -4,9 +4,18 @@ import java.sql.Date;
 
 public class LoginMemberVO {
 
-    private String email, pw, name, company_cd,  admin,  position, employee_pattern, department_name, company_name, position_name, employee_pattern_name;
+    private String phone, email, pw, name, company_cd,  admin,  position, employee_pattern, department_name, company_name, position_name, employee_pattern_name;
     private int  employee_id, department_id;
     private Date hire_date;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getEmail() {
         return email;
     }
