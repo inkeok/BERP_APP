@@ -8,16 +8,22 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="135dp"
         app:cardCornerRadius="10dp"
         android:elevation="5dp"
         app:cardUseCompatPadding="true">
+        <View
+            android:id="@+id/emp_view_color"
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 <LinearLayout
+    android:layout_marginLeft="@dimen/dp_10"
     android:layout_marginTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -67,6 +73,7 @@
     </LinearLayout>
         </LinearLayout>
             <LinearLayout
+                android:layout_marginLeft="@dimen/dp_10"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +126,7 @@
             <LinearLayout
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

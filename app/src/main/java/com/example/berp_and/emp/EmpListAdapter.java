@@ -3,6 +3,7 @@ package com.example.berp_and.emp;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
         return new EmpListHolder(inflater.inflate(R.layout.item_emplist, parent, false));
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull EmpListHolder h, @SuppressLint("RecyclerView") int i) {
 
@@ -42,6 +44,20 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
         h.tv_employee_department.setText(list.get(i).getDepartment_name());
         h.tv_hire_date.setText(list.get(i).getHire_date()+"");
         h.tv_employee_email.setText(list.get(i).getEmail());
+
+        if (list.get(i).getDepartment_id() == 10){
+            h.emp_view_color.setBackgroundColor(Color.parseColor("#000000"));
+        }else if(list.get(i).getDepartment_id() == 20){
+            h.emp_view_color.setBackgroundColor(Color.parseColor("#EA3737"));
+        }else if(list.get(i).getDepartment_id() == 30){
+            h.emp_view_color.setBackgroundColor(Color.parseColor("#679333"));
+        }else if(list.get(i).getDepartment_id() == 40){
+            h.emp_view_color.setBackgroundColor(Color.parseColor("#C6B203"));
+        }else if(list.get(i).getDepartment_id() == 50){
+            h.emp_view_color.setBackgroundColor(Color.parseColor("#008EFF"));
+        }else if(list.get(i).getDepartment_id() == 60){
+            h.emp_view_color.setBackgroundColor(Color.parseColor("#ED00FF"));
+        }
 
         h.img_empSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +90,7 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
 
         TextView tv_employee_id, tv_employee_name, tv_employee_department, tv_hire_date, tv_employee_email;
         ImageView img_empSearch;
+        View emp_view_color;
         public EmpListHolder(@NonNull View v) {
             super(v);
 
@@ -83,6 +100,7 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
             tv_hire_date = v.findViewById(R.id.tv_hire_date);
             tv_employee_email = v.findViewById(R.id.tv_employee_email);
             img_empSearch = v.findViewById(R.id.img_empSearch);
+            emp_view_color = v.findViewById(R.id.emp_view_color);
         }
     }
 }
