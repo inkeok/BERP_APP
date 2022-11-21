@@ -22,6 +22,7 @@ import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.home.HomeFragment;
 import com.example.berp_and.home.HomeLoginFragment;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.salary.SalaryListFragment;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.WorkFragment;
@@ -101,14 +102,10 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             }
-        });
-
-
-
-
+        });//setOnGroupClickListener
 
         onRestart();
-    }
+    }//onCreate
 
     @Override
     protected void onResume() {
@@ -166,8 +163,8 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
-        }
-    }
+        }//if
+    }//menu
 
 
     public void menu_hash(){
@@ -218,9 +215,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         ArrayList<MenuDTO> child_menu6= new ArrayList<>();
-        child_menu6.add(new MenuDTO("급여기본정보"));
-        child_menu6.add(new MenuDTO("급상여 입력"));
-        child_menu6.add(new MenuDTO("월별급여상여지급현황"));
+        child_menu6.add(new MenuDTO("급여 기본 정보", new SalaryListFragment()));
+
+        if(LoginActivity.loginInfoList.get(0).getAdmin().equals("Y")) {
+            child_menu6.add(new MenuDTO("급상여 관리"));
+        }
+        child_menu6.add(new MenuDTO("월별 지급 현황"));
 
         menu_list.put("급여관리", child_menu6);
 
