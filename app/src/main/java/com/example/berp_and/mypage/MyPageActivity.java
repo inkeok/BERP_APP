@@ -40,7 +40,12 @@ public class MyPageActivity extends AppCompatActivity {
         my_page_cancel = findViewById(R.id.my_page_cancel);
 
         LoginMemberVO vo = new LoginMemberVO();
-        my_page_name.setText(vo.getName());
+        my_page_name.setText(LoginActivity.loginInfoList.get(0).getName());
+        my_page_pw.setText(LoginActivity.loginInfoList.get(0).getPw());
+        my_page_phone.setText(LoginActivity.loginInfoList.get(0).getPhone());
+        my_page_email.setText(LoginActivity.loginInfoList.get(0).getEmail());
+
+
 
 
 
