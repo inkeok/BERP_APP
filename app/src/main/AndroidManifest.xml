@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BERP_AND"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".mypage.MyPageActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
