@@ -1,5 +1,6 @@
 package com.example.berp_and.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,8 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.mypage.MyPageActivity;
 
 import org.w3c.dom.Text;
 
@@ -65,6 +68,18 @@ public class HomeLoginFragment extends Fragment {
                 
             }
         });
+
+        img_main_login_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //MyPage-> Activity 연결 새창띄우는거 < 저장하고 창끄기
+                Intent intent = new Intent(getActivity(), MyPageActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 
 
