@@ -22,6 +22,7 @@ public class WorkResultVO implements Serializable {
 	}
 	private int employee_id, department_id;
 	private String start_work, end_work;
+
 	private String work_date;
 
 	public String getCompany_cd() {
