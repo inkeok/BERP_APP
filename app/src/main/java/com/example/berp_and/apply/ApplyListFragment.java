@@ -75,7 +75,7 @@ public class ApplyListFragment extends Fragment {
                         ArrayList<RecruitVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<RecruitVO>>() {
                         }.getType());
 
-                        recv_apply_board.setAdapter(new ApplyListAdapter(getLayoutInflater(),list));
+                        recv_apply_board.setAdapter(new ApplyListAdapter(getLayoutInflater(),list,getContext()));
                         recv_apply_board.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
                     }
                 });
@@ -95,7 +95,7 @@ public class ApplyListFragment extends Fragment {
             public void onResult(String data, boolean isResult) {
                 rec_list = new Gson().fromJson(data, new TypeToken<ArrayList<RecruitVO>>() {
                 }.getType());
-                recv_apply_board.setAdapter(new ApplyListAdapter(getLayoutInflater(), rec_list));
+                recv_apply_board.setAdapter(new ApplyListAdapter(getLayoutInflater(), rec_list, getContext()));
                 recv_apply_board.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
             }
