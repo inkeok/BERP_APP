@@ -37,7 +37,7 @@ public class SalaryListFragment extends Fragment {
 //        salary_item_filled_exposed = v.findViewById(R.id.salary_item_filled_exposed);
 
 //        dept_list();
-
+            salaryList();
 
 
 

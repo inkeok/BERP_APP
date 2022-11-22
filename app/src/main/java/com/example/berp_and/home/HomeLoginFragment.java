@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,11 +21,17 @@ import android.widget.Toast;
 
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
+import com.example.berp_and.emp.EmpVO;
 import com.example.berp_and.mypage.MyPageActivity;
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.work.HolidayInsertFragment;
+import com.example.berp_and.work.WorkVO;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -33,7 +40,7 @@ public class HomeLoginFragment extends Fragment {
     TextView tv_main_login_name;
     ImageView img_main_login_setting;
     TextView start_work_text, end_work_text;
-        Button start_work_btn, end_work_btn;
+        Button start_work_btn, end_work_btn, holiday_submit_btn;
     public static int i = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,22 +58,58 @@ public class HomeLoginFragment extends Fragment {
         end_work_btn = v.findViewById(R.id.end_work_btn);
         start_work_text = v.findViewById(R.id.start_work_text);
         end_work_text = v.findViewById(R.id.end_work_text);
+        holiday_submit_btn = v.findViewById(R.id.holiday_submit_btn);
+
+        CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
+
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                if(!data.equals("[]")){
+                    start_work_btn.isEnabled();
+                    ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                    }.getType());
+                    start_work_text.setText(list.get(0).getStart_work());
 
 
+                }
+            }
+        });
 
-
-
-
-        start_work_btn.setOnClickListener(new View.OnClickListener() {
+        holiday_submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HolidayInsertFragment fragment = new HolidayInsertFragment();
+                fragment.show(getActivity().getSupportFragmentManager(),fragment.getTag());
+                fragment.setStyle(DialogFragment.STYLE_NORMAL,R.style.TransparentBottomSheetDialogFragment
+                );
 
-            if( Search() != false){
-                start_work_btn.isEnabled();
-            }else{
-            work_start_input();
             }
+        });
 
+        askTask = new CommonAskTask("andEndSearch",getActivity());
+
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                if(!data.equals("[]")){
+
+                    ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                    }.getType());
+                    end_work_text.setText(list.get(0).getEnd_work());
+
+
+                }
+            }
+        });
+
+
+
+
+      start_work_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Search();
                 
             }
         });
@@ -74,7 +117,7 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-            work_end_input();
+            SearchEnd();
 
         img_main_login_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,26 +131,48 @@ public class HomeLoginFragment extends Fragment {
         });
 
 
-
-
             }
         });
 
         return v;
     }
 
-    public boolean Search(){
+    public void Search(){
         CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
 
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
+                    if(data.equals("[]")){
+                                work_start_input();
+
+                    }else{
+                        start_work_btn.isEnabled();
+                        ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                        }.getType());
+                        start_work_text.setText(list.get(0).getStart_work());
+                    }
+            }
+        });
+
+    }
+    public void SearchEnd(){
+        CommonAskTask askTask = new CommonAskTask("andEndSearch",getActivity());
+
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+
+                                work_end_input();
+
+                        ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                        }.getType());
+                        end_work_text.setText(list.get(0).getEnd_work());
 
             }
         });
-        return false;
-    }
 
+    }
 
     public void work_start_input(){
         CommonAskTask askTask = new CommonAskTask("andWork_start_input", getActivity());

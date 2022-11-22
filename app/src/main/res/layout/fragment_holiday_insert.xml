@@ -1,62 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:padding="20dp"
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize" />
-
-    <com.applikeysolutions.cosmocalendar.view.CalendarView
-        android:id="@+id/calendar_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ll_settings"
-        android:layout_below="@id/toolbar"/>
+        app:cardCornerRadius="20dp">
 
     <LinearLayout
-        android:id="@+id/ll_settings"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+    <Button
+        android:backgroundTint="@color/common_search"
+        android:layout_gravity="center"
+        android:id="@+id/holiday_date"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="날짜 선택"/>
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000"
+        android:id="@+id/holiday_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="휴가 시작일 : " />
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000"
+        android:id="@+id/holiday_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="휴가 종료일 : "/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/linear_Empsearch"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+    <AutoCompleteTextView
+        android:textColor="#000000"
+        android:id="@+id/emp_item_filled_exposed"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:inputType="none"
+        android:textSize="15dp"
+        android:text="연차 종류" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
-
-        <RadioGroup
-            android:id="@+id/rg_selection_type"
-            android:layout_width="0dp"
+    <Button
+        android:backgroundTint="@color/common_search"
+        android:id="@+id/holiday_insert_btn"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="휴가신청"/>
+        <Button
+            android:id="@+id/holiday_cancel_btn"
+            android:backgroundTint="@color/common_search"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checkedButton="@+id/rb_single">
-
-            <RadioButton
-                android:id="@+id/rb_single"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="single" />
-
-            <RadioButton
-                android:id="@+id/rb_multiple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="multiple" />
-
-            <RadioButton
-                android:id="@+id/rb_range"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="range" />
-
-            <RadioButton
-                android:id="@+id/rb_none"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="none" />
-
-        </RadioGroup>
+            android:text="닫기"/>
 
     </LinearLayout>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+
+</FrameLayout>
