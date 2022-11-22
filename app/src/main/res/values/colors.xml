@@ -14,4 +14,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="common_search">#03A9F4</color>
     <color name="view">#B1B1B1</color>
+    <color name="common_plus">#0281D8</color>
+    <color name="common_min">#DEEBF7</color>
 </resources>

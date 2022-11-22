@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
+import com.example.berp_and.adminApply.ApplyCheckFragment;
 import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.apply.MyApplyListFragment;
 import com.example.berp_and.emp.EmpFragment;
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         ArrayList<MenuDTO> child_menu2= new ArrayList<>();
-        child_menu2.add( new MenuDTO("지원자 목록"));
+        child_menu2.add(new MenuDTO("지원자 목록", new ApplyCheckFragment()));
         child_menu2.add(new MenuDTO("합격자 목록"));
 
         menu_list.put("채용관리", child_menu2);
