@@ -1,6 +1,5 @@
 package com.example.berp_and.adminApply;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,13 +15,13 @@ import com.example.berp_and.R;
 
 import java.util.ArrayList;
 
-public class ApplyCheckAdapter extends RecyclerView.Adapter<ApplyCheckAdapter.ApplyCheckHolder> {
+public class ApplyPassAdapter extends RecyclerView.Adapter<ApplyPassAdapter.ApplyPassHolder> {
 
     LayoutInflater inflater;
     ArrayList<ApplyVO> list;
     Context context;
 
-    public ApplyCheckAdapter(LayoutInflater inflater, ArrayList<ApplyVO> list, Context context) {
+    public ApplyPassAdapter(LayoutInflater inflater, ArrayList<ApplyVO> list, Context context) {
         this.inflater = inflater;
         this.list = list;
         this.context = context;
@@ -30,12 +29,12 @@ public class ApplyCheckAdapter extends RecyclerView.Adapter<ApplyCheckAdapter.Ap
 
     @NonNull
     @Override
-    public ApplyCheckHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ApplyCheckHolder(inflater.inflate(R.layout.item_apply_check_list, parent, false));
+    public ApplyPassHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ApplyPassHolder(inflater.inflate(R.layout.item_apply_check_list, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ApplyCheckHolder h, @SuppressLint("RecyclerView") int i) {
+    public void onBindViewHolder(@NonNull ApplyPassHolder h, int i) {
 
         h.tv_apply_dual_num.setText(i+1+"");
         h.tv_apply_check_name.setText(list.get(i).getApply_name());
@@ -48,9 +47,8 @@ public class ApplyCheckAdapter extends RecyclerView.Adapter<ApplyCheckAdapter.Ap
         h.linear_apply_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ApplyCheckDetailActivity.class);
-                intent.putExtra("vo", list.get(i));
-                context.startActivity(intent);
+
+
             }
         });
 
@@ -61,12 +59,12 @@ public class ApplyCheckAdapter extends RecyclerView.Adapter<ApplyCheckAdapter.Ap
         return list.size();
     }
 
-    public class ApplyCheckHolder extends RecyclerView.ViewHolder {
+    public class ApplyPassHolder extends RecyclerView.ViewHolder {
 
-    LinearLayout linear_apply_list;
-    TextView tv_apply_dual_num, tv_apply_check_name, tv_apply_check_title, tv_apply_check_date;
+        LinearLayout linear_apply_list;
+        TextView tv_apply_dual_num, tv_apply_check_name, tv_apply_check_title, tv_apply_check_date;
 
-        public ApplyCheckHolder(@NonNull View v) {
+        public ApplyPassHolder(@NonNull View v) {
             super(v);
             linear_apply_list = v.findViewById(R.id.linear_apply_list);
             tv_apply_dual_num = v.findViewById(R.id.tv_apply_dual_num);

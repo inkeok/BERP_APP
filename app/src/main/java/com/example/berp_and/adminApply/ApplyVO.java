@@ -1,20 +1,15 @@
 package com.example.berp_and.adminApply;
+import java.io.Serializable;
 import java.sql.Date;
 
-public class ApplyVO {
+public class ApplyVO implements Serializable {
     private String recruit_num, apply_email, apply_name, file_name, file_path, apply_check, apply_phone, apply_pw
             ,company, career, salary, recruit_content, recruit_title, employee_pattern, recruit_end, recruit_start;
-    private int apply_num , dual_num;
+    private int apply_num;
     private String company_name, career_name, employee_pattern_name;
     private Date apply_date;
 
-    public int getDual_num() {
-        return dual_num;
-    }
 
-    public void setDual_num(int dual_num) {
-        this.dual_num = dual_num;
-    }
 
     public String getRecruit_num() {
         return recruit_num;
