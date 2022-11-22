@@ -46,7 +46,7 @@ public class MyPageActivity extends AppCompatActivity {
         my_page_cancel = findViewById(R.id.my_page_cancel);
 
 
-        my_page_name.setText(LoginActivity.loginInfoList.get(0).getName());
+        my_page_name.setText(LoginActivity.loginInfoList.get(0).getName()+"님 정보변경");
         my_page_pw.setText(LoginActivity.loginInfoList.get(0).getPw());
         my_page_phone.setText(LoginActivity.loginInfoList.get(0).getPhone());
         my_page_email.setText(LoginActivity.loginInfoList.get(0).getEmail());
@@ -57,31 +57,38 @@ public class MyPageActivity extends AppCompatActivity {
         vo.setEmail(my_page_email.getText()+"");*/
 
 
-        my_page_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CommonAskTask askTask = new CommonAskTask("andModify.mp", MyPageActivity.this);
 
-                askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-                askTask.addParam("phone", my_page_phone.getText()+"");
-                askTask.addParam("pw", my_page_pw.getText()+"");
-                askTask.addParam("email", my_page_email.getText()+"");
-                askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-                    @Override
-                    public void onResult(String data, boolean isResult) {
 
-                        if(isResult) {
-                            Toast.makeText(MyPageActivity.this, "개인정보 변경 완료", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }else {
-                            Toast.makeText(MyPageActivity.this, "개인정보 변경 실패", Toast.LENGTH_SHORT).show();
-                        }
+
+            my_page_submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ((my_page_pw.getText()+"").equals(my_page_pw_ck.getText()+"")) {
+                        CommonAskTask askTask = new CommonAskTask("andModify.mp", MyPageActivity.this);
+
+                        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+                        askTask.addParam("phone", my_page_phone.getText() + "");
+                        askTask.addParam("pw", my_page_pw.getText() + "");
+                        //추가
+                        askTask.addParam("email", my_page_email.getText() + "");
+                        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+                            @Override
+                            public void onResult(String data, boolean isResult) {
+                                Toast.makeText(MyPageActivity.this, "개인정보 변경 완료", Toast.LENGTH_SHORT).show();
+                                finish();
+
+                            }
+
+                        });
+
+
+                    } else {
+                        Toast.makeText(MyPageActivity.this, " 실패", Toast.LENGTH_SHORT).show();
 
                     }
+                }
+            });
 
-                });
-            }
-        });
         my_page_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
