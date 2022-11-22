@@ -20,7 +20,7 @@
     <RelativeLayout
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="500dp">
         <androidx.cardview.widget.CardView
             android:id="@+id/border_cdv"
             android:layout_marginLeft="15dp"
@@ -33,7 +33,7 @@
             <LinearLayout
 
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:orientation="vertical"
                 android:padding="@dimen/dp_10">
 
@@ -84,7 +84,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="서울 서초구" />
+                            android:text="광주광역시 첨단" />
 
                     </LinearLayout>
 
@@ -147,16 +147,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <Button
-
-            android:id="@+id/btn_apply"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="70dp"
-            android:background="@drawable/border_button_common_color"
-            android:text="지원하기" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -164,7 +154,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="I need you"
+            android:text="지원은 우리회사 웹\nhttp://localhost/berp로\n방문해주세요"
             android:textColor="@color/view" />
 
 

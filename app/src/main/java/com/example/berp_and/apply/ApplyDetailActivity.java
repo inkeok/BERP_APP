@@ -23,7 +23,7 @@ public class ApplyDetailActivity extends AppCompatActivity {
         tv_detail_rec_career=findViewById(R.id.tv_detail_rec_career);
         tv_rec_detail_employee_pattern=findViewById(R.id.tv_rec_detail_employee_pattern);
         tv_rec_detail_salary=findViewById(R.id.tv_rec_detail_salary);
-        btn_apply = findViewById(R.id.btn_apply);
+
         tv_rec_detail_content = findViewById(R.id.tv_rec_detail_content);
 
         tv_rec_detail_company.setText(getIntent().getStringExtra("company_name"));
