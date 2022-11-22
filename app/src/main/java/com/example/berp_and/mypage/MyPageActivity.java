@@ -2,8 +2,10 @@ package com.example.berp_and.mypage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
+import com.example.berp_and.home.EmpVO;
 import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.login.LoginMemberVO;
 import com.google.gson.Gson;
@@ -31,6 +34,9 @@ public class MyPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_page);
 
+        Intent intent = getIntent();
+        LoginMemberVO vo = (LoginMemberVO) intent.getSerializableExtra("vo");
+
         my_page_name = findViewById(R.id.my_page_name);
         my_page_pw = findViewById(R.id.my_page_pw);
         my_page_pw_ck = findViewById(R.id.my_page_pw_ck);
@@ -39,34 +45,50 @@ public class MyPageActivity extends AppCompatActivity {
         my_page_submit = findViewById(R.id.my_page_submit);
         my_page_cancel = findViewById(R.id.my_page_cancel);
 
-        LoginMemberVO vo = new LoginMemberVO();
+
         my_page_name.setText(LoginActivity.loginInfoList.get(0).getName());
         my_page_pw.setText(LoginActivity.loginInfoList.get(0).getPw());
         my_page_phone.setText(LoginActivity.loginInfoList.get(0).getPhone());
         my_page_email.setText(LoginActivity.loginInfoList.get(0).getEmail());
 
 
+ /*       vo.setPhone(my_page_phone.getText()+"");
+        vo.setPw(my_page_pw.getText()+"");
+        vo.setEmail(my_page_email.getText()+"");*/
 
 
-
-
-    }
-    public void my_page() {
-        CommonAskTask askTask = new CommonAskTask("andModify.mypage", this);
-
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+        my_page_submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResult(String data, boolean isResult) {
+            public void onClick(View v) {
+                CommonAskTask askTask = new CommonAskTask("andModify.mp", MyPageActivity.this);
 
-                if(data == "zzz") {
-                    Log.d("mypage", "onResult: 성공");;
-                }else {
-                    Log.d("mypage", "onResult: 실패");
-                }
+                askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+                askTask.addParam("phone", my_page_phone.getText()+"");
+                askTask.addParam("pw", my_page_pw.getText()+"");
+                askTask.addParam("email", my_page_email.getText()+"");
+                askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+                    @Override
+                    public void onResult(String data, boolean isResult) {
 
+                        if(isResult) {
+                            Toast.makeText(MyPageActivity.this, "개인정보 변경 완료", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }else {
+                            Toast.makeText(MyPageActivity.this, "개인정보 변경 실패", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
+                });
             }
-
         });
+        my_page_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
     }
 }

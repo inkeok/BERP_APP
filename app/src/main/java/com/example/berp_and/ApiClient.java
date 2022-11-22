@@ -9,7 +9,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ApiClient {
 
 
-    private static final String BASEURL = "http://192.168.0./berp/";
+    private static final String BASEURL = "http://192.168.0.13/berp/";
 
     private static Retrofit retrofit;
 
