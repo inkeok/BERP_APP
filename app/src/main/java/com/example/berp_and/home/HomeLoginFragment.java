@@ -119,6 +119,8 @@ public class HomeLoginFragment extends Fragment {
 
             SearchEnd();
 
+            }
+        });
         img_main_login_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,8 +133,6 @@ public class HomeLoginFragment extends Fragment {
         });
 
 
-            }
-        });
 
         return v;
     }
