@@ -79,66 +79,70 @@
     <LinearLayout
         android:layout_marginTop="300dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:background="@drawable/border_home_backgroune_origin">
+        android:background="@drawable/border_home_backgroune_origin"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
+           android:layout_marginTop="10dp"
             android:layout_marginHorizontal="30dp"
-            android:text="서비스 영역"
+            android:text="핵심가치"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="15dp"
             android:textColor="@color/common_search"
 
             />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="360dp"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal"
-        >
-
+        <LinearLayout
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            >
             <ImageView
-                android:layout_width="100dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:src="@drawable/home_img1"
                 android:layout_marginLeft="5dp"
                 />
-
             <ImageView
-                android:layout_width="100dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:src="@drawable/home_img2"
                 />
-
             <ImageView
-                android:layout_width="100dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:src="@drawable/home_img3"
                 />
-
             <ImageView
-                android:layout_width="100dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:src="@drawable/home_img4"
                 />
+        </LinearLayout>
 
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_main_img"/>
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="470dp"
-        android:src="@drawable/home_main_img"/>
+
+
+
 
 
 </FrameLayout>
