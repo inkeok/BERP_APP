@@ -35,6 +35,7 @@ import com.example.berp_and.mypage.MyPageFragment;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.WorkFragment;
+import com.example.berp_and.work.WorkIndiFragment;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.material.navigation.NavigationView;
@@ -212,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<MainDTO> tempList = new ArrayList<>();
         ArrayList<MainDTO> subList1= new ArrayList<>();
 
-        subList1.add(new MainDTO("나의 출퇴근 조회", new ApplyListFragment()));//미완
+        subList1.add(new MainDTO("나의 출퇴근 조회", new WorkIndiFragment()));//미완
         subList1.add(new MainDTO("개인정보 수정", new MyPageFragment()));
         subList1.add(new MainDTO("공지사항", new ApplyListFragment()));//미완
 
