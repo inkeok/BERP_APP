@@ -5,15 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.berp_and.adminApply.ApplyCheckFragment;
 import com.example.berp_and.adminApply.ApplyPassFragment;
@@ -24,53 +29,86 @@ import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.home.HomeFragment;
 import com.example.berp_and.home.HomeLoginFragment;
 import com.example.berp_and.login.LoginActivity;
-import com.example.berp_and.salary.SalaryListFragment;
+import com.example.berp_and.main_menu.MainDTO;
+import com.example.berp_and.main_menu.MainPageFragment;
+import com.example.berp_and.mypage.MyPageFragment;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.WorkFragment;
+import com.github.florent37.materialviewpager.MaterialViewPager;
+import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
-
-    HashMap<String, ArrayList<MenuDTO>> menu_list = new HashMap<>();
-    HashMap<String, ArrayList<MenuDTO>> menu_list_none = new HashMap<>();
-    ArrayList<String> parent_menu = new ArrayList<>();
-    ArrayList<String> parent_menu_none = new ArrayList<>();
-    ExpandableListView exp_menu;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private MaterialViewPager mViewPager;
     DrawerLayout drawer;
-    int containerInt;
-    public static int container_state = 0;
-
-
-    TextView tv_logintop, tv_loginbot;
-    Button btn_logout;
-    public static int LoginInfo = 0;
     NavigationView nav_view;
+    Toolbar toolbar;
+    ArrayList<MainDTO> list = new ArrayList<>();
+    TextView tv_login ;
+    ImageView imgv_login;
+    int temp_LoginInfo = 0;
+    public static int LoginInfo = 0;
+    public static int container_state = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        if(temp_LoginInfo != LoginInfo){
+            temp_LoginInfo = LoginInfo;
+            initView();
+        }
+    }
+
+    public boolean isLogin(){
+        if(LoginInfo==1){
+            list = afterLoginMenu();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
+            return true;
+        }else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        }
+        list = beforeLoginMenu();
+        return false;
+    }
+
+    public void initView(){
         toolbar = findViewById(R.id.toolbar);
-        exp_menu = findViewById(R.id.exp_menu);
         nav_view = findViewById(R.id.nav_view);
-        tv_logintop=findViewById(R.id.tv_logintop);
-        tv_loginbot=findViewById(R.id.tv_loginbot);
-        btn_logout = findViewById(R.id.btn_logout);
-        containerInt = R.id.container;
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("YM NetWork");
-
         drawer = findViewById(R.id.drawer_layout);
+        mViewPager = findViewById(R.id.materialViewPager);
 
+
+        tv_login = mViewPager.findViewById(R.id.tv_login);
+        imgv_login = mViewPager.findViewById(R.id.imgv_login);
+
+
+        if(isLogin()){
+            tv_login.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
+            imgv_login.setImageResource(R.drawable.ic_main_menu_logout);
+        }else{
+            tv_login.setText("로그인을 하셔야 전체 메뉴가 보입니다.");
+            imgv_login.setImageResource(R.drawable.ic_main_menu_login);
+        }
+
+        tv_login.setOnClickListener(this);
+        imgv_login.setOnClickListener(this);
+
+        toolbar.setTitle("YmNetWork");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,
                 R.string.navigation_drawer_open,
@@ -78,238 +116,239 @@ public class MainActivity extends AppCompatActivity {
 
 
         );
+
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
 
+        mViewPager.getToolbar().setTitle("YmNetWork");
+        mViewPager.getToolbar().setTitleTextColor(Color.parseColor("#FFFFFF"));
 
-        menu_hash();
-     //   exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager()));
-        menu();
-
-
-
-        exp_menu.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+        mViewPager.getToolbar().setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                for (int i = 0; i < parent.getChildCount(); i++) {
-
-                    if (groupPosition == i) {
-                        parent.expandGroup(i);
-                    } else {
-                        parent.collapseGroup(i);
-                    }
-
+            public boolean onMenuItemClick(MenuItem item) {
+                if(drawer.isDrawerOpen(Gravity.LEFT)){
+                    drawer.closeDrawers();
                 }
-
                 return true;
             }
-        });//setOnGroupClickListener
-
-        onRestart();
-    }//onCreate
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        menu();
-    }
-
-    public void menu(){
-
-        if(LoginInfo == 0) {
-            tv_logintop.setClickable(true);
-            tv_loginbot.setClickable(true);
-            btn_logout.setVisibility(View.INVISIBLE);
-            exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list_none, parent_menu_none, containerInt, getSupportFragmentManager(), drawer));
-            tv_logintop.setText("로그인");
-            tv_loginbot.setText("회원가입");
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
-
-            tv_logintop.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    if(drawer.isDrawerOpen(Gravity.LEFT)){
-                        drawer.closeDrawers();
-                    }
+        });
+        mViewPager.getToolbar().setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(drawer.isDrawerOpen(Gravity.LEFT)){
+                    drawer.closeDrawers();
                 }
-            });
+            }
+        });
+        mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
+            @Override
+            public Fragment getItem(int position) {
 
+                return new MainPageFragment(list.get(position) ,list.get(position).getSubList() , position);
 
-        }else if (LoginInfo == 1){
-            btn_logout.setVisibility(View.VISIBLE);
-            tv_logintop.setClickable(false);
-            tv_loginbot.setClickable(false);
+            }
 
+            @Override
+            public int getCount() {
+                return list.size();
+            }
 
-                tv_logintop.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
-                tv_loginbot.setText(LoginActivity.loginInfoList.get(0).getEmployee_id()+" / "+LoginActivity.loginInfoList.get(0).getPosition_name());
-                exp_menu.setAdapter(new MainMenuAdapter(getLayoutInflater(), menu_list, parent_menu, containerInt, getSupportFragmentManager(), drawer));
+            @Override
+            public CharSequence getPageTitle(int position) {
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
+                return list.get(position).getMainMenu();
+            }
+        });
+        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
 
-            btn_logout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    LoginActivity.loginInfoList.clear();
-                    LoginInfo = 0 ;
-                    onResume();
-                    if(drawer.isDrawerOpen(Gravity.LEFT)){
-                        drawer.closeDrawers();
+            @Override
+            public HeaderDesign getHeaderDesign(int page) {
+                switch (page) {
+                    case 0:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.green,
+                                getResources().getDrawable(R.drawable.company_img));
+                    case 1:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.red,
+                                getResources().getDrawable(R.drawable.test_background));
+                    case 2:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.blue,
+                                getResources().getDrawable(R.drawable.main_img1));
+                    case 3:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.black,
+                                getResources().getDrawable(R.drawable.company_img));
 
-                    }
+                    case 4:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.blue,
+                                getResources().getDrawable(R.drawable.company_img));
+                    case 5:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.purple_500,
+                                getResources().getDrawable(R.drawable.test_background));
+                    case 6:
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.purple_200,
+                                getResources().getDrawable(R.drawable.main_img1));
                 }
-            });
+                return null;
+            }
+        });
+        mViewPager.getPagerTitleStrip().setTextColor(Color.parseColor("#FFFFFF"));
+        mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
+        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
 
-        }//if
-    }//menu
-
-
-    public void menu_hash(){
-        parent_menu.add("마이페이지");
-        parent_menu.add("채용관리");
-        parent_menu.add("인사관리");
-        parent_menu.add("코드관리");
-        parent_menu.add("근태관리");
-        parent_menu.add("급여관리");
-        parent_menu.add("업무관리");
-        ArrayList<MenuDTO> child_menu1= new ArrayList<>();
-
-        child_menu1.add( new MenuDTO("출퇴근 관리", new HomeLoginFragment()));
-        child_menu1.add(  new MenuDTO("개인정보 수정" ));
-
-        menu_list.put("마이페이지", child_menu1);
-
-
-        ArrayList<MenuDTO> child_menu2= new ArrayList<>();
-        child_menu2.add(new MenuDTO("지원자 목록", new ApplyCheckFragment()));
-        child_menu2.add(new MenuDTO("합격자 목록", new ApplyPassFragment()));
-
-        menu_list.put("채용관리", child_menu2);
-
-        ArrayList<MenuDTO> child_menu3= new ArrayList<>();
-
-        child_menu3.add(new MenuDTO("직원추가", new EmpInsertFragment()));
-        child_menu3.add(new MenuDTO("직원관리", new EmpFragment()));
-
-        menu_list.put("인사관리", child_menu3);
-
-        ArrayList<MenuDTO> child_menu4= new ArrayList<>();
-
-        child_menu4.add(new MenuDTO("인사 코드조회"));
-        child_menu4.add(new MenuDTO("문서 코드조회"));
-        child_menu4.add(new MenuDTO("고용형태 코드조회"));
-        child_menu4.add(new MenuDTO("근무구분 코드조회"));
-
-        menu_list.put("코드관리", child_menu4);
-
-        ArrayList<MenuDTO> child_menu5= new ArrayList<>();
-
-        child_menu5.add(new MenuDTO("휴일 관리", new HolidayFragment()));
-        child_menu5.add(new MenuDTO("휴일 신청", new HolidayInsertFragment()));
-        child_menu5.add(new MenuDTO("근무시간관리", new WorkFragment()));
-
-        menu_list.put("근태관리", child_menu5);
-
-
-        ArrayList<MenuDTO> child_menu6= new ArrayList<>();
-        child_menu6.add(new MenuDTO("급여 기본 정보", new SalaryListFragment()));
-
-
-        if(LoginActivity.loginInfoList.get(0).getAdmin().equals("Y")) {
-            child_menu6.add(new MenuDTO("급상여 관리"));
-        }
-
-        child_menu6.add(new MenuDTO("월별 지급 현황"));
-
-        menu_list.put("급여관리", child_menu6);
-
-
-        ArrayList<MenuDTO> child_menu7= new ArrayList<>();
-        child_menu7.add(new MenuDTO("전자결재"));
-        child_menu7.add(new MenuDTO("임시 보관함"));
-        child_menu7.add(new MenuDTO("상신함"));
-        child_menu7.add(new MenuDTO("결재처리함"));
-        child_menu7.add(new MenuDTO("업무공유"));
-        child_menu7.add(new MenuDTO("공지사항"));
-
-        menu_list.put("업무관리", child_menu7);
-
-
-
-        parent_menu_none.add("공지사항");
-        parent_menu_none.add("회사정보");
-        parent_menu_none.add("채용정보");
-
-
-        ArrayList<MenuDTO> child_menu1_1= new ArrayList<>();
-
-        menu_list_none.put("공지사항", child_menu1_1);
-
-
-        ArrayList<MenuDTO> child_menu2_1= new ArrayList<>();
-
-        menu_list_none.put("회사정보", child_menu2_1);
-
-        ArrayList<MenuDTO> child_menu3_1= new ArrayList<>();
-        child_menu3_1.add(new MenuDTO("채용공고보기", new ApplyListFragment()));
-        child_menu3_1.add(new MenuDTO("지원여부확인", new MyApplyListFragment()));
-
-        menu_list_none.put("채용정보", child_menu3_1);
 
     }
 
-    public class MenuDTO{
-            String menu_name ;
-            Fragment fragment;
 
-        public MenuDTO(String menu_name, Fragment fragment) {
-            this.menu_name = menu_name;
-            this.fragment = fragment;
-        }
+    public ArrayList<MainDTO> afterLoginMenu(){
+        ArrayList<MainDTO> tempList = new ArrayList<>();
+        ArrayList<MainDTO> subList1= new ArrayList<>();
 
-        public MenuDTO(String menu_name) {
-            this.menu_name = menu_name;
-        }
+        subList1.add(new MainDTO("나의 출퇴근 조회", new ApplyListFragment()));//미완
+        subList1.add(new MainDTO("개인정보 수정", new MyPageFragment()));
+        subList1.add(new MainDTO("공지사항", new ApplyListFragment()));//미완
 
-        public String getMenu_name() {
-            return menu_name;
-        }
+        tempList.add(new MainDTO("마이 페이지" , subList1));
 
-        public void setMenu_name(String menu_name) {
-            this.menu_name = menu_name;
-        }
+        ArrayList<MainDTO> subList2= new ArrayList<>();
+        subList2.add(new MainDTO("지원자 목록", new ApplyCheckFragment()));
+        subList2.add(new MainDTO("합격자 목록", new ApplyPassFragment()));
 
-        public Fragment getFragment() {
-            return fragment;
-        }
+        tempList.add(new MainDTO("채용관리" ,subList2));
 
-        public void setFragment(Fragment fragment) {
-            this.fragment = fragment;
-        }
+
+
+        ArrayList<MainDTO> subList3= new ArrayList<>();
+        subList3.add(new MainDTO("사원 추가", new EmpInsertFragment()));
+        subList3.add(new MainDTO("사원 관리", new EmpFragment()));
+
+        tempList.add(new MainDTO("인사관리" ,subList3));
+
+
+
+        ArrayList<MainDTO> subList4= new ArrayList<>();
+        subList4.add(new MainDTO("휴일 관리", new HolidayFragment()));
+        subList4.add(new MainDTO("근무시간관리", new WorkFragment()));
+
+        tempList.add(new MainDTO("근태관리" ,subList4));
+
+
+
+        ArrayList<MainDTO> subList5= new ArrayList<>();
+        subList5.add(new MainDTO("급여 기본정보", new ApplyListFragment()));
+        subList5.add(new MainDTO("급상여 입력", new ApplyListFragment()));
+        subList5.add(new MainDTO("월별급여상여지급현황", new ApplyListFragment()));
+
+        tempList.add(new MainDTO("급여관리" ,subList5));
+
+
+
+
+        ArrayList<MainDTO> subList6= new ArrayList<>();
+        subList6.add(new MainDTO("전자결재", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("임시 보관함", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("상신함", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("결재처리함", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("코드관리", new ApplyListFragment()));//미완
+
+        tempList.add(new MainDTO("업무관리" ,subList6));
+
+        return tempList;
+    }
+    //로그인 전
+    public ArrayList<MainDTO> beforeLoginMenu(){
+
+        ArrayList<MainDTO> subList1= new ArrayList<>();
+        subList1.add(new MainDTO("공지사항 글보기", new ApplyListFragment()));
+
+
+        ArrayList<MainDTO> subList2= new ArrayList<>();
+        subList2.add(new MainDTO("회사 정보 보기", new ApplyListFragment()));
+
+        ArrayList<MainDTO> tempList = new ArrayList<>();
+        tempList.add(new MainDTO("공지사항" , subList1));
+        tempList.add(new MainDTO("회사정보" , subList2));
+
+
+        ArrayList<MainDTO> subList= new ArrayList<>();
+        subList.add(new MainDTO("채용공고보기", new ApplyListFragment()));
+        subList.add(new MainDTO("지원여부확인", new MyApplyListFragment()));
+        tempList.add(new MainDTO("채용정보" , subList));
+
+
+
+        return tempList;
     }
 
+    private long backPressedTime= 0;
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK :
-                if (container_state == 1) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
-                    container_state = 0;
-                    return true;
-                }else if(container_state == 5){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
-                    container_state = 4;
-                    return true;
-                }
-                break;
-
+        if(drawer.isDrawerOpen(Gravity.LEFT)){
+            drawer.closeDrawers();
+        }else{
+            if(System.currentTimeMillis() - backPressedTime >= 2000) {
+                backPressedTime = System.currentTimeMillis();
+                Toast.makeText(this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+            } else {
+                finish();
+            }
         }
+
+
+        //기존 2022 11 23 KYM 주석처리함.
+//        switch (keyCode) {
+//            case KeyEvent.KEYCODE_BACK :
+//                if (container_state == 1) {
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
+//                    container_state = 0;
+//                    return true;
+//                }else if(container_state == 5){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+//                    container_state = 4;
+//                    return true;
+//                }
+//                break;
+//
+//        }
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override
+    public void onClick(View v) {
+        if(LoginInfo==0 && v.getId() == R.id.tv_login || v.getId() == R.id.imgv_login) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            if(drawer.isDrawerOpen(Gravity.LEFT)){
+                drawer.closeDrawers();
+            }
+        }else{
+            LoginActivity.loginInfoList.clear();
+            LoginInfo = 0 ;
+            if(drawer.isDrawerOpen(Gravity.LEFT)){
+                drawer.closeDrawers();
+
+            }
+        }
+    }
+
+
+    public  void changeFragment(Fragment fragment){
+
+        if(drawer.isDrawerOpen(Gravity.LEFT)){
+            drawer.closeDrawers();
+        }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container , fragment).commit();
+
+    }
+
 }
 
