@@ -100,6 +100,7 @@ public class WorkFragment extends Fragment {
         askTask_department.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
+                department_list_real.clear();
                 department_list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                 }.getType());
                 for (int i = 0; i < department_list.size(); i++) {

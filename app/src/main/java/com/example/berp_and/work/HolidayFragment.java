@@ -93,6 +93,7 @@ public class HolidayFragment extends Fragment {
         askTask_department.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
+                holiday_list_real.clear();
                 holiday_list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                 }.getType());
                 for (int i = 0; i < holiday_list.size(); i++) {
