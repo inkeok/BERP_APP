@@ -209,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<MenuDTO> child_menu5= new ArrayList<>();
 
         child_menu5.add(new MenuDTO("휴일 관리", new HolidayFragment()));
-        child_menu5.add(new MenuDTO("휴일 신청", new HolidayInsertFragment()));
         child_menu5.add(new MenuDTO("근무시간관리", new WorkFragment()));
 
         menu_list.put("근태관리", child_menu5);
@@ -219,9 +218,9 @@ public class MainActivity extends AppCompatActivity {
         child_menu6.add(new MenuDTO("급여 기본 정보", new SalaryListFragment()));
 
 
-        if(LoginActivity.loginInfoList.get(0).getAdmin().equals("Y")) {
+       /* if(LoginActivity.loginInfoList.get(0).getAdmin().equals("Y")) {
             child_menu6.add(new MenuDTO("급상여 관리"));
-        }
+        }*/
 
         child_menu6.add(new MenuDTO("월별 지급 현황"));
 
