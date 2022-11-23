@@ -5,15 +5,34 @@ import java.util.Date;
 
 public class HolidayVO {
 
-	private String employee_id, department_id, company_cd, work_code, work_status;
-	 public String getWork_status() {
+	private String employee_id, department_id, company_cd, work_code, work_status , name,dname, hire_year;
+
+	public String getDname() {
+		return dname;
+	}
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
+	public String getHire_year() {
+		return hire_year;
+	}
+	public void setHire_year(String hire_year) {
+		this.hire_year = hire_year;
+	}
+	public String getWork_status() {
 		return work_status;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setWork_status(String work_status) {
 		this.work_status = work_status;
 	}
-	private Date  holiday_date,
-	work_date;
+	private String  holiday_date;
+		private Date	work_date;
 	private String  end_holiday, start_holiday;
 	public String getEmployee_id() {
 		return employee_id;
@@ -39,10 +58,10 @@ public class HolidayVO {
 	public void setWork_code(String work_code) {
 		this.work_code = work_code;
 	}
-	public Date getHoliday_date() {
+	public String getHoliday_date() {
 		return holiday_date;
 	}
-	public void setHoliday_date(Date holiday_date) {
+	public void setHoliday_date(String holiday_date) {
 		this.holiday_date = holiday_date;
 	}
 	public Date getWork_date() {
@@ -63,5 +82,5 @@ public class HolidayVO {
 	public void setStart_holiday(String start_holiday) {
 		this.start_holiday = start_holiday;
 	}
-	
+
 }
