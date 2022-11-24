@@ -37,11 +37,12 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder h, int i) {
-        h.tv_employee_id.setText(list.get(i).getEmployee_id());
+        h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
         h.tv_employee_name.setText(list.get(i).getName());
         h.work_date.setText(list.get(i).getWork_date());
         h.start_work.setText(list.get(i).getStart_work());
         h.end_work.setText(list.get(i).getEnd_work());
+        h.work_code.setText(list.get(i).getWork_status());
     }
 
     @Override
@@ -51,7 +52,7 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_employee_id, tv_employee_name, work_date,start_work,end_work;
+        TextView tv_employee_id, tv_employee_name, work_date,start_work,end_work, work_code;
         public ViewHolder(@NonNull View v) {
             super(v);
 
@@ -60,6 +61,8 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
             work_date = v.findViewById(R.id.work_date);
             start_work = v.findViewById(R.id.start_work);
             end_work = v.findViewById(R.id.end_work);
+            work_code = v.findViewById(R.id.work_code);
+
 
 
         }

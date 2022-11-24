@@ -92,10 +92,11 @@ public class HomeLoginFragment extends Fragment {
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-                if(!data.equals("[null]")){
+                if(!data.equals("[]")){
 
                     ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
                     }.getType());
+
                     end_work_text.setText(list.get(0).getEnd_work());
                 }else {
                     end_work_text.setText("퇴근 버튼을 눌러주세요");
@@ -139,7 +140,7 @@ public class HomeLoginFragment extends Fragment {
 
     public void Search(){
         CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
-
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
@@ -158,7 +159,7 @@ public class HomeLoginFragment extends Fragment {
     }
     public void SearchEnd(){
         CommonAskTask askTask = new CommonAskTask("andEndSearch",getActivity());
-
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
@@ -172,7 +173,7 @@ public class HomeLoginFragment extends Fragment {
         CommonAskTask askTask = new CommonAskTask("andWork_start_input", getActivity());
 
         String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
-
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.addParam("start_work", date);
               askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
 
@@ -189,7 +190,7 @@ public class HomeLoginFragment extends Fragment {
         });
     } public void work_end_input(){
         CommonAskTask askTask = new CommonAskTask("andWork_end_input", getActivity());
-
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
 
         askTask.addParam("end_work", date);

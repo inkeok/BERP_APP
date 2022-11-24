@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
+import com.example.berp_and.login.LoginActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -39,13 +40,15 @@ public class WorkIndiFragment extends Fragment {
 
     public void origin_list() {
         CommonAskTask askTask = new CommonAskTask("andHolidayIndi_List", getActivity());
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
                 ArrayList<WorkResultVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkResultVO>>() {
                 }.getType());
 
-                recv_holIndiList.setAdapter(new WorkAdapter(getLayoutInflater(), list, getContext()));
+
+                recv_holIndiList.setAdapter(new WorkIndiAdapter(getLayoutInflater(), list, getContext()));
                 recv_holIndiList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
             }
         });
