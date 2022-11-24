@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.berp_and.CommonAskTask;
-import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpVO;
 import com.google.gson.Gson;
@@ -23,7 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 
-public class ApplyCheckFragment extends Fragment {
+public class ApplyPassFragment extends Fragment {
     RecyclerView recv_applyCheck;
     AutoCompleteTextView apply_check_spinner;
 
@@ -31,24 +30,22 @@ public class ApplyCheckFragment extends Fragment {
     ArrayList<String> apply_title_list_real= new ArrayList<>();
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_apply_check, container, false);
+        View v = inflater.inflate(R.layout.fragment_apply_pass, container, false);
 
-        MainActivity.container_state = 1;
         recv_applyCheck =v.findViewById(R.id.recv_applyCheck);
         apply_check_spinner = v.findViewById(R.id.apply_check_spinner);
 
-        CommonAskTask askTask_list = new CommonAskTask("andApplyCheckSelectList.rec" ,getActivity());
+        CommonAskTask askTask_list = new CommonAskTask("andApplyPassSelectList.rec" ,getActivity());
         askTask_list.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
                 ArrayList<ApplyVO> apply_title_list = new Gson().fromJson(data, new TypeToken<ArrayList<ApplyVO>>() {
                 }.getType());
 
-                recv_applyCheck.setAdapter(new ApplyCheckAdapter(getLayoutInflater(), apply_title_list, getContext()));
+                recv_applyCheck.setAdapter(new ApplyPassAdapter(getLayoutInflater(), apply_title_list, getContext()));
                 recv_applyCheck.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
             }
         });
@@ -63,19 +60,19 @@ public class ApplyCheckFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 if(i == 0){
-                    CommonAskTask askTask_list = new CommonAskTask("andApplyCheckSelectList.rec" ,getActivity());
+                    CommonAskTask askTask_list = new CommonAskTask("andApplyPassSelectList.rec" ,getActivity());
                     askTask_list.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                         @Override
                         public void onResult(String data, boolean isResult) {
                             ArrayList<ApplyVO> apply_title_list = new Gson().fromJson(data, new TypeToken<ArrayList<ApplyVO>>() {
                             }.getType());
 
-                            recv_applyCheck.setAdapter(new ApplyCheckAdapter(getLayoutInflater(), apply_title_list, getContext()));
+                            recv_applyCheck.setAdapter(new ApplyPassAdapter(getLayoutInflater(), apply_title_list, getContext()));
                             recv_applyCheck.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
                         }
                     });
                 }else {
-                    CommonAskTask askTask = new CommonAskTask("andApplyCheckSelectOne.rec", getActivity());
+                    CommonAskTask askTask = new CommonAskTask("andApplyPassSelectOne.rec", getActivity());
                     askTask.addParam("title", apply_title_list.get(i + 1).getRecruit_title());
                     askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                         @Override
@@ -83,7 +80,7 @@ public class ApplyCheckFragment extends Fragment {
                             ArrayList<ApplyVO> apply_title_one = new Gson().fromJson(data, new TypeToken<ArrayList<ApplyVO>>() {
                             }.getType());
 
-                            recv_applyCheck.setAdapter(new ApplyCheckAdapter(getLayoutInflater(), apply_title_one, getContext()));
+                            recv_applyCheck.setAdapter(new ApplyPassAdapter(getLayoutInflater(), apply_title_one, getContext()));
                             recv_applyCheck.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
                         }
                     });

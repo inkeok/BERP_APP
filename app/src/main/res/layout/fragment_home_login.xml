@@ -62,12 +62,13 @@
             android:layout_width="match_parent"
             android:layout_height="18dp"
             android:orientation="horizontal">
+
             <View
 
-                android:layout_weight="6"
-                android:layout_width="0dp"
+                android:layout_width="220dp"
                 android:layout_height="18dp"
-                android:background="@drawable/border_home_work_per_today"/>
+                android:layout_weight="6"
+                android:background="@drawable/border_home_work_per_today" />
             <View
                 android:layout_weight="24"
                 android:layout_width="0dp"
@@ -78,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="4일 / 30일 근무"
+            android:text="23일 / 30일 근무"
             android:textStyle="bold"/>
         <LinearLayout
             android:layout_gravity="center"
