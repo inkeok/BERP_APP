@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
+import com.example.berp_and.emp.EmpAndInsertDTO;
 import com.example.berp_and.emp.EmpVO;
 import com.example.berp_and.mypage.MyPageActivity;
 import com.example.berp_and.CommonAskTask;
@@ -61,7 +62,7 @@ public class HomeLoginFragment extends Fragment {
         holiday_submit_btn = v.findViewById(R.id.holiday_submit_btn);
 
         CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
-
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
@@ -88,7 +89,7 @@ public class HomeLoginFragment extends Fragment {
         });
 
         askTask = new CommonAskTask("andEndSearch",getActivity());
-
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
@@ -173,10 +174,15 @@ public class HomeLoginFragment extends Fragment {
         CommonAskTask askTask = new CommonAskTask("andWork_start_input", getActivity());
 
         String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
-        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-        askTask.addParam("start_work", date);
-              askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
 
+        WorkVO dto = new WorkVO();
+        dto.setDepartment_id(LoginActivity.loginInfoList.get(0).getDepartment_id());
+        dto.setEmployee_id(LoginActivity.loginInfoList.get(0).getEmployee_id());
+        dto.setCompany_cd(LoginActivity.loginInfoList.get(0).getCompany_cd());
+        dto.setStart_work(date);
+
+        askTask.addParam("dto",new Gson().toJson(dto));
+              askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
                 if(i == 0){
@@ -190,10 +196,14 @@ public class HomeLoginFragment extends Fragment {
         });
     } public void work_end_input(){
         CommonAskTask askTask = new CommonAskTask("andWork_end_input", getActivity());
-        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-        String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
 
-        askTask.addParam("end_work", date);
+
+        String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
+        WorkVO dto = new WorkVO();
+        dto.setEmployee_id(LoginActivity.loginInfoList.get(0).getEmployee_id());
+        dto.setEnd_work(date);
+        askTask.addParam("dto",new Gson().toJson(dto));
+
               askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {

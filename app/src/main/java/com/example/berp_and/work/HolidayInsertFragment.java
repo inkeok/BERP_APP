@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpVO;
+import com.example.berp_and.login.LoginActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.DateValidatorPointForward;
@@ -104,6 +105,10 @@ public class HolidayInsertFragment extends BottomSheetDialogFragment {
 
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd",Locale.KOREA);
 
+
+                        vo.setEmployee_id(LoginActivity.loginInfoList.get(0).getEmployee_id()+"");
+                        vo.setDepartment_id(LoginActivity.loginInfoList.get(0).getDepartment_id()+"");
+                        vo.setCompany_cd(LoginActivity.loginInfoList.get(0).getCompany_cd());
                         vo.setStart_holiday(sdf.format(new Date(pair.first)));
                         vo.setEnd_holiday(sdf.format(new Date(pair.second)));
                         holiday_start.setText("휴가 시작일 : " + vo.getStart_holiday());
