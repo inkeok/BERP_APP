@@ -174,28 +174,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case 1:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.red,
-                                getResources().getDrawable(R.drawable.test_background));
+                                getResources().getDrawable(R.drawable.menu_bar8));
                     case 2:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.blue,
-                                getResources().getDrawable(R.drawable.main_img1));
+                                getResources().getDrawable(R.drawable.menu_bar7));
                     case 3:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.black,
-                                getResources().getDrawable(R.drawable.company_img));
+                                getResources().getDrawable(R.drawable.menu_bar4));
 
                     case 4:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.blue,
-                                getResources().getDrawable(R.drawable.company_img));
+                                getResources().getDrawable(R.drawable.menu_bar1));
                     case 5:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.purple_500,
-                                getResources().getDrawable(R.drawable.test_background));
+                                getResources().getDrawable(R.drawable.menu_bar9));
                     case 6:
                         return HeaderDesign.fromColorResAndDrawable(
                                 R.color.purple_200,
-                                getResources().getDrawable(R.drawable.main_img1));
+                                getResources().getDrawable(R.drawable.menu_bar5));
                 }
                 return null;
             }
