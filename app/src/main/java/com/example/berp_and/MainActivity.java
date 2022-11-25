@@ -32,6 +32,9 @@ import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.main_menu.MainDTO;
 import com.example.berp_and.main_menu.MainPageFragment;
 import com.example.berp_and.mypage.MyPageFragment;
+import com.example.berp_and.salary.BonusListFragment;
+import com.example.berp_and.salary.MySalaryFragment;
+import com.example.berp_and.salary.SalaryListFragment;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.WorkFragment;
@@ -244,9 +247,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ArrayList<MainDTO> subList5= new ArrayList<>();
-        subList5.add(new MainDTO("급여 기본정보", new ApplyListFragment()));
-        subList5.add(new MainDTO("급상여 입력", new ApplyListFragment()));
-        subList5.add(new MainDTO("월별급여상여지급현황", new ApplyListFragment()));
+        subList5.add(new MainDTO("나의 급여 조회", new MySalaryFragment()));
+        subList5.add(new MainDTO("급여관리", new SalaryListFragment()));
+        subList5.add(new MainDTO("상여금 현황", new BonusListFragment()));
 
         tempList.add(new MainDTO("급여관리" ,subList5));
 
