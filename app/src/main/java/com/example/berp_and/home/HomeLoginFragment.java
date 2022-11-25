@@ -93,12 +93,12 @@ public class HomeLoginFragment extends Fragment {
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-                if(!data.equals("[]")){
+                if(data != null){
 
-                    ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                    WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
                     }.getType());
 
-                    end_work_text.setText(list.get(0).getEnd_work());
+
                 }else {
                     end_work_text.setText("퇴근 버튼을 눌러주세요");
                 }
