@@ -8,7 +8,10 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +30,11 @@ import com.example.berp_and.mypage.MyPageActivity;
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.notice.NoticeAdapter;
+import com.example.berp_and.notice.NoticeVO;
+import com.example.berp_and.work.HolidayAdapter;
 import com.example.berp_and.work.HolidayInsertFragment;
+import com.example.berp_and.work.HolidayVO;
 import com.example.berp_and.work.WorkVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +49,10 @@ public class HomeLoginFragment extends Fragment {
     ImageView img_main_login_setting;
     TextView start_work_text, end_work_text;
         Button start_work_btn, end_work_btn, holiday_submit_btn;
+
+        RecyclerView recv_notice;
+
+
     public static int i = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +62,8 @@ public class HomeLoginFragment extends Fragment {
 
         tv_main_login_name = v.findViewById(R.id.tv_main_login_name);
         img_main_login_setting = v.findViewById(R.id.img_main_login_setting);
-    
+        recv_notice = v.findViewById(R.id.recv_notice);
+
 
         tv_main_login_name.setText(LoginActivity.loginInfoList.get(0).getPosition_name() + " "+ LoginActivity.loginInfoList.get(0).getName()+"님 / " + LoginActivity.loginInfoList.get(0).getDepartment_name());
 
@@ -133,6 +145,7 @@ public class HomeLoginFragment extends Fragment {
 
             }
         });
+        Notice_list();
 
 
 
@@ -213,4 +226,25 @@ public class HomeLoginFragment extends Fragment {
             }
         });
     }
+
+    public void Notice_list(){
+        CommonAskTask askTask = new CommonAskTask("notice_list", getActivity());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                Log.d("TAG", "onResult: "+data);
+
+                ArrayList<NoticeVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<NoticeVO>>() {
+                }.getType());
+
+                recv_notice.setAdapter(new NoticeAdapter(getLayoutInflater(),list,getContext()));
+                recv_notice.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+            }
+        });
+
+
+    }
+
+
+
 }

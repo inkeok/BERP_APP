@@ -142,6 +142,7 @@ public class HolidayInsertFragment extends BottomSheetDialogFragment {
                 public void onResult(String data, boolean isResult) {
                     Log.d("TAG", "onResult: "+data);
                     if(data.equals("1")){
+
                         Toast.makeText(getContext(),"안된다 이놈아",1000*3).show();
                     }else {
                         Toast.makeText(getContext(),"휴가 신청완료 ^3^",1000*3).show();
