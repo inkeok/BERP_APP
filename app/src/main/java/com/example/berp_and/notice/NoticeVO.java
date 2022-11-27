@@ -1,8 +1,9 @@
 package com.example.berp_and.notice;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class NoticeVO {
+public class NoticeVO implements Serializable {
 
 	private int notice_num, employee_id, department_id, notice_readcnt,no;
 	public int getNo() {

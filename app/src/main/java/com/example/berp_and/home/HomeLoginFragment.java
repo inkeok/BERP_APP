@@ -110,7 +110,6 @@ public class HomeLoginFragment extends Fragment {
                     WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
                     }.getType());
 
-
                 }else {
                     end_work_text.setText("퇴근 버튼을 눌러주세요");
                 }
@@ -178,6 +177,7 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onResult(String data, boolean isResult) {
                         work_end_input();
+
             }
         });
 
