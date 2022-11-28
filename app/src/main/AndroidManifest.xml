@@ -13,7 +13,11 @@
         android:theme="@style/Theme.BERP_AND"
         android:usesCleartextTraffic="true">
         <activity
+<<<<<<< HEAD
             android:name=".salary.TestActivity"
+=======
+            android:name=".notice.NoticeDetailActivity"
+>>>>>>> 2f32f21169065ea0d72fc4b7a40d270e887d308e
             android:exported="true" />
         <activity
             android:name=".adminApply.ApplyCheckDetailActivity"

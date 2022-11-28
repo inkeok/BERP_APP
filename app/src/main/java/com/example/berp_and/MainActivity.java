@@ -24,6 +24,10 @@ import com.example.berp_and.adminApply.ApplyCheckFragment;
 import com.example.berp_and.adminApply.ApplyPassFragment;
 import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.apply.MyApplyListFragment;
+import com.example.berp_and.approval.ApprovalFragment;
+import com.example.berp_and.approval.RecBoxFragment;
+import com.example.berp_and.approval.TempBoxFragment;
+import com.example.berp_and.approval.WriteBoxFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.home.HomeFragment;
@@ -32,6 +36,7 @@ import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.main_menu.MainDTO;
 import com.example.berp_and.main_menu.MainPageFragment;
 import com.example.berp_and.mypage.MyPageFragment;
+import com.example.berp_and.notice.NoticeListFragment;
 import com.example.berp_and.salary.BonusListFragment;
 import com.example.berp_and.salary.MySalaryFragment;
 import com.example.berp_and.salary.SalaryListFragment;
@@ -216,9 +221,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<MainDTO> tempList = new ArrayList<>();
         ArrayList<MainDTO> subList1= new ArrayList<>();
 
-        subList1.add(new MainDTO("나의 출퇴근 조회", new WorkIndiFragment()));//미완
+        subList1.add(new MainDTO("나의 출퇴근 조회", new WorkIndiFragment()));
         subList1.add(new MainDTO("개인정보 수정", new MyPageFragment()));
-        subList1.add(new MainDTO("공지사항", new ApplyListFragment()));//미완
+        subList1.add(new MainDTO("공지사항", new NoticeListFragment()));
 
         tempList.add(new MainDTO("마이 페이지" , subList1));
 
@@ -257,10 +262,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ArrayList<MainDTO> subList6= new ArrayList<>();
-        subList6.add(new MainDTO("전자결재", new ApplyListFragment()));//미완
-        subList6.add(new MainDTO("임시 보관함", new ApplyListFragment()));//미완
-        subList6.add(new MainDTO("상신함", new ApplyListFragment()));//미완
-        subList6.add(new MainDTO("결재처리함", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("상신함", new WriteBoxFragment()));//미완
+        subList6.add(new MainDTO("임시 보관함", new TempBoxFragment()));//미완
+        subList6.add(new MainDTO("수신함", new RecBoxFragment()));//미완
+        subList6.add(new MainDTO("결재처리함", new ApprovalFragment()));//미완
         subList6.add(new MainDTO("코드관리", new ApplyListFragment()));//미완
 
         tempList.add(new MainDTO("업무관리" ,subList6));
@@ -271,7 +276,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ArrayList<MainDTO> beforeLoginMenu(){
 
         ArrayList<MainDTO> subList1= new ArrayList<>();
-        subList1.add(new MainDTO("공지사항 글보기", new ApplyListFragment()));
+        subList1.add(new MainDTO("공지사항 글보기", new NoticeListFragment()));
 
 
         ArrayList<MainDTO> subList2= new ArrayList<>();

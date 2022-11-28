@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="@android:color/black" />
+            <solid android:color="#10A5EA" />
         </shape>
     </item>
     <item>
@@ -17,7 +17,7 @@
                     android:centerX="0.3"
                     android:centerY="0.5"
                     android:endColor="@android:color/transparent"
-                    android:startColor="#123"
+                    android:startColor="#095A87"
                     android:type="sweep" />
             </shape>
         </rotate>
@@ -25,7 +25,7 @@
     <item>
         <rotate
             android:fromDegrees="290"
-            android:pivotX="30%"
+            android:pivotX="300%"
             android:pivotY="40%"
             android:toDegrees="0">
             <shape>
@@ -34,13 +34,15 @@
                     android:centerX="0.8"
                     android:centerY="0.3"
                     android:endColor="@android:color/transparent"
-                    android:startColor="#0080FF"
+                    android:startColor="#5992CD"
                     android:type="sweep" />
             </shape>
         </rotate>
     </item>
     <item>
         <rotate
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fromDegrees="18"
             android:pivotX="30%"
             android:pivotY="40%"
@@ -51,7 +53,7 @@
                     android:centerX="0.1"
                     android:centerY="0.5"
                     android:endColor="@android:color/transparent"
-                    android:startColor="#00030B"
+                    android:startColor="#BC63C2CF"
                     android:type="sweep" />
             </shape>
         </rotate>
@@ -68,7 +70,7 @@
                     android:centerX="0.6"
                     android:centerY="0.7"
                     android:endColor="@android:color/transparent"
-                    android:startColor="#000000"
+                    android:startColor="#FFFFFF"
                     android:type="sweep" />
             </shape>
         </rotate>
@@ -85,7 +87,7 @@
                     android:centerX="0.0"
                     android:centerY="0.0"
                     android:endColor="@android:color/transparent"
-                    android:startColor="#001427"
+                    android:startColor="#36448A"
                     android:type="sweep" />
             </shape>
         </rotate>
