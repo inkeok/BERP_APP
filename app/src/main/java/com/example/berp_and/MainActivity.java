@@ -32,6 +32,7 @@ import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.main_menu.MainDTO;
 import com.example.berp_and.main_menu.MainPageFragment;
 import com.example.berp_and.mypage.MyPageFragment;
+import com.example.berp_and.notice.NoticeListFragment;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.WorkFragment;
@@ -213,9 +214,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<MainDTO> tempList = new ArrayList<>();
         ArrayList<MainDTO> subList1= new ArrayList<>();
 
-        subList1.add(new MainDTO("나의 출퇴근 조회", new WorkIndiFragment()));//미완
+        subList1.add(new MainDTO("나의 출퇴근 조회", new WorkIndiFragment()));
         subList1.add(new MainDTO("개인정보 수정", new MyPageFragment()));
-        subList1.add(new MainDTO("공지사항", new ApplyListFragment()));//미완
+        subList1.add(new MainDTO("공지사항", new NoticeListFragment()));
 
         tempList.add(new MainDTO("마이 페이지" , subList1));
 
