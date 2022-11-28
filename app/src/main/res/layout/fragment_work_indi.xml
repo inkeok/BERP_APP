@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
 
+<!--
 
     <TextView
         android:layout_toEndOf="@id/txt"
@@ -18,8 +19,9 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:background="@drawable/emp_top_background_round"
+        android:background="@drawable/menu_back_gradient2"
         android:text="나의 출퇴근 조회"/>
+-->
 
 
 
@@ -28,6 +30,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:id="@+id/recv_holIndiList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

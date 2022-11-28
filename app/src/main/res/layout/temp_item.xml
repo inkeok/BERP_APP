@@ -1,165 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
-    android:layout_marginTop="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="40dp"
+android:layout_marginRight="1dp"
+android:layout_marginLeft="1dp"
+android:background="@drawable/border_apply_middle"
+android:orientation="horizontal"
+android:id="@+id/linear_temp_list"
+android:layout_marginTop="5dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="135dp"
-        app:cardCornerRadius="10dp"
-        android:elevation="5dp"
-        app:cardUseCompatPadding="true">
-        <View
-            android:id="@+id/emp_view_color"
-            android:layout_width="8dp"
-            android:layout_height="match_parent"
-            android:background="@color/black"/>
+<TextView
+    android:id="@+id/tv_apply_dual_num"
+    android:layout_weight="1"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:text="1"
+    android:gravity="center"/>
+<View
+    android:layout_gravity="center_vertical"
+    android:layout_width="1.5dp"
+    android:layout_height="30dp"
+    android:background="@color/white"/>
+<TextView
+    android:id="@+id/tv_employee_name"
+    android:layout_weight="1.5"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:text="tv_employee_name"
+    android:gravity="center"/>
+<View
+    android:layout_gravity="center_vertical"
+    android:layout_width="1.5dp"
+    android:layout_height="30dp"
+    android:background="@color/white"/>
+<TextView
+    android:id="@+id/tv_document_title"
+    android:layout_weight="3.5"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:text="tv_document_title"
+    android:textSize="@dimen/dp_10"
+    android:ellipsize="end"
+    android:singleLine="true"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:gravity="center"/>
+<View
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp">
-                    <TextView
-                        android:layout_marginRight="10dp"
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/rond_txt"
-                        android:gravity="center"
-                        android:text="사번"
-                        android:textSize="18dp"/>
-                    <TextView
-                        android:id="@+id/tv_employee_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="20221015"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_marginRight="10dp"
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/rond_txt"
-                        android:gravity="center"
-                        android:text="이름"
-                        android:textSize="18dp"/>
-                    <TextView
-                        android:id="@+id/tv_employee_name"
-                        android:text="최인혁"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp">
-                    <TextView
-                        android:layout_marginRight="10dp"
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/rond_txt"
-                        android:gravity="center"
-                        android:text="제목"
-                        android:textSize="18dp"/>
-                    <TextView
-                        android:id="@+id/tv_document_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="document_title"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="78dp"
-                        android:layout_height="30dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/rond_txt"
-                        android:gravity="center"
-                        android:text="작성일자"
-                        android:textSize="18dp" />
-                    <TextView
-                        android:id="@+id/tv_document_date"
-                        android:text="tv_document_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/rond_txt"
-                    android:gravity="center"
-                    android:text="결재자"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:id="@+id/tv_approval_id"
-                    android:text="tv_approval_id"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:id="@+id/img_empSearch"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/emp_modify_btn_img"/>
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
+    android:layout_gravity="center_vertical"
+    android:layout_width="1.5dp"
+    android:layout_height="30dp"
+    android:background="@color/white"/>
+<TextView
+    android:id="@+id/tv_document_date"
+    android:layout_weight="2.5"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:text="tv_document_date"
+    android:gravity="center"/>
+<ImageView
+    android:layout_weight=".5"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:src="@drawable/vector_next"/>
 
 </LinearLayout>

@@ -16,17 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_toEndOf="@id/txt"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:background="@drawable/emp_top_background_round"
-            android:text="합격자 구경"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/linear_applySearch"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"

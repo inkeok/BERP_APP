@@ -36,7 +36,7 @@ public class ApplyCheckFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_apply_check, container, false);
-
+        MainActivity.toolbar.setTitle("지원자 조회");
         MainActivity.container_state = 1;
         recv_applyCheck =v.findViewById(R.id.recv_applyCheck);
         apply_check_spinner = v.findViewById(R.id.apply_check_spinner);

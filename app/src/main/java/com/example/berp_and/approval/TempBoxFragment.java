@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.work.WorkAdapter;
 import com.example.berp_and.work.WorkResultVO;
@@ -29,10 +30,18 @@ public class TempBoxFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v  = inflater.inflate(R.layout.fragment_temp_box, container, false);
 
+        recv_temp_box  = v.findViewById(R.id.recv_temp_box);
+        MainActivity.toolbar.setTitle("임시보관함");
+
         origin_list();
         return v;
     }
 
+    @Override
+    public void onResume() {
+        origin_list();
+        super.onResume();
+    }
 
     public void origin_list() {
         CommonAskTask askTask = new CommonAskTask("andTempList", getActivity());

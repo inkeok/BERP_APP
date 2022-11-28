@@ -1,19 +1,24 @@
 package com.example.berp_and.approval;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Ing_tableVO {
+public class Ing_tableVO implements Serializable {
 	
 	private int no, ing_no, employee_id, department_id, approver_id;
 	private String company_cd, file_name, file_path, document_title, 
 					document_content, document_check, document_status, document_submit,
-					email, approver, drafter, c_status, c_position, document_comment;
-	private Date document_date, finish_date;
-	
-	
-	
-	
-	
+					email, approver, drafter, c_status, c_position, document_comment, name;
+	private String document_date, finish_date;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getDocument_comment() {
 		return document_comment;
 	}
@@ -56,10 +61,10 @@ public class Ing_tableVO {
 	public void setApprover(String approver) {
 		this.approver = approver;
 	}
-	public Date getFinish_date() {
+	public String getFinish_date() {
 		return finish_date;
 	}
-	public void setFinish_date(Date finish_date) {
+	public void setFinish_date(String finish_date) {
 		this.finish_date = finish_date;
 	}
 	public String getEmail() {
@@ -134,10 +139,10 @@ public class Ing_tableVO {
 	public void setDocument_submit(String document_submit) {
 		this.document_submit = document_submit;
 	}
-	public Date getDocument_date() {
+	public String getDocument_date() {
 		return document_date;
 	}
-	public void setDocument_date(Date document_date) {
+	public void setDocument_date(String document_date) {
 		this.document_date = document_date;
 	}
 	

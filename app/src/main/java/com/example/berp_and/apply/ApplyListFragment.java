@@ -36,6 +36,7 @@ public class ApplyListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_apply_list, container, false);
         MainActivity.container_state = 5;
+        MainActivity.toolbar.setTitle("지원하기");
 
         recv_apply_board = v.findViewById(R.id.recv_apply_board);
         apply_item_filled_exposed = v.findViewById(R.id.apply_item_filled_exposed);

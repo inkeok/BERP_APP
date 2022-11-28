@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
 import com.google.gson.Gson;
@@ -32,7 +33,7 @@ public class WorkIndiFragment extends Fragment {
 
         origin_list();
 
-
+        MainActivity.toolbar.setTitle("나의 출퇴근 조회");
 
 
      return v;
