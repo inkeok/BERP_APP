@@ -56,6 +56,7 @@
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_list.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_approval.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_company.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_emp.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_holiday.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_holiday_insert.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_home_login.xml" value="0.25" />
@@ -66,6 +67,8 @@
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_notice_list.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_rec_box.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_temp_box.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/holi_indi_item.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/holiday_item.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_apply_check_list.xml" value="0.228125" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_emplist.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_mainmenu_small.xml" value="0.36822916666666666" />
@@ -76,6 +79,7 @@
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/menu_parent.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/notice_item.xml" value="0.33" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/notice_list_item.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/temp_item.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/work_item.xml" value="0.36822916666666666" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22083333333333333" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.203125" />
