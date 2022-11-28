@@ -50,12 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                         MainActivity.LoginInfo = 1;
                         finish();
                     }
-
                 }
-
             });
-
         });
-
     }
 }
