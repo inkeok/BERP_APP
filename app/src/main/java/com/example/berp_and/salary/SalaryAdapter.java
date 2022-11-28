@@ -83,6 +83,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, BonusActivity.class);
+                //Intent intent = new Intent(context, TestActivity.class);
                 intent.putExtra("vo", salaryList.get(i)); // ==> vo
 
                 context.startActivity(intent);
