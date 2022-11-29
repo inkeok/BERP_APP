@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +30,7 @@ public class BonusListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_bonus_list, container, false);
 
         recv_bonusList = v.findViewById(R.id.recv_bonusList);
+        MainActivity.toolbar.setTitle("상여금 지급내역 ");
         bonusList();
 
         return v;

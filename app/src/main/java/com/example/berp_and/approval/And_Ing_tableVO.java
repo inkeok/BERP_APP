@@ -1,18 +1,23 @@
 package com.example.berp_and.approval;
 
+
+import java.io.Serializable;
 import java.sql.Date;
 
 public class And_Ing_tableVO {
 	private int employee_id, department_id, approver_id;
 	private Date document_date,finish_date ;
 	private String company_cd, file_name, file_path, document_title,
+
 			document_content,  document_check, document_submit, ing_no,
+
 			document_comment, emp_position_name, app_position_name, emp_position, app_position,
 			check_name, company_name, emp_dpmt_name,app_dpmt_name , emp_name, app_name;
 
 
 	public String getEmp_position_name() {
 		return emp_position_name;
+
 	}
 	public void setEmp_position_name(String emp_position_name) {
 		this.emp_position_name = emp_position_name;
@@ -32,8 +37,10 @@ public class And_Ing_tableVO {
 	public String getApp_position() {
 		return app_position;
 	}
+
 	public void setApp_position(String app_position) {
 		this.app_position = app_position;
+
 	}
 	public int getEmployee_id() {
 		return employee_id;
@@ -107,11 +114,13 @@ public class And_Ing_tableVO {
 	public void setDocument_submit(String document_submit) {
 		this.document_submit = document_submit;
 	}
+
 	public String getIng_no() {
 		return ing_no;
 	}
 	public void setIng_no(String ing_no) {
 		this.ing_no = ing_no;
+
 	}
 	public String getDocument_comment() {
 		return document_comment;
@@ -155,8 +164,5 @@ public class And_Ing_tableVO {
 	public void setApp_name(String app_name) {
 		this.app_name = app_name;
 	}
-
-
-
-
 }
+

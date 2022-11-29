@@ -31,8 +31,7 @@ public class NoticeDetailActivity extends AppCompatActivity {
         notice_detail_writer.setText(vo.getNotice_writer());
         notice_detail_date.setText(vo.getNotice_date());
 
-
-
+        
 
     }
 }

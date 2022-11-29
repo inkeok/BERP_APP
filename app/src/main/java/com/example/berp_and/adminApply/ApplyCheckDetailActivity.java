@@ -27,7 +27,7 @@ public class ApplyCheckDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_check_detail);
         MainActivity.container_state = 2 ;
-
+        MainActivity.toolbar.setTitle("지원자 상세정보");
         img_apply_detail = findViewById(R.id.img_apply_detail);
         tv_apply_detail_name = findViewById(R.id.tv_apply_detail_name);
         tv_apply_detail_email = findViewById(R.id.tv_apply_detail_email);

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MaterialViewPager mViewPager;
     DrawerLayout drawer;
     NavigationView nav_view;
-    Toolbar toolbar;
+    public static Toolbar toolbar;
     ArrayList<MainDTO> list = new ArrayList<>();
     TextView tv_login ;
     ImageView imgv_login;

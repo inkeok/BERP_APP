@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.38229166666666664" />
+
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable-v24/ic_main_menu_login.xml" value="0.3609375" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable-v24/ic_main_menu_logout.xml" value="0.3609375" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable-v24/menu_back_gradient1.xml" value="0.3609375" />
@@ -16,11 +17,18 @@
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/company_edge_round1.xml" value="0.3609375" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/company_edge_round2.xml" value="0.3609375" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/company_edge_round3.xml" value="0.3609375" />
+
+        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/border_home_backgroune_origin.xml" value="0.38229166666666664" />
+        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/border_logout.xml" value="0.28489583333333335" />
+        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/border_search.xml" value="0.28489583333333335" />
+
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/edge_round.xml" value="0.38229166666666664" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/emp_top_background_round.xml" value="0.38229166666666664" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/home_edge_round.xml" value="0.38229166666666664" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.38229166666666664" />
+
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/joke_img.xml" value="0.3609375" />
+
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/rond_btn.xml" value="0.28489583333333335" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/round_spinner.xml" value="0.28489583333333335" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/drawable/vector_search.xml" value="0.28489583333333335" />
@@ -29,9 +37,12 @@
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/asb.xml" value="0.5" />
+
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/company_page.xml" value="0.18229166666666666" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/emp_drop_down_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_apply_check.xml" value="0.340625" />
+
+        <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/emp_drop_down_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_apply_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_company.xml" value="0.26875" />
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/fragment_emp.xml" value="0.33" />
@@ -62,30 +73,70 @@
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/drawable/colorz.xml" value="0.384375" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_apply_check_detail.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_apply_detail.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_approval_detail.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_bonus.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_commission.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_emp_detail.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_login.xml" value="0.240625" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_main.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_my_page.xml" value="0.33" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_notice_detail.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_salary.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_splash.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_temp_detail.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/activity_temp_modify.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/approval_item.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/company_page.xml" value="0.20677083333333332" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/emp_drop_down_item.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_check.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_list.xml" value="0.36822916666666666" />
+
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_pass.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_approval.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_bonus_list.xml" value="0.36822916666666666" />
+
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_company.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_emp.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_emp_insert.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_holiday.xml" value="0.36822916666666666" />
+
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_holiday_insert.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_home.xml" value="0.36822916666666666" />
+
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_home_login.xml" value="0.25" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_mainpage.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_my_apply_info.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_my_apply_list.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_my_page.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_my_salary.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_notice_list.xml" value="0.36822916666666666" />
+
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_apply_check_list.xml" value="0.228125" />
+
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_rec_box.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_salary_list.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_temp_box.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_work.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_work_indi.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/fragment_write_box.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/holi_indi_item.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/holiday_item.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_apply_check_list.xml" value="0.5" />
+
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_emplist.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_mainmenu_big.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_mainmenu_small.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_my_apply_board.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_mybonuslist.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_recruit_board.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/item_salarylist_recv.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/main_manu_tabs.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/main_menu_header.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/menu_child.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/menu_parent.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/notice_item.xml" value="0.33" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/notice_list_item.xml" value="0.36822916666666666" />
+        <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/temp_item.xml" value="0.36822916666666666" />
         <entry key="..\:/Study_Android/workspace/BERP_APP/app/src/main/res/layout/work_item.xml" value="0.36822916666666666" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22083333333333333" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.203125" />

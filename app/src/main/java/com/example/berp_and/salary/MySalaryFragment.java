@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
 import com.google.gson.Gson;
@@ -38,7 +39,7 @@ public class MySalaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_my_salary, container, false);
-
+        MainActivity.toolbar.setTitle("나의 급여 조회");
         recv_myBonusList = v.findViewById(R.id.recv_myBonusList);
 
         tv_mySalary = v.findViewById(R.id.tv_mySalary);

@@ -14,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpListAdapter;
 import com.example.berp_and.emp.EmpVO;
@@ -39,7 +40,7 @@ public class SalaryListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_salary_list, container, false);
         setInflater(inflater);
         recv_salaryList = v.findViewById(R.id.recv_salaryList);
-
+        MainActivity.toolbar.setTitle("급여관리");
         return v;
     }//onCreateView
 
