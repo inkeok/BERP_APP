@@ -58,11 +58,12 @@
                 android:textSize="14dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="7dp"
                 android:background="#ffffff"
+                android:gravity="center"
                 android:text="변경할 비밀번호" />
         </RelativeLayout>
         <RelativeLayout
@@ -82,11 +83,12 @@
                 android:textSize="14dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="7dp"
                 android:background="#ffffff"
+                android:gravity="center"
                 android:text="비밀번호 재입력" />
         </RelativeLayout>
         <RelativeLayout
@@ -105,11 +107,12 @@
                 android:paddingLeft="5dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="7dp"
                 android:background="#ffffff"
+                android:gravity="center"
                 android:text="휴대폰 번호 변경" />
         </RelativeLayout><RelativeLayout
         android:layout_width="match_parent"
@@ -127,11 +130,12 @@
             android:paddingLeft="5dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="7dp"
             android:background="#ffffff"
+            android:gravity="center"
             android:text="이메일 변경" />
     </RelativeLayout>
 

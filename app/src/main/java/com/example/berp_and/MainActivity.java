@@ -14,8 +14,6 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +22,10 @@ import com.example.berp_and.adminApply.ApplyCheckFragment;
 import com.example.berp_and.adminApply.ApplyPassFragment;
 import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.apply.MyApplyListFragment;
+
+import com.example.berp_and.code.CodeFragment;
+import com.example.berp_and.companyinfo.CompanyInfoFragment;
+
 import com.example.berp_and.approval.ApprovalFragment;
 import com.example.berp_and.approval.RecBoxFragment;
 import com.example.berp_and.approval.TempBoxFragment;
@@ -41,7 +43,6 @@ import com.example.berp_and.salary.BonusListFragment;
 import com.example.berp_and.salary.MySalaryFragment;
 import com.example.berp_and.salary.SalaryListFragment;
 import com.example.berp_and.work.HolidayFragment;
-import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.WorkFragment;
 import com.example.berp_and.work.WorkIndiFragment;
 import com.github.florent37.materialviewpager.MaterialViewPager;
@@ -49,7 +50,6 @@ import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private MaterialViewPager mViewPager;
@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         if(isLogin()){
+
             tv_login.setText(LoginActivity.loginInfoList.get(0).getName()+"님 반갑습니다.");
             imgv_login.setImageResource(R.drawable.ic_main_menu_logout);
         }else{
@@ -266,12 +267,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         subList6.add(new MainDTO("임시 보관함", new TempBoxFragment()));//미완
         subList6.add(new MainDTO("수신함", new RecBoxFragment()));//미완
         subList6.add(new MainDTO("결재처리함", new ApprovalFragment()));//미완
-        subList6.add(new MainDTO("코드관리", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("코드관리", new CodeFragment()));//미완
 
         tempList.add(new MainDTO("업무관리" ,subList6));
 
         return tempList;
     }
+    
     //로그인 전
     public ArrayList<MainDTO> beforeLoginMenu(){
 
@@ -280,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ArrayList<MainDTO> subList2= new ArrayList<>();
-        subList2.add(new MainDTO("회사 정보 보기", new ApplyListFragment()));
+        subList2.add(new MainDTO("회사 정보 보기", new CompanyInfoFragment()));
 
         ArrayList<MainDTO> tempList = new ArrayList<>();
         tempList.add(new MainDTO("공지사항" , subList1));
