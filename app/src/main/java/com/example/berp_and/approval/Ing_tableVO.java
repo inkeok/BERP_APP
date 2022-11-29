@@ -1,5 +1,6 @@
 package com.example.berp_and.approval;
 
+
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -85,6 +86,7 @@ public class Ing_tableVO implements Serializable {
 	public void setNo(int no) {
 		this.no = no;
 	}
+
 	public int getEmployee_id() {
 		return employee_id;
 	}
@@ -96,6 +98,24 @@ public class Ing_tableVO implements Serializable {
 	}
 	public void setDepartment_id(int department_id) {
 		this.department_id = department_id;
+	}
+	public int getApprover_id() {
+		return approver_id;
+	}
+	public void setApprover_id(int approver_id) {
+		this.approver_id = approver_id;
+	}
+	public Date getDocument_date() {
+		return document_date;
+	}
+	public void setDocument_date(Date document_date) {
+		this.document_date = document_date;
+	}
+	public Date getFinish_date() {
+		return finish_date;
+	}
+	public void setFinish_date(Date finish_date) {
+		this.finish_date = finish_date;
 	}
 	public String getCompany_cd() {
 		return company_cd;
@@ -139,14 +159,64 @@ public class Ing_tableVO implements Serializable {
 	public void setDocument_submit(String document_submit) {
 		this.document_submit = document_submit;
 	}
+
+	public String getIng_no() {
+		return ing_no;
+	}
+	public void setIng_no(String ing_no) {
+		this.ing_no = ing_no;
+
 	public String getDocument_date() {
 		return document_date;
 	}
 	public void setDocument_date(String document_date) {
 		this.document_date = document_date;
+
 	}
-	
-	
-	
-	
-}    
+	public String getDocument_comment() {
+		return document_comment;
+	}
+	public void setDocument_comment(String document_comment) {
+		this.document_comment = document_comment;
+	}
+	public String getCheck_name() {
+		return check_name;
+	}
+	public void setCheck_name(String check_name) {
+		this.check_name = check_name;
+	}
+	public String getCompany_name() {
+		return company_name;
+	}
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+	public String getEmp_dpmt_name() {
+		return emp_dpmt_name;
+	}
+	public void setEmp_dpmt_name(String emp_dpmt_name) {
+		this.emp_dpmt_name = emp_dpmt_name;
+	}
+	public String getApp_dpmt_name() {
+		return app_dpmt_name;
+	}
+	public void setApp_dpmt_name(String app_dpmt_name) {
+		this.app_dpmt_name = app_dpmt_name;
+	}
+	public String getEmp_name() {
+		return emp_name;
+	}
+	public void setEmp_name(String emp_name) {
+		this.emp_name = emp_name;
+	}
+	public String getApp_name() {
+		return app_name;
+	}
+	public void setApp_name(String app_name) {
+		this.app_name = app_name;
+	}
+
+
+
+
+}

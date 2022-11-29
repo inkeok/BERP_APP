@@ -13,10 +13,6 @@ public class ApiClient {
 
 
 
-   
-
-
-
     private static Retrofit retrofit;
 
     public static Retrofit getApiClient(){
