@@ -1,8 +1,9 @@
 package com.example.berp_and.approval;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Result_tableVO {
+public class Result_tableVO implements Serializable {
 	
 	private int employee_id, department_id, company_cd,  approver_id, result_no, no;
 	private String file_name, file_path, document_title, document_content, document_check, 

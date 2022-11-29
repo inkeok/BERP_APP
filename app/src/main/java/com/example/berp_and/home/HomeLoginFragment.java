@@ -240,7 +240,7 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onResult(String data, boolean isResult) {
                 Log.d("TAG", "onResult: "+data);
-
+                Log.d("TAG", "onResult: 휘휘휘휘휘~");
                 ArrayList<NoticeVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<NoticeVO>>() {
                 }.getType());
 
