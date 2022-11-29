@@ -24,7 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/common_search"
+                android:background="@drawable/menu_back_gradient2"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"/>
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -33,15 +33,16 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <FrameLayout
+
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="50dp">
+        android:paddingTop="?actionBarSize">
 
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:layout_marginTop="25dp"
+
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,26 +51,27 @@
         android:layout_marginEnd="-65dp"
         android:layout_marginRight="-65dp"
         >
+
         <com.github.florent37.materialviewpager.MaterialViewPager
-            android:background="#9C9C9C"
             android:id="@+id/materialViewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:viewpager_logo="@layout/main_menu_header"
-            app:viewpager_pagerTitleStrip="@layout/main_manu_tabs"
-            app:viewpager_logoMarginTop="80dp"
+            android:layout_height="745dp"
+            android:background="#9C9C9C"
+            app:viewpager_animatedHeaderImage="true"
             app:viewpager_color="@color/colorPrimary"
-            app:viewpager_headerHeight="250dp"
+            app:viewpager_displayToolbarWhenSwipe="true"
+            app:viewpager_enableToolbarElevation="true"
+            app:viewpager_headerAdditionalHeight="20dp"
             app:viewpager_headerAlpha="1.0"
-            app:viewpager_imageHeaderDarkLayerAlpha="0.2"
+            app:viewpager_headerHeight="250dp"
             app:viewpager_hideLogoWithFade="false"
             app:viewpager_hideToolbarAndTitle="true"
-            app:viewpager_enableToolbarElevation="true"
+            app:viewpager_imageHeaderDarkLayerAlpha="0.2"
+            app:viewpager_logo="@layout/main_menu_header"
+            app:viewpager_logoMarginTop="80dp"
+            app:viewpager_pagerTitleStrip="@layout/main_manu_tabs"
             app:viewpager_parallaxHeaderFactor="1.5"
-            app:viewpager_headerAdditionalHeight="20dp"
-            app:viewpager_displayToolbarWhenSwipe="true"
-            app:viewpager_transparentToolbar="false"
-            app:viewpager_animatedHeaderImage="true"/>
+            app:viewpager_transparentToolbar="false" />
 
 
     </com.google.android.material.navigation.NavigationView>

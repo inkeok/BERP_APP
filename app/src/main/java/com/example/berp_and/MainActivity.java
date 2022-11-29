@@ -22,8 +22,14 @@ import com.example.berp_and.adminApply.ApplyCheckFragment;
 import com.example.berp_and.adminApply.ApplyPassFragment;
 import com.example.berp_and.apply.ApplyListFragment;
 import com.example.berp_and.apply.MyApplyListFragment;
+
 import com.example.berp_and.code.CodeFragment;
 import com.example.berp_and.companyinfo.CompanyInfoFragment;
+
+import com.example.berp_and.approval.ApprovalFragment;
+import com.example.berp_and.approval.RecBoxFragment;
+import com.example.berp_and.approval.TempBoxFragment;
+import com.example.berp_and.approval.WriteBoxFragment;
 import com.example.berp_and.emp.EmpFragment;
 import com.example.berp_and.emp.EmpInsertFragment;
 import com.example.berp_and.home.HomeFragment;
@@ -33,6 +39,9 @@ import com.example.berp_and.main_menu.MainDTO;
 import com.example.berp_and.main_menu.MainPageFragment;
 import com.example.berp_and.mypage.MyPageFragment;
 import com.example.berp_and.notice.NoticeListFragment;
+import com.example.berp_and.salary.BonusListFragment;
+import com.example.berp_and.salary.MySalaryFragment;
+import com.example.berp_and.salary.SalaryListFragment;
 import com.example.berp_and.work.HolidayFragment;
 import com.example.berp_and.work.WorkFragment;
 import com.example.berp_and.work.WorkIndiFragment;
@@ -46,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MaterialViewPager mViewPager;
     DrawerLayout drawer;
     NavigationView nav_view;
-    Toolbar toolbar;
+    public static Toolbar toolbar;
     ArrayList<MainDTO> list = new ArrayList<>();
     TextView tv_login ;
     ImageView imgv_login;
@@ -244,9 +253,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ArrayList<MainDTO> subList5= new ArrayList<>();
-        subList5.add(new MainDTO("급여 기본정보", new ApplyListFragment()));
-        subList5.add(new MainDTO("급상여 입력", new ApplyListFragment()));
-        subList5.add(new MainDTO("월별급여상여지급현황", new ApplyListFragment()));
+        subList5.add(new MainDTO("나의 급여 조회", new MySalaryFragment()));
+        subList5.add(new MainDTO("급여관리", new SalaryListFragment()));
+        subList5.add(new MainDTO("상여금 현황", new BonusListFragment()));
 
         tempList.add(new MainDTO("급여관리" ,subList5));
 
@@ -254,21 +263,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ArrayList<MainDTO> subList6= new ArrayList<>();
-        subList6.add(new MainDTO("전자결재", new ApplyListFragment()));//미완
-        subList6.add(new MainDTO("임시 보관함", new ApplyListFragment()));//미완
-        subList6.add(new MainDTO("상신함", new ApplyListFragment()));//미완
-        subList6.add(new MainDTO("결재처리함", new ApplyListFragment()));//미완
+        subList6.add(new MainDTO("상신함", new WriteBoxFragment()));//미완
+        subList6.add(new MainDTO("임시 보관함", new TempBoxFragment()));//미완
+        subList6.add(new MainDTO("수신함", new RecBoxFragment()));//미완
+        subList6.add(new MainDTO("결재처리함", new ApprovalFragment()));//미완
         subList6.add(new MainDTO("코드관리", new CodeFragment()));//미완
 
         tempList.add(new MainDTO("업무관리" ,subList6));
 
         return tempList;
     }
+    
     //로그인 전
     public ArrayList<MainDTO> beforeLoginMenu(){
 
         ArrayList<MainDTO> subList1= new ArrayList<>();
-        subList1.add(new MainDTO("공지사항 글보기", new ApplyListFragment()));
+        subList1.add(new MainDTO("공지사항 글보기", new NoticeListFragment()));
 
 
         ArrayList<MainDTO> subList2= new ArrayList<>();

@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -47,7 +48,7 @@ public class EmpInsertFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.fragment_emp_insert, container, false);
-
+        MainActivity.toolbar.setTitle("신규입력");
 
         edt_employee_name_insert = v.findViewById(R.id.edt_employee_name_insert);
         edt_employee_email_insert = v.findViewById(R.id.edt_employee_email_insert);

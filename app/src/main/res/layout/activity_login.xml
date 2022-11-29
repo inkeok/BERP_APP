@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:background="@color/common_search"/>
+        android:background="@drawable/menu_back_gradient2"/>
 
 
 
@@ -72,7 +72,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edge_round"
                 android:paddingLeft="20dp"
-                android:text="20120001"
+                android:text="20221016"
                 android:textColor="@color/black" />
 
             <EditText

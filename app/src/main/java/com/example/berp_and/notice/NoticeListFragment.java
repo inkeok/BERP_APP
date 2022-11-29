@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.apply.ApplyListAdapter;
 import com.example.berp_and.apply.RecruitVO;
@@ -32,7 +33,7 @@ public class NoticeListFragment extends Fragment {
 
         recv_notiList  = v.findViewById(R.id.recv_notiList);
 
-
+        MainActivity.toolbar.setTitle("공공지지사사항항");
         notice_origin_list();
         return v;
     }

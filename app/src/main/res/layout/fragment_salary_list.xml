@@ -8,16 +8,7 @@
     tools:context=".emp.EmpFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_toEndOf="@id/txt"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:background="@drawable/emp_top_background_round"
-        android:text="급여관리"/>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,7 +18,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/linear_deptSearch"
+            android:id="@+id/linear_deptSearch_salary"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

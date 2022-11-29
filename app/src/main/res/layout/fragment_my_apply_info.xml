@@ -11,7 +11,7 @@
 
 
     <RelativeLayout
-        android:background="@drawable/emp_top_background_round"
+        android:background="@drawable/menu_back_gradient2"
         android:layout_width="match_parent"
         android:layout_height="185dp"
         >

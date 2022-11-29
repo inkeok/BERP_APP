@@ -48,10 +48,10 @@ public class HomeLoginFragment extends Fragment {
     TextView tv_main_login_name;
     ImageView img_main_login_setting;
     TextView start_work_text, end_work_text;
+
         Button start_work_btn, end_work_btn, holiday_submit_btn;
 
         RecyclerView recv_notice;
-
 
     public static int i = 0;
     @Override
@@ -63,6 +63,7 @@ public class HomeLoginFragment extends Fragment {
         tv_main_login_name = v.findViewById(R.id.tv_main_login_name);
         img_main_login_setting = v.findViewById(R.id.img_main_login_setting);
         recv_notice = v.findViewById(R.id.recv_notice);
+
 
 
         tv_main_login_name.setText(LoginActivity.loginInfoList.get(0).getPosition_name() + " "+ LoginActivity.loginInfoList.get(0).getName()+"님 / " + LoginActivity.loginInfoList.get(0).getDepartment_name());
@@ -85,6 +86,8 @@ public class HomeLoginFragment extends Fragment {
                     start_work_text.setText(list.get(0).getStart_work());
 
 
+                }else{
+                    Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
                 }
             }
         });
@@ -109,8 +112,11 @@ public class HomeLoginFragment extends Fragment {
 
                     WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
                     }.getType());
+                    if(data.equals("[]")){
+                    end_work_text.setText(list.getEnd_work());
+                    }
 
-                }else {
+                }else if (data.equals("[]")){
                     end_work_text.setText("퇴근 버튼을 눌러주세요");
                 }
             }
@@ -119,18 +125,18 @@ public class HomeLoginFragment extends Fragment {
 
 
 
-      start_work_btn.setOnClickListener(new View.OnClickListener() {
+        start_work_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Search();
-                
+
             }
         });
         end_work_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            SearchEnd();
+                SearchEnd();
 
             }
         });
@@ -157,15 +163,16 @@ public class HomeLoginFragment extends Fragment {
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-                    if(data.equals("[]")){
-                                work_start_input();
+                if(data.equals("[]")){
+                    work_start_input();
 
-                    }else{
-                        start_work_btn.isEnabled();
-                        ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
-                        }.getType());
-                        start_work_text.setText(list.get(0).getStart_work());
-                    }
+                }else{
+                    start_work_btn.isEnabled();
+                    ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                    }.getType());
+                    start_work_text.setText(list.get(0).getStart_work());
+
+                }
             }
         });
 
@@ -195,12 +202,12 @@ public class HomeLoginFragment extends Fragment {
         dto.setStart_work(date);
 
         askTask.addParam("dto",new Gson().toJson(dto));
-              askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
                 if(i == 0){
-                start_work_text.setText(date);
-                i++;
+                    start_work_text.setText(date);
+                    i++;
                 }else {
                     Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
                 }
@@ -217,7 +224,7 @@ public class HomeLoginFragment extends Fragment {
         dto.setEnd_work(date);
         askTask.addParam("dto",new Gson().toJson(dto));
 
-              askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
                 end_work_text.setText(date);
@@ -233,7 +240,7 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onResult(String data, boolean isResult) {
                 Log.d("TAG", "onResult: "+data);
-
+                Log.d("TAG", "onResult: 휘휘휘휘휘~");
                 ArrayList<NoticeVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<NoticeVO>>() {
                 }.getType());
 

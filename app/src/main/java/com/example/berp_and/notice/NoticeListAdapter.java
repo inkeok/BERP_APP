@@ -50,10 +50,12 @@ public class NoticeListAdapter  extends RecyclerView.Adapter<NoticeListAdapter.V
     h.lin_notice_list.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             Intent intent = new Intent(context, NoticeDetailActivity.class);
             intent.putExtra("vo", (Serializable) list.get(i));
             context.startActivity(intent);
             h.notice_readCnt.setText(list.get(i).getNotice_readcnt()+"");
+
             CommonAskTask askTask = new CommonAskTask("detail_notice_list", context);
             askTask.addParam("notice_num",list.get(i).getNotice_num()+"");
             askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
