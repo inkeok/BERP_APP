@@ -13,8 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/linear_deptSearch_bonus"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -65,39 +63,43 @@
                 <TextView
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:layout_width="0.7dp"
                     android:textStyle="bold"
 
                     android:layout_height="wrap_content"
-                    android:text=" 이름"/>
+                    android:text="이름"/>
 
                 <TextView
-                    android:gravity="center"
-                    android:layout_weight="0.9"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text=" 지급일"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:layout_weight="0.4"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text=" 금액"/>
-
-                <TextView
+                    android:layout_marginRight="20dp"
                     android:gravity="center"
                     android:layout_weight="0.6"
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text=" 비고"/>
+                    android:text="지급일"/>
+
+                <TextView
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="금액"/>
+
+                <TextView
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:layout_weight="0.6"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="비고"/>
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 
 
 
@@ -106,8 +108,6 @@
         android:id="@+id/recv_bonusList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-
 
 
 </LinearLayout>
