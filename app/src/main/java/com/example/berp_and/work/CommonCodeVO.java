@@ -1,8 +1,9 @@
 package com.example.berp_and.work;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class CommonCodeVO {
+public class CommonCodeVO implements Serializable {
 
 	private String code_title;
 	private String code_value;

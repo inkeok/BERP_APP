@@ -13,6 +13,12 @@
         android:theme="@style/Theme.BERP_AND"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".code.CodeModifyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".code.CodeDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".approval.ApprovalDetailActivity"
             android:exported="true" />
         <activity

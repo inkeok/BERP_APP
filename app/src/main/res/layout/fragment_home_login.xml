@@ -100,7 +100,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:background="@color/colorPrimaryDark"
                 android:text="출근" />
 
             <Button

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BERP_AND" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.BERP_AND" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/common_search</item>
         <item name="colorPrimaryVariant">@color/common_search</item>
@@ -39,4 +39,10 @@
     <style name="TransparentBottomSheetDialogFragmentChild" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">#00000000</item>
     </style>
+    <style name="Theme.BERP_AND.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.BERP_AND.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.BERP_AND.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

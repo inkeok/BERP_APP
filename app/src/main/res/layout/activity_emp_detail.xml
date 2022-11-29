@@ -324,6 +324,7 @@
             android:id="@+id/btn_emp_close"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="@color/black"
             android:text="닫기"
             android:textSize="16dp"
             android:backgroundTint="@color/common_min"/>

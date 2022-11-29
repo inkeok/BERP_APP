@@ -12,11 +12,6 @@
         android:layout_height="300dp"
         android:background="@drawable/menu_back_gradient2"/>
 
-
-
-
-
-
     <RelativeLayout
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"

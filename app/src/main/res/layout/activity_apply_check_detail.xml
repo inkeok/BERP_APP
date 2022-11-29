@@ -252,7 +252,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="합격"
-                android:backgroundTint="@color/common_search"/>
+                android:background="@color/common_search"/>
 
             <Button
                 android:id="@+id/btn_fail"
