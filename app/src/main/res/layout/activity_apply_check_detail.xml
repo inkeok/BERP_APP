@@ -89,7 +89,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border_apply_top"
+            android:background="@drawable/menu_back_gradient2"
             android:text="지원내역"
             android:textSize="20dp"
             android:textColor="@color/white"
@@ -142,7 +142,7 @@
             >
             <TextView
                 android:paddingVertical="5dp"
-                android:background="@drawable/border_apply_top"
+                android:background="@drawable/menu_back_gradient2"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -177,7 +177,7 @@
             >
             <TextView
                 android:paddingVertical="5dp"
-                android:background="@drawable/border_apply_top"
+                android:background="@drawable/menu_back_gradient2"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -212,7 +212,7 @@
             >
             <TextView
                 android:paddingVertical="5dp"
-                android:background="@drawable/border_apply_top"
+                android:background="@drawable/menu_back_gradient2"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
