@@ -44,7 +44,7 @@
                     android:padding="20dp">
 
                     <TextView
-                        android:id="@+id/temp_detail_title"
+                        android:id="@+id/approval_detail_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="제목"
@@ -53,7 +53,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/temp_detail_writer"
+                        android:id="@+id/approval_detail_writer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -71,7 +71,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/temp_detail_date"
+                            android:id="@+id/approval_detail_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="작성 날짜" />
@@ -87,53 +87,41 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/view" />
+
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="162dp">
+
                     <TextView
-                        android:id="@+id/temp_detail_content"
+                        android:id="@+id/approval_detail_content"
                         android:layout_width="match_parent"
-                        android:layout_height="186dp"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:padding="20dp"
                         android:text="내용" />
-                </ScrollView>
 
+                </ScrollView>
+                <TextView
+                    android:id="@+id/approval_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="처리상태"/>
+                <TextView
+                    android:id="@+id/approval_finish_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="결재 날짜"></TextView>
+                <TextView
+                    android:id="@+id/approval_detail_approver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="결재자"/>
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
 
-        <Button
-            android:id="@+id/temp_btn_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/border_cdv"
-            android:layout_alignBottom="@+id/border_cdv"
-            android:layout_marginEnd="33dp"
-            android:layout_marginBottom="-55dp"
-            android:backgroundTint="#DD1B0D"
-            android:text="삭제" />
 
-        <Button
-            android:id="@+id/temp_btn_modify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/border_cdv"
-            android:layout_alignBottom="@+id/border_cdv"
-            android:layout_marginEnd="256dp"
-            android:layout_marginBottom="-55dp"
-            android:backgroundTint="#58D524"
-            android:text="수정" />
-
-        <Button
-            android:id="@+id/temp_btn_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/border_cdv"
-            android:layout_alignBottom="@+id/border_cdv"
-            android:layout_marginEnd="143dp"
-            android:layout_marginBottom="-54dp"
-            android:text="제출" />
 
     </RelativeLayout>
 

@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        loginInfoList.clear();
 
         edt_id = findViewById(R.id.edt_id);
         edt_pw = findViewById(R.id.edt_pw);
@@ -50,12 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                         MainActivity.LoginInfo = 1;
                         finish();
                     }
-
                 }
-
             });
-
         });
-
     }
 }

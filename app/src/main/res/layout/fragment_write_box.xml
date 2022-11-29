@@ -5,10 +5,102 @@
     android:layout_height="match_parent"
     tools:context=".approval.WriteBoxFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:src="@drawable/app_backgroung"
+        android:scaleType="fitXY"
+        android:alpha="0.5"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_toEndOf="@id/txt"
+            android:background="@drawable/emp_top_background_round"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="상신함"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/border_apply_top"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="번호"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3.5"
+                android:gravity="center"
+                android:text="제목"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="제출일"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                android:gravity="center"
+                android:text="결재자"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recv_write"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+
+    </LinearLayout>
 </FrameLayout>

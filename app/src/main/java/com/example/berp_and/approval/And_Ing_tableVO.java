@@ -4,89 +4,44 @@ package com.example.berp_and.approval;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Ing_tableVO implements Serializable {
-	
-	private int no, ing_no, employee_id, department_id, approver_id;
-	private String company_cd, file_name, file_path, document_title, 
-					document_content, document_check, document_status, document_submit,
-					email, approver, drafter, c_status, c_position, document_comment, name;
-	private String document_date, finish_date;
+public class And_Ing_tableVO {
+	private int employee_id, department_id, approver_id;
+	private Date document_date,finish_date ;
+	private String company_cd, file_name, file_path, document_title,
 
-	public String getName() {
-		return name;
-	}
+			document_content,  document_check, document_submit, ing_no,
 
-	public void setName(String name) {
-		this.name = name;
-	}
+			document_comment, emp_position_name, app_position_name, emp_position, app_position,
+			check_name, company_name, emp_dpmt_name,app_dpmt_name , emp_name, app_name;
 
-	public String getDocument_comment() {
-		return document_comment;
+
+	public String getEmp_position_name() {
+		return emp_position_name;
+
 	}
-	public void setDocument_comment(String document_comment) {
-		this.document_comment = document_comment;
+	public void setEmp_position_name(String emp_position_name) {
+		this.emp_position_name = emp_position_name;
 	}
-	public String getC_status() {
-		return c_status;
+	public String getApp_position_name() {
+		return app_position_name;
 	}
-	public void setC_status(String c_status) {
-		this.c_status = c_status;
+	public void setApp_position_name(String app_position_name) {
+		this.app_position_name = app_position_name;
 	}
-	public String getC_position() {
-		return c_position;
+	public String getEmp_position() {
+		return emp_position;
 	}
-	public void setC_position(String c_position) {
-		this.c_position = c_position;
+	public void setEmp_position(String emp_position) {
+		this.emp_position = emp_position;
 	}
-	public String getDocument_status() {
-		return document_status;
-	}
-	public void setDocument_status(String document_status) {
-		this.document_status = document_status;
-	}
-	public String getDrafter() {
-		return drafter;
-	}
-	public void setDrafter(String drafter) {
-		this.drafter = drafter;
-	}
-	public int getApprover_id() {
-		return approver_id;
-	}
-	public void setApprover_id(int approver_id) {
-		this.approver_id = approver_id;
-	}
-	public String getApprover() {
-		return approver;
-	}
-	public void setApprover(String approver) {
-		this.approver = approver;
-	}
-	public String getFinish_date() {
-		return finish_date;
-	}
-	public void setFinish_date(String finish_date) {
-		this.finish_date = finish_date;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public int getIng_no() {
-		return ing_no;
-	}
-	public void setIng_no(int ing_no) {
-		this.ing_no = ing_no;
-	}
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
+	public String getApp_position() {
+		return app_position;
 	}
 
+	public void setApp_position(String app_position) {
+		this.app_position = app_position;
+
+	}
 	public int getEmployee_id() {
 		return employee_id;
 	}
@@ -166,12 +121,6 @@ public class Ing_tableVO implements Serializable {
 	public void setIng_no(String ing_no) {
 		this.ing_no = ing_no;
 
-	public String getDocument_date() {
-		return document_date;
-	}
-	public void setDocument_date(String document_date) {
-		this.document_date = document_date;
-
 	}
 	public String getDocument_comment() {
 		return document_comment;
@@ -215,8 +164,5 @@ public class Ing_tableVO implements Serializable {
 	public void setApp_name(String app_name) {
 		this.app_name = app_name;
 	}
-
-
-
-
 }
+

@@ -46,7 +46,7 @@ public class MyApplyInfoFragment extends Fragment {
 
 
 
-        CommonAskTask askTask = new CommonAskTask("andMyApplyList.rec", getActivity());
+        CommonAskTask askTask = new CommonAskTask("andCodeList.rec", getActivity());
         askTask.addParam("name", name);
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
