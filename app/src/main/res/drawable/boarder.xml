@@ -3,7 +3,7 @@
 
     <stroke
         android:width="2dp"
-        android:color="@color/common_search"
+        android:color="#0951BD"
 
         />
 
