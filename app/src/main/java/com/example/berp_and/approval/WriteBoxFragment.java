@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -37,6 +39,7 @@ public class WriteBoxFragment extends Fragment {
         recv_write = v.findViewById(R.id.recv_write);
         btn_new_doc = v.findViewById(R.id.btn_new_doc);
 
+
         CommonAskTask askTask = new CommonAskTask("andWrite.ap", getContext());
         askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
@@ -60,6 +63,9 @@ public class WriteBoxFragment extends Fragment {
 
 
 
+
+
         return v;
     }
+
 }

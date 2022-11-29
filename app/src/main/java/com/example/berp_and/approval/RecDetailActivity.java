@@ -63,7 +63,10 @@ public class RecDetailActivity extends AppCompatActivity {
         rec_btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                And_Ing_tableVO vo = new And_Ing_tableVO();
+                vo.setIng_no();
                 CommonAskTask askTask1 = new CommonAskTask("andRecConfirm.ap", RecDetailActivity.this);
+                askTask1.addParam();
 
             }
         });
