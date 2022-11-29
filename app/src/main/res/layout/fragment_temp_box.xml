@@ -10,23 +10,70 @@
 
 
 
-    <TextView
-        android:layout_toEndOf="@id/txt"
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingLeft="10dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:background="@drawable/emp_top_background_round"
-        android:text="임시 보관함"/>
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@drawable/menu_back_gradient2"
+        >
 
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="순번"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <View
+            android:layout_gravity="center_vertical"
+            android:layout_width="1.5dp"
+            android:layout_height="20dp"
+            android:background="@color/white"/>
+        <TextView
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="이름"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <View
+            android:layout_gravity="center_vertical"
+            android:layout_width="1.5dp"
+            android:layout_height="20dp"
+            android:background="@color/white"/>
+        <TextView
+            android:layout_weight="3.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="제목"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <View
+            android:layout_gravity="center_vertical"
+            android:layout_width="1.5dp"
+            android:layout_height="20dp"
+            android:background="@color/white"/>
+        <TextView
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="날짜"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
+    </LinearLayout>
 
 
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:id="@+id/recv_temp_box"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

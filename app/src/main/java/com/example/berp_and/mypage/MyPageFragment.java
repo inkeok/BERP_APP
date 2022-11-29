@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.home.HomeLoginFragment;
 import com.example.berp_and.login.LoginActivity;
@@ -37,7 +38,7 @@ public class MyPageFragment extends Fragment {
         my_page_submit = v.findViewById(R.id.my_page_submit);
         my_page_cancel = v.findViewById(R.id.my_page_cancel);
 
-
+        MainActivity.toolbar.setTitle("개인정보 수정");
         my_page_name.setText(LoginActivity.loginInfoList.get(0).getName()+"님 정보변경");
         my_page_pw.setText(LoginActivity.loginInfoList.get(0).getPw());
         my_page_phone.setText(LoginActivity.loginInfoList.get(0).getPhone());

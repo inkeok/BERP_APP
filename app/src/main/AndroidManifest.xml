@@ -14,8 +14,17 @@
         android:usesCleartextTraffic="true">
         <activity
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:name=".salary.TestActivity"
 =======
+=======
+            android:name=".approval.TempModifyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".approval.TempDetailActivity"
+            android:exported="true" />
+        <activity
+>>>>>>> 1f99d914934c346b6704b7d7bbb8c69224ac6dc5
             android:name=".notice.NoticeDetailActivity"
 >>>>>>> 2f32f21169065ea0d72fc4b7a40d270e887d308e
             android:exported="true" />

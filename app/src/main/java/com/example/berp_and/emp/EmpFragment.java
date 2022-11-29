@@ -46,7 +46,7 @@ public class EmpFragment extends Fragment {
         MainActivity.LoginInfo = 1;
 
         recv_empList = v.findViewById(R.id.recv_empList);
-
+        MainActivity.toolbar.setTitle("직원관리");
         origin_list();
 
 

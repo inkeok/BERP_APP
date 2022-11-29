@@ -41,6 +41,7 @@ public class EmpDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emp_detail);
+        MainActivity.toolbar.setTitle("직원 정보수정");
 
         tv_employee_id_detail = findViewById(R.id.tv_employee_id_detail);
         tv_employee_name_detail = findViewById(R.id.tv_employee_name_detail);

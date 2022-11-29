@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpVO;
 import com.google.gson.Gson;
@@ -29,6 +30,7 @@ public class HolidayFragment extends Fragment {
     ArrayList<String> holiday_list_real = new ArrayList<>();
     AutoCompleteTextView hol_item_filled_exposed;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class HolidayFragment extends Fragment {
 
         recv_holList = v.findViewById(R.id.recv_holList);
         hol_item_filled_exposed = v.findViewById(R.id.hol_item_filled_exposed);
+        MainActivity.toolbar.setTitle("휴일관리");
             origin_list();
 
             value_add();

@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpVO;
 import com.google.gson.Gson;
@@ -37,7 +38,7 @@ public class ApplyPassFragment extends Fragment {
 
         recv_applyCheck =v.findViewById(R.id.recv_applyCheck);
         apply_check_spinner = v.findViewById(R.id.apply_check_spinner);
-
+        MainActivity.toolbar.setTitle("합격자 조회");
         CommonAskTask askTask_list = new CommonAskTask("andApplyPassSelectList.rec" ,getActivity());
         askTask_list.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override

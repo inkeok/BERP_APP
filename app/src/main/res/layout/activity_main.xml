@@ -24,7 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/common_search"
+                android:background="@drawable/menu_back_gradient2"
                 app:popupTheme="@style/Widget.AppCompat.Toolbar"/>
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -33,10 +33,11 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <FrameLayout
+
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="50dp">
+        android:paddingTop="?actionBarSize">
 
     </FrameLayout>
 

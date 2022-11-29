@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpListAdapter;
 import com.example.berp_and.emp.EmpVO;
@@ -35,7 +36,7 @@ public class WorkFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_work, container, false);
-
+        MainActivity.toolbar.setTitle("근태관리");
 
         recv_workList = v.findViewById(R.id.recv_workList);
         origin_list();
