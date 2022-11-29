@@ -19,10 +19,5 @@ public class CommissionActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-
-    }
 }

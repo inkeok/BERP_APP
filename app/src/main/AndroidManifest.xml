@@ -13,16 +13,15 @@
         android:theme="@style/Theme.BERP_AND"
         android:usesCleartextTraffic="true">
         <activity
+
             android:name=".approval.ApprovalDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".approval.TempModifyActivity"
+
+            android:name=".salary.TestActivity"
             android:exported="true" />
         <activity
             android:name=".approval.TempDetailActivity"
-            android:exported="true" />
-        <activity
-            android:name=".notice.NoticeDetailActivity"
             android:exported="true" />
         <activity
             android:name=".adminApply.ApplyCheckDetailActivity"
