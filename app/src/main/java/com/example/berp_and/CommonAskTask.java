@@ -24,9 +24,6 @@ public class CommonAskTask extends AsyncTask<String, String, String> {
     public AsynkTaskCallback callback;
 
 
-
-
-
     public CommonAskTask(String url, Context context) {
         this.url = url; //Spring에 있는 여러 mapping에 접근
         this.context = context; //progressDialog 보여주려고
