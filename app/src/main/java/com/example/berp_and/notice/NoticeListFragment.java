@@ -33,7 +33,7 @@ public class NoticeListFragment extends Fragment {
 
         recv_notiList  = v.findViewById(R.id.recv_notiList);
 
-        MainActivity.toolbar.setTitle("공공지지사사항항");
+        MainActivity.toolbar.setTitle("공지사항");
         notice_origin_list();
         return v;
     }
