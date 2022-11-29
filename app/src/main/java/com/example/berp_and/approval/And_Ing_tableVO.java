@@ -5,10 +5,10 @@ import java.sql.Date;
 
 
 public class And_Ing_tableVO {
-	private int employee_id, department_id, approver_id,ing_no;
+	private int employee_id, department_id, approver_id;
 	private Date document_date,finish_date ;
 	private String company_cd, file_name, file_path, document_title,
-			document_content,  document_check, document_submit, name,
+			document_content,  document_check, document_submit,ing_no,
 			document_comment, emp_position_name, app_position_name, emp_position, app_position,
 			check_name, company_name, emp_dpmt_name,app_dpmt_name , emp_name, app_name;
 
