@@ -86,6 +86,8 @@ public class HomeLoginFragment extends Fragment {
                     start_work_text.setText(list.get(0).getStart_work());
 
 
+                }else{
+                    Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
                 }
             }
         });
@@ -110,8 +112,11 @@ public class HomeLoginFragment extends Fragment {
 
                     WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
                     }.getType());
+                    if(data.equals("[]")){
+                    end_work_text.setText(list.getEnd_work());
+                    }
 
-                }else {
+                }else if (data.equals("[]")){
                     end_work_text.setText("퇴근 버튼을 눌러주세요");
                 }
             }
@@ -166,6 +171,7 @@ public class HomeLoginFragment extends Fragment {
                     ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
                     }.getType());
                     start_work_text.setText(list.get(0).getStart_work());
+
                 }
             }
         });
@@ -177,7 +183,6 @@ public class HomeLoginFragment extends Fragment {
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-
                         work_end_input();
 
             }
