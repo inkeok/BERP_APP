@@ -66,7 +66,7 @@ public class HomeLoginFragment extends Fragment {
 
 
 
-        tv_main_login_name.setText(LoginActivity.loginInfoList.get(0).getPosition_name() + " "+ LoginActivity.loginInfoList.get(0).getName()+"님 / " + LoginActivity.loginInfoList.get(0).getDepartment_name());
+
 
         start_work_btn = v.findViewById(R.id.start_work_btn);
         end_work_btn = v.findViewById(R.id.end_work_btn);
@@ -74,21 +74,8 @@ public class HomeLoginFragment extends Fragment {
         end_work_text = v.findViewById(R.id.end_work_text);
         holiday_submit_btn = v.findViewById(R.id.holiday_submit_btn);
 
-        CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
-        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-            @Override
-            public void onResult(String data, boolean isResult) {
-                if(!data.equals("[]")){
-                    start_work_btn.isEnabled();
-                    ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
-                    }.getType());
-                    start_work_text.setText(list.get(0).getStart_work());
 
-
-                }
-            }
-        });
+        always();
 
         holiday_submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,21 +88,7 @@ public class HomeLoginFragment extends Fragment {
             }
         });
 
-        askTask = new CommonAskTask("andEndSearch",getActivity());
-        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-            @Override
-            public void onResult(String data, boolean isResult) {
-                if(data != null){
 
-                    WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
-                    }.getType());
-
-                }else {
-                    end_work_text.setText("퇴근 버튼을 눌러주세요");
-                }
-            }
-        });
 
 
 
@@ -150,6 +123,54 @@ public class HomeLoginFragment extends Fragment {
 
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        start_work_text.setText("");
+        end_work_text.setText("");
+        always();
+        Notice_list();
+
+    }
+    public void always(){
+
+        tv_main_login_name.setText(LoginActivity.loginInfoList.get(0).getPosition_name() + " "+ LoginActivity.loginInfoList.get(0).getName()+"님 / " + LoginActivity.loginInfoList.get(0).getDepartment_name());
+
+        CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                if(!data.equals("[]")){
+                    start_work_btn.isEnabled();
+                    ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
+                    }.getType());
+                    start_work_text.setText(list.get(0).getStart_work());
+
+
+                }
+            }
+        });
+
+        CommonAskTask askTask1 = new CommonAskTask("andEndSearch",getActivity());
+        askTask1.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+        askTask1.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                if(data == null){
+                    end_work_text.setText("퇴근 버튼을 눌러주세요");
+
+                }else {
+
+                    WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
+                    }.getType());
+
+                    end_work_text.setText(list.getEnd_work()+"");
+                }
+            }
+        });
     }
 
     public void Search(){
