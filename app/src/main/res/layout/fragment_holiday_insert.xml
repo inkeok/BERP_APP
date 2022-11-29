@@ -30,9 +30,10 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/common_search"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:id="@+id/holiday_date"
         android:layout_width="100dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:text="날짜 선택"/>
         <com.google.android.material.textfield.TextInputLayout
@@ -101,9 +102,10 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
     <Button
-        android:backgroundTint="@color/common_search"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="@color/white"
         android:id="@+id/holiday_insert_btn"
-android:layout_marginBottom="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="휴가신청"/>

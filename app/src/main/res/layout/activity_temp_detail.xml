@@ -105,34 +105,37 @@
 
         <Button
             android:id="@+id/temp_btn_delete"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/border_cdv"
             android:layout_alignBottom="@+id/border_cdv"
             android:layout_marginEnd="33dp"
             android:layout_marginBottom="-55dp"
+            android:textColor="@color/white"
             android:backgroundTint="#DD1B0D"
             android:text="삭제" />
 
         <Button
             android:id="@+id/temp_btn_modify"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/border_cdv"
             android:layout_alignBottom="@+id/border_cdv"
             android:layout_marginEnd="256dp"
             android:layout_marginBottom="-55dp"
-            android:backgroundTint="#58D524"
-            android:text="수정" />
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="수정"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/temp_btn_submit"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/border_cdv"
             android:layout_alignBottom="@+id/border_cdv"
             android:layout_marginEnd="143dp"
             android:layout_marginBottom="-54dp"
+            android:backgroundTint="@color/common_min"
             android:text="제출" />
 
     </RelativeLayout>

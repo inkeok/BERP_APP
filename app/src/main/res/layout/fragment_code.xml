@@ -5,23 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".code.CodeFragment"
+    android:background="@drawable/app_background"
     android:orientation="vertical">
 
-    <TextView
-        android:textSize="20dp"
-        android:layout_margin="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="코드관리"
-        android:textColor="@color/blue"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/linear_CodeSearch"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
         >

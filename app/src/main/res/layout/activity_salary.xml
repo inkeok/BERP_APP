@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_background"
     tools:context=".salary.BonusActivity">
 
     <LinearLayout
@@ -13,18 +14,22 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
+            android:background="@drawable/round_title"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="230dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:textSize="24dp"
+                android:padding="5dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="급여 조정"
+                android:textColor="@color/white"
+                android:text="급여조정"
                 android:gravity="center"/>
 
 
@@ -50,14 +55,14 @@
                     android:id="@+id/tv_name_salary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:textColor="@color/black"
                     android:text="(관리팀 과장 최인혁)"/>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_marginLeft="@dimen/dp_10"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -98,6 +103,7 @@
                 >
 
                 <LinearLayout
+                    android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -106,10 +112,12 @@
                     <Button
                         android:id="@+id/salaryBtn_save"
                         android:text="저장"
+                        android:textColor="@color/white"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="10dp"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorPrimaryDark"
                         />
 
                     <Button
@@ -119,6 +127,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:backgroundTint="@color/common_min"
                         />
 
                 </LinearLayout>

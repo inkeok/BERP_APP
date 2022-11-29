@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BERP_AND" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.BERP_AND" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/common_search</item>
         <item name="colorPrimaryVariant">@color/common_search</item>

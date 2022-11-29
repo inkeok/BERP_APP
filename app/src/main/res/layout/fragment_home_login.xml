@@ -99,7 +99,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#526DF3"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:text="출근" />
 
             <Button
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#656565"
+                android:backgroundTint="@color/common_min"
                 android:text="퇴근" />
 
 
@@ -187,7 +188,8 @@
             android:id="@+id/holiday_submit_btn"
             android:layout_gravity="center"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:background="#E8E8E8"
             android:text="휴가 신청"/>
 
     </LinearLayout>
@@ -219,10 +221,11 @@
             android:layout_height="1dp"
             android:layout_marginRight="20dp"
             android:background="@color/view" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recv_notice"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recv_notice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

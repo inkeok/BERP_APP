@@ -107,22 +107,25 @@
 
         <Button
             android:id="@+id/temp_btn_modify"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/border_cdv"
             android:layout_alignBottom="@+id/border_cdv"
-            android:layout_marginEnd="231dp"
+            android:layout_marginEnd="200dp"
             android:layout_marginBottom="-61dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="저장"></Button>
 
         <Button
             android:id="@+id/temp_btn_cancel"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/border_cdv"
             android:layout_alignBottom="@+id/border_cdv"
             android:layout_marginEnd="64dp"
             android:layout_marginBottom="-61dp"
+            android:textColor="@color/white"
+            android:layout_width="110dp"
             android:backgroundTint="#F80000"
             android:text="취소"></Button>
 
