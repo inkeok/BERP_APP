@@ -4,7 +4,7 @@ package com.example.berp_and.approval;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class And_Ing_tableVO {
+public class And_Ing_tableVO implements Serializable{
 	private int employee_id, department_id, approver_id;
 	private Date document_date,finish_date ;
 	private String company_cd, file_name, file_path, document_title,
