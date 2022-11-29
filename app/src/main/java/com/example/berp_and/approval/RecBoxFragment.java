@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.R;
+import com.example.berp_and.login.LoginActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,17 +33,17 @@ public class RecBoxFragment extends Fragment {
                     recv_recbox = v.findViewById(R.id.recv_recbox);
 
                     CommonAskTask askTask = new CommonAskTask("andRec.ap", getContext());
+                    askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
                     askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                         @Override
                         public void onResult(String data, boolean isResult) {
                             list = new Gson().fromJson(data, new TypeToken<ArrayList<And_Ing_tableVO>>() {
                             }.getType());
 
-                recv_recbox.setAdapter(new RecAdapter(getLayoutInflater(),list));
+                recv_recbox.setAdapter(new RecAdapter(getLayoutInflater(),list, getContext()));
                 recv_recbox.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL, false));
             }
         });
-
 
         return v;
     }
