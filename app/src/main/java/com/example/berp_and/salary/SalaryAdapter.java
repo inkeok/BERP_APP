@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -78,6 +79,23 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
 
         h.tv_department_name.setText(salaryList.get(i).getDepartment_name());
         h.employee_id = salaryList.get(i).getEmployee_id();
+
+        if (salaryList.get(i).getDepartment_id() == 10){
+            h.view_color.setBackgroundColor(Color.parseColor("#000000"));
+        }else if(salaryList.get(i).getDepartment_id() == 20){
+            h.view_color.setBackgroundColor(Color.parseColor("#EA3737"));
+        }else if(salaryList.get(i).getDepartment_id() == 30){
+            h.view_color.setBackgroundColor(Color.parseColor("#679333"));
+        }else if(salaryList.get(i).getDepartment_id() == 40){
+            h.view_color.setBackgroundColor(Color.parseColor("#C6B203"));
+        }else if(salaryList.get(i).getDepartment_id() == 50){
+            h.view_color.setBackgroundColor(Color.parseColor("#008EFF"));
+        }else if(salaryList.get(i).getDepartment_id() == 60){
+            h.view_color.setBackgroundColor(Color.parseColor("#ED00FF"));
+        }
+
+
+
         h.img_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,6 +170,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
                 h.commissionBtn_cancel = dialog.findViewById(R.id.commissionBtn_cancel);
                 h.commissionBtn_save = dialog.findViewById(R.id.commissionBtn_save);
 
+
                 dialog.show();
 
                 dialog.findViewById(R.id.commissionBtn_save).setOnClickListener(new View.OnClickListener() {
@@ -212,6 +231,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
 
         ImageView img_insert;
 
+        View view_color;
 
         public SalaryHolder(@NonNull View v) {
             super(v);
@@ -226,6 +246,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
             img_insert = v.findViewById(R.id.img_insert);
             tv_name_bonus = v.findViewById(R.id.tv_name_bonus);
             tv_c_position = v.findViewById(R.id.tv_c_position);
+            view_color = v.findViewById(R.id.view_color);
 
 
 

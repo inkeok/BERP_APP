@@ -1,6 +1,7 @@
 package com.example.berp_and.salary;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,20 @@ public class BonusAdapter extends RecyclerView.Adapter<BonusAdapter.BonusHolder>
         h.tv_name_bonusList.setText(bonusList.get(i).getDepartment_name()+" "+bonusList.get(i).getC_position()+" "+bonusList.get(i).getName()+" ");
 
         h.tv_comment_bonusList.setText(bonusList.get(i).getBonus_comment());
+
+        if (bonusList.get(i).getDepartment_id() == 10){
+            h.view_color.setBackgroundColor(Color.parseColor("#000000"));
+        }else if(bonusList.get(i).getDepartment_id() == 20){
+            h.view_color.setBackgroundColor(Color.parseColor("#EA3737"));
+        }else if(bonusList.get(i).getDepartment_id() == 30){
+            h.view_color.setBackgroundColor(Color.parseColor("#679333"));
+        }else if(bonusList.get(i).getDepartment_id() == 40){
+            h.view_color.setBackgroundColor(Color.parseColor("#C6B203"));
+        }else if(bonusList.get(i).getDepartment_id() == 50){
+            h.view_color.setBackgroundColor(Color.parseColor("#008EFF"));
+        }else if(bonusList.get(i).getDepartment_id() == 60){
+            h.view_color.setBackgroundColor(Color.parseColor("#ED00FF"));
+        }
     }
 
     @Override
@@ -58,12 +73,14 @@ public class BonusAdapter extends RecyclerView.Adapter<BonusAdapter.BonusHolder>
     class BonusHolder extends RecyclerView.ViewHolder {
 
         TextView tv_bonus_bonusList, tv_date_bonusList, tv_name_bonusList, tv_comment_bonusList;
+        View view_color;
         public BonusHolder(@NonNull View v) {
             super(v);
             tv_bonus_bonusList = v.findViewById(R.id.tv_bonus_bonusList);
             tv_date_bonusList = v.findViewById(R.id.tv_date_bonusList);
             tv_name_bonusList = v.findViewById(R.id.tv_name_bonusList);
             tv_comment_bonusList = v.findViewById(R.id.tv_comment_bonusList);
+            view_color = v.findViewById(R.id.view_color);
 
         }
     }

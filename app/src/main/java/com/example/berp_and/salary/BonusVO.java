@@ -4,12 +4,19 @@ import java.sql.Date;
 
 public class BonusVO {
 
-	private int employee_id, bonus; 
+	private int employee_id, bonus, department_id;
 	private Date bonus_date; 
 	private String bonus_comment, name, c_position, c_employee_pattern, department_name;
-	
-	
-	
+
+
+	public int getDepartment_id() {
+		return department_id;
+	}
+
+	public void setDepartment_id(int department_id) {
+		this.department_id = department_id;
+	}
+
 	public String getDepartment_name() {
 		return department_name;
 	}

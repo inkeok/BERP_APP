@@ -2,6 +2,7 @@ package com.example.berp_and.salary;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,19 @@ public class MySalaryAdapter extends RecyclerView.Adapter<MySalaryAdapter.MySala
         h.tv_myBonus.setText(myBonusList.get(i).getBonus()+"");
         h.tv_myComment.setText(myBonusList.get(i).getBonus_comment());
 
+//        if (myBonusList.get(i).getDepartment_id() == 10){
+//            h.view_color.setBackgroundColor(Color.parseColor("#000000"));
+//        }else if(myBonusList.get(i).getDepartment_id() == 20){
+//            h.view_color.setBackgroundColor(Color.parseColor("#EA3737"));
+//        }else if(myBonusList.get(i).getDepartment_id() == 30){
+//            h.view_color.setBackgroundColor(Color.parseColor("#679333"));
+//        }else if(myBonusList.get(i).getDepartment_id() == 40){
+//            h.view_color.setBackgroundColor(Color.parseColor("#C6B203"));
+//        }else if(myBonusList.get(i).getDepartment_id() == 50){
+//            h.view_color.setBackgroundColor(Color.parseColor("#008EFF"));
+//        }else if(myBonusList.get(i).getDepartment_id() == 60){
+//            h.view_color.setBackgroundColor(Color.parseColor("#ED00FF"));
+//        }
 
 
     }
@@ -62,12 +76,13 @@ public class MySalaryAdapter extends RecyclerView.Adapter<MySalaryAdapter.MySala
 
         TextView tv_myDate, tv_myBonus, tv_myComment;
         int employee_id;
-
+        View view_color;
         public MySalaryHolder(@NonNull View v) {
             super(v);
             tv_myDate = v.findViewById(R.id.tv_myDate);
             tv_myBonus = v.findViewById(R.id.tv_myBonus);
             tv_myComment = v.findViewById(R.id.tv_myComment);
+            view_color = v.findViewById(R.id.view_color);
         }
     }
 }
