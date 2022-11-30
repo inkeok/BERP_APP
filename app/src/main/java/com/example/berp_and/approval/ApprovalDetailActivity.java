@@ -27,8 +27,11 @@ public class ApprovalDetailActivity extends AppCompatActivity {
 
         vo = (Result_tableVO) getIntent().getSerializableExtra("vo");
 
-
-            approval_finish_date.setText("결재날짜 : " + vo.getFinish_date()+"");
+        if(vo.getFinish_date() == null){
+            approval_finish_date.setText("미결재");
+        }else {
+            approval_finish_date.setText("결재 완료 : " + vo.getFinish_date()+"");
+        }
 
 
         approval_detail_content.setText(vo.getDocument_content());
@@ -37,5 +40,9 @@ public class ApprovalDetailActivity extends AppCompatActivity {
         approval_status.setText("처리상태 : " + vo.getC_status());
         approval_detail_date.setText(vo.getDocument_date()+"");
         approval_detail_approver.setText("결재자 : "  + vo.getApprover()+"/"+vo.getApprover_position() +"");
+
+
+
+
     }
 }
