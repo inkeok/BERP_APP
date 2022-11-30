@@ -5,9 +5,18 @@ import java.sql.Date;
 
 public class SalaryVO implements Serializable {
 
-	private int employee_id, salary, commission_pct;
+	private int employee_id, salary, commission_pct, department_id;
 	private String company_cd, c_position, c_employee_pattern, name, department_name; 
 	private String hire_date;
+
+	public int getDepartment_id() {
+		return department_id;
+	}
+
+	public void setDepartment_id(int department_id) {
+		this.department_id = department_id;
+	}
+
 	public int getEmployee_id() {
 		return employee_id;
 	}

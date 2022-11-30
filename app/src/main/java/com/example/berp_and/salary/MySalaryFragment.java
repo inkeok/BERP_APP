@@ -66,6 +66,7 @@ public class MySalaryFragment extends Fragment {
                 tv_myEmployeePattern.setText(mySalaryVo.getC_employee_pattern());
                 tv_myCommission.setText(mySalaryVo.getCommission_pct()+"");
 
+
             }
         });
 

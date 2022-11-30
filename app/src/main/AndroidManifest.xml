@@ -20,10 +20,21 @@
             android:exported="true" />
         <activity
             android:name=".approval.ApprovalDetailActivity"
+            android:name=".approval.WriteDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".approval.WriteNewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".approval.RecDetailActivity"
             android:exported="true" />
         <activity
             android:name=".approval.TempModifyActivity"
             android:exported="true" />
+        <activity
+            android:name=".approval.ApprovalDetailActivity"
+            android:exported="true" />
+
         <activity
             android:name=".approval.TempDetailActivity"
             android:exported="true" />

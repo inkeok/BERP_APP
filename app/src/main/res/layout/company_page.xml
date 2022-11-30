@@ -206,6 +206,7 @@
             android:layout_gravity="center"
             android:layout_marginRight="20dp"/>
 
+
     <TextView
         android:layout_weight="8"
         android:layout_width="0dp"

@@ -24,6 +24,7 @@ public class MyApplyListFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_my_apply_list, container, false);
         MainActivity.container_state = 5;
+        MainActivity.toolbar.setTitle("합격확인");
 
         btn_MyApply = v.findViewById(R.id.btn_MyApply);
         edt_rec_name = v.findViewById(R.id.edt_rec_name);

@@ -8,34 +8,52 @@
     tools:context=".emp.EmpFragment"
     android:orientation="vertical">
 
-      <RelativeLayout
+    <LinearLayout
+        android:layout_marginLeft="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/linear_deptSearch_bonus"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        <TextView
+            android:id="@+id/spinner_bonus_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            >
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@id/spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <AutoCompleteTextView
-                android:id="@+id/salary_item_filled_exposed"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:padding="5dp"
-                android:inputType="none"
-                android:textSize="15dp"
-                android:text="날짜선택" />
+        <Spinner
+            android:id="@+id/spinner_bonus"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-    </RelativeLayout>
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/linear_deptSearch_bonus"-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            >-->
+
+<!--            <AutoCompleteTextView-->
+<!--                android:id="@+id/salary_item_filled_exposed"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:padding="5dp"-->
+<!--                android:inputType="none"-->
+<!--                android:textSize="15dp"-->
+<!--                android:text="날짜선택" />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+    </LinearLayout>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -53,6 +71,7 @@
 
 
             <LinearLayout
+
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -65,39 +84,43 @@
                 <TextView
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:layout_width="0.7dp"
                     android:textStyle="bold"
 
                     android:layout_height="wrap_content"
-                    android:text=" 이름"/>
+                    android:text="이름"/>
 
                 <TextView
-                    android:gravity="center"
-                    android:layout_weight="0.9"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text=" 지급일"/>
-
-                <TextView
-                    android:gravity="center"
-                    android:layout_weight="0.4"
-                    android:layout_width="0dp"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text=" 금액"/>
-
-                <TextView
+                    android:layout_marginRight="20dp"
                     android:gravity="center"
                     android:layout_weight="0.6"
                     android:layout_width="0dp"
                     android:textStyle="bold"
                     android:layout_height="wrap_content"
-                    android:text=" 비고"/>
+                    android:text="지급일"/>
+
+                <TextView
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_weight="0.3"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="금액"/>
+
+                <TextView
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:layout_weight="0.6"
+                    android:layout_width="0dp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="비고"/>
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 
 
 
@@ -106,8 +129,6 @@
         android:id="@+id/recv_bonusList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-
 
 
 </LinearLayout>

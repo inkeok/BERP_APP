@@ -2,48 +2,97 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_marginLeft="3dp"
-        android:layout_marginBottom="3dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <View
-            android:id="@+id/emp_view_color"
-            android:layout_weight="0.03"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="@color/black"/>
-
-        <TextView
-            android:id="@+id/tv_myDate"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tv_myBonus"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tv_myComment"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+    android:layout_height="40dp"
+    android:layout_marginRight="1dp"
+    android:layout_marginLeft="1dp"
+    android:background="@drawable/border_apply_middle"
+    android:orientation="horizontal"
+    android:id="@+id/linear_apply_list"
+    android:layout_marginTop="5dp">
 
 
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_myDate"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="날짜"
+        android:gravity="center"/>
+    <View
+        android:layout_gravity="center_vertical"
+        android:layout_width="1.5dp"
+        android:layout_height="30dp"
+        android:background="@color/white"/>
+    <TextView
+        android:id="@+id/tv_myBonus"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="보너스"
+        android:gravity="center"/>
+    <View
 
+        android:layout_gravity="center_vertical"
+        android:layout_width="1.5dp"
+        android:layout_height="30dp"
+        android:background="@color/white"/>
+    <TextView
+        android:id="@+id/tv_myComment"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="코멘트"
+        android:gravity="center"/>
 
 
 </LinearLayout>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_marginLeft="3dp"-->
+<!--        android:layout_marginBottom="3dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <View-->
+<!--            android:id="@+id/view_color"-->
+<!--            android:layout_weight="0.03"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@color/black"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_myDate"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_myBonus"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_myComment"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"/>-->
+
+
+
+<!--    </LinearLayout>-->
+
+
+
+<!--</LinearLayout>-->

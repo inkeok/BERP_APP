@@ -10,6 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
@@ -23,21 +27,74 @@ public class BonusListFragment extends Fragment {
 
     RecyclerView recv_bonusList;
 
+    Spinner spinner_bonus;
+    TextView spinner_bonus_tv;
 
+    String department_name= "전체";
+    ArrayList<DeptVO> deptList;
+    String[] items;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_bonus_list, container, false);
 
         recv_bonusList = v.findViewById(R.id.recv_bonusList);
+        spinner_bonus = v.findViewById(R.id.spinner_bonus);
+        spinner_bonus_tv = v.findViewById(R.id.spinner_bonus_tv);
+
+
         MainActivity.toolbar.setTitle("상여금 지급내역 ");
-        bonusList();
+
+        CommonAskTask askTask = new CommonAskTask("andDepartments.sa", getContext());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                if(isResult){
+                    deptList = new Gson().fromJson(data, new TypeToken<ArrayList<DeptVO>>() {
+                    }.getType());
+
+                    items = new String[deptList.size()+1];
+
+                    items[0] = "전체";
+                    for(int i = 0; i < deptList.size(); i++){
+                        items[i+1] = deptList.get(i).getDepartment_name();
+                    }
+
+                    setSpinnerList();
+
+                }else{
+                    Log.d("로그", "onResult: 통신 실패");
+                }
+
+            }
+        });
+
 
         return v;
     }//onCreateView
 
+    public void setSpinnerList(){
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, items);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner_bonus.setAdapter(arrayAdapter);
+        spinner_bonus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                department_name = items[position];
+                spinner_bonus_tv.setText(items[position]);
+                bonusList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                spinner_bonus_tv.setText("전체");
+            }
+        });
+    }
+
     public void bonusList(){
         CommonAskTask askTask = new CommonAskTask("andBonusList.sa", getActivity());
+        askTask.addParam("department_name", department_name);
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
