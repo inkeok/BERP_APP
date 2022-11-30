@@ -1,6 +1,6 @@
 package com.example.berp_and.work;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class CommonCodeVO {
 
@@ -8,9 +8,18 @@ public class CommonCodeVO {
 	private String code_value;
 	private String code_used;
 	private String code_name;
-	private String code_maker;
+	private int code_maker;
 	private String code_maker_name;
 	private Date code_birth;
+	private String code_comment;
+
+	public String getCode_comment() {
+		return code_comment;
+	}
+
+	public void setCode_comment(String code_comment) {
+		this.code_comment = code_comment;
+	}
 
 	public String getCode_maker_name() {
 		return code_maker_name;
@@ -45,10 +54,10 @@ public class CommonCodeVO {
 	public void setCode_name(String code_name) {
 		this.code_name = code_name;
 	}
-	public String getCode_maker() {
+	public int getCode_maker() {
 		return code_maker;
 	}
-	public void setCode_maker(String code_maker) {
+	public void setCode_maker(int code_maker) {
 		this.code_maker = code_maker;
 	}
 	public Date getCode_birth() {
