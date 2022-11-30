@@ -13,22 +13,22 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
-import com.example.berp_and.apply.ApplyListAdapter;
-import com.example.berp_and.apply.RecruitVO;
 import com.example.berp_and.work.CommonCodeVO;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CodeFragment extends Fragment {
     RecyclerView recv_code;
     ArrayList<CommonCodeVO> code_list = new ArrayList<>();
+
     AutoCompleteTextView code_check_spinner;
     ArrayList<CommonCodeVO> list;
     ArrayList<String> list_real;
@@ -53,15 +53,13 @@ public class CodeFragment extends Fragment {
 
                 list_real = new ArrayList<>();
 
-                for (int i = 0; i < list.size(); i++) {
-                    list_real.add(list.get(i).getCode_title());
+                for (int i = 0; i < list.size()-1; i++) {
+                    list_real.add(list.get(i).getCode_comment());
                 }
 
                 code_check_spinner.setText("인사코드");
                 code_check_spinner.setAdapter(new ArrayAdapter<>(
-                        getActivity().getApplicationContext(), R.layout.code_drop_down_item,
-                        list_real
-                ));
+                        getActivity().getApplicationContext(), R.layout.code_drop_down_item, list_real));
             }
         });
 
@@ -69,7 +67,7 @@ public class CodeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 CommonAskTask askTask_selectList = new CommonAskTask("andCodeValueSelect.rec", getContext());
-                askTask_selectList.addParam("title", list.get(i).getCode_title());
+                askTask_selectList.addParam("title", list.get(i).getCode_comment());
                 askTask_selectList.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                     @Override
                     public void onResult(String data, boolean isResult) {
@@ -78,6 +76,8 @@ public class CodeFragment extends Fragment {
 
                         recv_code.setAdapter(new CodeAdapter(getLayoutInflater(), list2, getContext()));
                         recv_code.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
+
+
                     }
                 });
             }
@@ -94,18 +94,25 @@ public class CodeFragment extends Fragment {
     //레트로핏 시작
     public void rec_code_select() {
         CommonAskTask task = new CommonAskTask("andCodeList.rec", getContext());//통신처리
+
         task.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-                Log.d("로그", "onResult: "+data);
-                code_list = new Gson().fromJson(data, new TypeToken<ArrayList<CommonCodeVO>>() {
-                }.getType());
+                if(isResult) {
 
-                CodeAdapter adapter = new CodeAdapter(getLayoutInflater(), code_list, getContext());
-                RecyclerView.LayoutManager manager = new LinearLayoutManager(
-                        getContext(), RecyclerView.VERTICAL, false);
-                recv_code.setAdapter(adapter);
-                recv_code.setLayoutManager(manager);
+                    Log.d("로그", "onResult: " + data);
+                    code_list = new Gson().fromJson(data, new TypeToken<ArrayList<CommonCodeVO>>() {
+                    }.getType());
+
+                    CodeAdapter adapter = new CodeAdapter(getLayoutInflater(), code_list, getContext());
+                    RecyclerView.LayoutManager manager = new LinearLayoutManager(
+                            getContext(), RecyclerView.VERTICAL, false);
+                    recv_code.setAdapter(adapter);
+                    recv_code.setLayoutManager(manager);
+
+                }else {
+                    Log.d("실패", "onResult: "+data);
+                }
             }
         });
     }

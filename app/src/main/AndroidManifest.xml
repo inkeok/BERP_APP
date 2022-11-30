@@ -18,10 +18,10 @@
         <activity
             android:name=".code.CodeDetailActivity"
             android:exported="true" />
-        <activity
+        <!--<activity
             android:name=".approval.ApprovalDetailActivity"
             android:name=".approval.WriteDetailActivity"
-            android:exported="true" />
+            android:exported="true" />-->
         <activity
             android:name=".approval.WriteNewActivity"
             android:exported="true" />

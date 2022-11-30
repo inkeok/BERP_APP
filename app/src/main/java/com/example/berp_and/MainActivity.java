@@ -75,10 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
 
-        if(temp_LoginInfo != LoginInfo){
-            temp_LoginInfo = LoginInfo;
             initView();
-        }
     }
 
     public boolean isLogin(){

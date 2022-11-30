@@ -66,8 +66,6 @@ public class MyApplyInfoFragment extends Fragment {
         });
 
 
-
-
         return v;
     }
 }

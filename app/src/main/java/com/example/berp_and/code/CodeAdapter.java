@@ -17,14 +17,14 @@ import com.example.berp_and.R;
 import com.example.berp_and.work.CommonCodeVO;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CodeAdapter extends RecyclerView.Adapter<CodeAdapter.CodeHolder> {
     LayoutInflater inflater;
     ArrayList<CommonCodeVO> list;
     Context context;
-
-
 
 
     public CodeAdapter(LayoutInflater inflater, ArrayList<CommonCodeVO> list, Context context) {
@@ -42,12 +42,11 @@ public class CodeAdapter extends RecyclerView.Adapter<CodeAdapter.CodeHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CodeHolder h, @SuppressLint("RecyclerView") int i) {
-        h.code_personal.setText(list.get(i).getCode_title());
+        h.code_personal.setText(list.get(i).getCode_comment());
         h.code_document.setText(list.get(i).getCode_value());
         h.code_approve.setText(list.get(i).getCode_used());
         h.code_work.setText(list.get(i).getCode_name());
-        /*h.code_date.setText(list.get(i).getCode_birth()+"");*/
-/*        h.code_name.setText(list.get(i).getCode_maker_name());*/
+
 
 
         h.linear_code.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +59,7 @@ public class CodeAdapter extends RecyclerView.Adapter<CodeAdapter.CodeHolder> {
                 context.startActivity(intent);
 
                 /*h.code_date.getContext().startActivity(intent);*/
-/*                h.code_name.getContext().startActivity(intent);*/
+                /*                h.code_name.getContext().startActivity(intent);*/
             }
         });
     }
@@ -79,6 +78,7 @@ public class CodeAdapter extends RecyclerView.Adapter<CodeAdapter.CodeHolder> {
             code_document = v.findViewById(R.id.code_document);
             code_approve = v.findViewById(R.id.code_approve);
             code_work = v.findViewById(R.id.code_work);
+
             linear_code = v.findViewById(R.id.linear_code);
 
         }

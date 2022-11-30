@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,17 +24,17 @@ import java.io.Serializable;
 
 public class CodeDetailActivity extends AppCompatActivity {
 
-    EditText code_detail_personal, code_detail_document, code_detail_used, code_detail_work, code_detail_date, code_detail_name;
-    Button btn_code_modify, btn_code_cancel;
-    Ing_tableVO vo;
+    TextView code_detail_personal, code_detail_document, code_detail_used, code_detail_work, code_detail_date, code_detail_name;
+    Button btn_code_modify, btn_code_cancel, btn_code_delete;
+    CommonCodeVO vo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code_detail);
 
-        Intent intent = getIntent();
-        CommonCodeVO vo = (CommonCodeVO) intent.getSerializableExtra("vo");
+
+        vo = (CommonCodeVO) getIntent().getSerializableExtra("vo");
 
         code_detail_personal = findViewById(R.id.code_detail_personal);
         code_detail_document = findViewById(R.id.code_detail_document);
@@ -45,23 +46,20 @@ public class CodeDetailActivity extends AppCompatActivity {
         btn_code_modify = findViewById(R.id.btn_code_modify);
         btn_code_cancel = findViewById(R.id.btn_code_cancel);
 
-        code_detail_personal.setText(vo.getCode_title());
+        code_detail_personal.setText(vo.getCode_comment());
         code_detail_document.setText(vo.getCode_value());
         code_detail_used.setText(vo.getCode_used());
-        code_detail_name.setText(vo.getCode_name());
-        code_detail_date.setText(vo.getCode_birth()+"");
-        code_detail_name.setText(vo.getCode_name());
+        code_detail_work.setText(vo.getCode_name());
+        code_detail_date.setText(vo.getCode_birth() + "");
+        code_detail_name.setText(vo.getCode_maker_name());
 
-        boolean isEnable = intent.getBooleanExtra("isEnable", false);
 
-        code_detail_personal.setEnabled(isEnable);
-        code_detail_document.setEnabled(isEnable);
-        code_detail_used.setEnabled(isEnable);
-        code_detail_work.setEnabled(isEnable);
-        code_detail_date.setEnabled(isEnable);
-        code_detail_name.setEnabled(isEnable);
 
-        /*코드 상세보기 및 수정하기*/
+
+
+
+
+
         btn_code_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,48 +67,45 @@ public class CodeDetailActivity extends AppCompatActivity {
             }
         });
 
-        /*코드저장*/
+
         btn_code_modify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(CodeDetailActivity.this, CodeModifyActivity.class);
+                Intent intent = new Intent(CodeDetailActivity.this, CodeModifyActivity.class);
 
                 intent.putExtra("vo", (Serializable) vo);
-                startActivityForResult(intent , 1000);
+                startActivityForResult(intent, 1000);
             }
         });
     }
 
- /*   @Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1000){
+        if (requestCode == 1000) {
             origin_list();
         }
     }
 
     public void origin_list() {
         CommonAskTask askTask = new CommonAskTask("andCodeListOne", CodeDetailActivity.this);
-        askTask.addParam("ing_no", vo.getIng_no());
+        askTask.addParam("code_value", vo.getCode_value());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-                Ing_tableVO dto = new Gson().fromJson(data, Ing_tableVO.class);
-
-                code_detail_personal.setText(vo.getCode_title());
-                code_detail_document.setText(vo.getCode_value());
-                code_detail_used.setText(vo.getCode_used());
-                code_detail_name.setText(vo.getCode_name());
-                code_detail_date.setText(vo.getCode_birth()+"");
-                code_detail_name.setText(vo.getCode_name());
-
-
-
+                CommonCodeVO dto = new Gson().fromJson(data, CommonCodeVO.class);
+                Log.d("TAG", "onResult: " + data);
+                code_detail_personal.setText(dto.getCode_comment());
+                code_detail_document.setText(dto.getCode_value());
+                code_detail_used.setText(dto.getCode_used());
+                code_detail_work.setText(dto.getCode_name());
+                code_detail_date.setText(dto.getCode_birth() + "");
+                code_detail_name.setText(dto.getCode_maker());
             }
         });
     }
 
-        btn_code_save.setOnClickListener(new View.OnClickListener() {
+       /* btn_code_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -121,7 +116,7 @@ public class CodeDetailActivity extends AppCompatActivity {
                 *//*vo.setCode_birth(code_detail_date.getText());*//*
                 vo.setCode_maker(code_detail_name.getText()+"");
 
-                CommonAskTask task = new CommonAskTask("andUpdate.code" , CodeDetailActivity.this);
+                CommonAskTask task = new CommonAskTask("" , CodeDetailActivity.this);
                 task.addParam("code_title", code_detail_personal.getText()+"");
                 task.addParam("code_value", code_detail_document.getText()+"");
                 task.addParam("code_used", code_detail_used.getText()+"");
@@ -141,5 +136,5 @@ public class CodeDetailActivity extends AppCompatActivity {
             }
         });*/
 
-    }
+
 }
