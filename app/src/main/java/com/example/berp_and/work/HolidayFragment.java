@@ -36,6 +36,7 @@ public class HolidayFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_holiday, container, false);
+        MainActivity.container_state = 1 ;
 
         recv_holList = v.findViewById(R.id.recv_holList);
         hol_item_filled_exposed = v.findViewById(R.id.hol_item_filled_exposed);

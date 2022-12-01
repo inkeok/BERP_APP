@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.notice.NoticeVO;
 import com.google.gson.Gson;
@@ -29,6 +30,7 @@ public class TempDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_detail);
+        MainActivity.container_state = 2;
 
 
         temp_detail_title = findViewById(R.id.temp_detail_title);
@@ -83,7 +85,7 @@ public class TempDetailActivity extends AppCompatActivity {
                 intent.putExtra("vo", (Serializable) vo);
                 startActivityForResult(intent , 1000);
 
-
+                finish();
             }
         });
 

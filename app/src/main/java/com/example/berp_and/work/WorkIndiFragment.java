@@ -26,6 +26,7 @@ public class WorkIndiFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        MainActivity.container_state = 1;
      View v = inflater.inflate(R.layout.fragment_work_indi, container, false);
 
         recv_holIndiList = v.findViewById(R.id.recv_holIndiList);

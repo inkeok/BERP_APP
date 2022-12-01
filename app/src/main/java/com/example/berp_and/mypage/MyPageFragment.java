@@ -28,6 +28,7 @@ public class MyPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        MainActivity.container_state = 1;
         View v =inflater.inflate(R.layout.fragment_my_page, container, false);
 
         my_page_name = v.findViewById(R.id.my_page_name);

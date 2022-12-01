@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 
 public class ApplyDetailActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class ApplyDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_detail);
+        MainActivity.container_state = 6;
 
         tv_rec_detail_company=findViewById(R.id.tv_rec_detail_company);
         tv_rec_detail_title=findViewById(R.id.tv_rec_detail_title);

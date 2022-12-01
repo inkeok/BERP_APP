@@ -40,10 +40,13 @@
         <entry key="..\:/Study_Android/WorkSpace/BERP_APP/app/src/main/res/layout/work_item.xml" value="0.36614583333333334" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22083333333333333" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.203125" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/boarder.xml" value="0.3625" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_apply_bottom.xml" value="0.24010416666666667" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_apply_middle.xml" value="0.24010416666666667" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_apply_top.xml" value="0.24010416666666667" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_button_common_color.xml" value="0.278125" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_circle.xml" value="0.3625" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_circle2.xml" value="0.38229166666666664" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_home_background.xml" value="0.27395833333333336" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_home_backgroune_origin.xml" value="0.38229166666666664" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/drawable/border_home_main_background.xml" value="0.27395833333333336" />
@@ -81,6 +84,7 @@
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/emp_drop_down_item.xml" value="0.3770833333333333" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_check.xml" value="0.5" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_list.xml" value="0.2578125" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_apply_pass.xml" value="0.2826086956521739" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_code.xml" value="0.36614583333333334" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_company.xml" value="0.36614583333333334" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/fragment_company_info.xml" value="0.33380816714150047" />
@@ -123,7 +127,8 @@
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/menu_parent.xml" value="0.36614583333333334" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/nav_header_main.xml" value="0.18697916666666667" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/notice_item.xml" value="0.26197916666666665" />
-        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/notice_list_item.xml" value="0.18931159420289856" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/notice_list_item.xml" value="0.33" />
+        <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/notification_small.xml" value="0.2796875" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/sidebar.xml" value="0.22" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/layout/work_item.xml" value="0.26197916666666665" />
         <entry key="..\:/study_android/workspace/BERP_APP/app/src/main/res/menu/activity_main_draw_menu.xml" value="0.5" />

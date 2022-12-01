@@ -51,6 +51,7 @@ public class SalaryListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_salary_list, container, false);
         setInflater(inflater);
 
+        MainActivity.container_state = 1;
         recv_salaryList = v.findViewById(R.id.recv_salaryList);
         spinner = v.findViewById(R.id.spinner);
         spinner_tv = v.findViewById(R.id.spinner_tv);
@@ -92,6 +93,7 @@ public class SalaryListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         salaryList();
+        MainActivity.container_state = 1;
     }
 
     public void setSpinnerList(){

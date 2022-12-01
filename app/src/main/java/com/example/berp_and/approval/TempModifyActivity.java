@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.google.gson.Gson;
 
@@ -26,6 +27,7 @@ public class TempModifyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_modify);
+        MainActivity.container_state = 2;
 
         modify_temp_title = findViewById(R.id.modify_temp_title);
         modify_temp_content = findViewById(R.id.modify_temp_content);
@@ -64,6 +66,7 @@ public class TempModifyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+
             }
         });
 

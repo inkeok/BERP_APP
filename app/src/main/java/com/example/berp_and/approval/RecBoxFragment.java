@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
 import com.google.gson.Gson;
@@ -29,7 +30,7 @@ public class RecBoxFragment extends Fragment {
                 public View onCreateView(LayoutInflater inflater, ViewGroup container,
                         Bundle savedInstanceState) {
                     View v =  inflater.inflate(R.layout.fragment_rec_box, container, false);
-
+                    MainActivity.container_state = 1;
                     recv_recbox = v.findViewById(R.id.recv_recbox);
 
                     CommonAskTask askTask = new CommonAskTask("andRec.ap", getContext());
@@ -46,5 +47,11 @@ public class RecBoxFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.container_state = 1;
     }
 }

@@ -89,6 +89,12 @@ public class ApplyListFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.container_state = 5;
+    }
+
     public void rec_list_select(){
         CommonAskTask askTask = new CommonAskTask("andRecList.rec", getActivity());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {

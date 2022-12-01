@@ -37,6 +37,7 @@ public class WorkFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_work, container, false);
         MainActivity.toolbar.setTitle("근태관리");
+        MainActivity.container_state = 1;
 
         recv_workList = v.findViewById(R.id.recv_workList);
         origin_list();

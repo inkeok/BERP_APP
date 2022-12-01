@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -36,6 +37,7 @@ public class RecDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rec_detail);
+        MainActivity.container_state = 2;
 
         rec_btn_confirm = findViewById(R.id.rec_btn_confirm);
         rec_btn_cancel = findViewById(R.id.rec_btn_cancel);
@@ -100,5 +102,12 @@ public class RecDetailActivity extends AppCompatActivity {
 
             }
         });
+        rec_btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }

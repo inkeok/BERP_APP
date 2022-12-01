@@ -1,15 +1,23 @@
 package com.example.berp_and;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -47,9 +55,14 @@ import com.example.berp_and.work.WorkFragment;
 import com.example.berp_and.work.WorkIndiFragment;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private MaterialViewPager mViewPager;
@@ -63,12 +76,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int LoginInfo = 0;
     public static int container_state = 0;
 
+    private static final String TAG = "MainActivity";
+    private static final int NOTIFICATION_REQUEST_CODE = 1234;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
 
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                Object value = getIntent().getExtras().get(key);
+                Log.d(TAG, "Key: " + key + " Value: " + value);
+            }
+        }
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("왜안나와", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+                            Log.w("왜안나와", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"+token );
+
+                        // Log and toast
+                       // String msg = getString(R.string.msg_token_fmt, token);
+                     //  Log.d(TAG, msg);
+                      // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        askNotificationPermission();
+        onNewToken();
     }
 
     @Override
@@ -228,39 +271,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         tempList.add(new MainDTO("마이 페이지" , subList1));
 
-        ArrayList<MainDTO> subList2= new ArrayList<>();
-        subList2.add(new MainDTO("지원자 목록", new ApplyCheckFragment()));
-        subList2.add(new MainDTO("합격자 목록", new ApplyPassFragment()));
-
-        tempList.add(new MainDTO("채용관리" ,subList2));
-
-
-
-        ArrayList<MainDTO> subList3= new ArrayList<>();
-        subList3.add(new MainDTO("사원 추가", new EmpInsertFragment()));
-        subList3.add(new MainDTO("사원 관리", new EmpFragment()));
-
-        tempList.add(new MainDTO("인사관리" ,subList3));
-
-
-
         ArrayList<MainDTO> subList4= new ArrayList<>();
         subList4.add(new MainDTO("휴일 관리", new HolidayFragment()));
         subList4.add(new MainDTO("근무시간관리", new WorkFragment()));
 
         tempList.add(new MainDTO("근태관리" ,subList4));
-
-
-
-        ArrayList<MainDTO> subList5= new ArrayList<>();
-        subList5.add(new MainDTO("나의 급여 조회", new MySalaryFragment()));
-        subList5.add(new MainDTO("급여관리", new SalaryListFragment()));
-        subList5.add(new MainDTO("상여금 현황", new BonusListFragment()));
-
-        tempList.add(new MainDTO("급여관리" ,subList5));
-
-
-
 
         ArrayList<MainDTO> subList6= new ArrayList<>();
         subList6.add(new MainDTO("상신함", new WriteBoxFragment()));//미완
@@ -270,6 +285,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         subList6.add(new MainDTO("코드관리", new CodeFragment()));//미완
 
         tempList.add(new MainDTO("업무관리" ,subList6));
+
+
+        ArrayList<MainDTO> subList5= new ArrayList<>();
+        subList5.add(new MainDTO("나의 급여 조회", new MySalaryFragment()));
+        subList5.add(new MainDTO("급여관리", new SalaryListFragment()));
+        subList5.add(new MainDTO("상여금 현황", new BonusListFragment()));
+
+        tempList.add(new MainDTO("급여관리" ,subList5));
+
+        ArrayList<MainDTO> subList3= new ArrayList<>();
+        subList3.add(new MainDTO("사원 추가", new EmpInsertFragment()));
+        subList3.add(new MainDTO("사원 관리", new EmpFragment()));
+
+        tempList.add(new MainDTO("인사관리" ,subList3));
+
+
+        ArrayList<MainDTO> subList2= new ArrayList<>();
+        subList2.add(new MainDTO("지원자 목록", new ApplyCheckFragment()));
+        subList2.add(new MainDTO("합격자 목록", new ApplyPassFragment()));
+
+        tempList.add(new MainDTO("채용관리" ,subList2));
+
+
+
 
         return tempList;
     }
@@ -314,21 +353,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
-        //기존 2022 11 23 KYM 주석처리함.
-//        switch (keyCode) {
-//            case KeyEvent.KEYCODE_BACK :
-//                if (container_state == 1) {
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
-//                    container_state = 0;
-//                    return true;
-//                }else if(container_state == 5){
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
-//                    container_state = 4;
-//                    return true;
-//                }
-//                break;
-//
-//        }
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK :
+                if (container_state == 1) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeLoginFragment()).commit();
+                    container_state = 0;
+                    return true;
+                }else if(container_state == 5){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+                    container_state = 4;
+                    return true;
+                }
+                break;
+
+        }
         return super.onKeyDown(keyCode, event);
     }
 
@@ -360,6 +398,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportFragmentManager().beginTransaction().replace(R.id.container , fragment).commit();
 
     }
+
+
+    public void onNewToken(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+                        // Log and toast
+                        //String msg = getString(R.string.msg_token_fmt, token);
+                        Log.d(TAG, token);
+                        Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // FCM SDK (and your app) can post notifications.
+                } else {
+                    // TODO: Inform user that that your app will not show notifications.
+                }
+            });
+
+    private void askNotificationPermission() {
+        // This is only necessary for API level >= 33 (TIRAMISU)
+//        if (Build.VERSION.SDK_INT >= 33) {
+//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+//                    PackageManager.PERMISSION_GRANTED) {
+//                // FCM SDK (and your app) can post notifications.
+//            } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+//                // TODO: display an educational UI explaining to the user the features that will be enabled
+//                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
+//                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
+//                //       If the user selects "No thanks," allow the user to continue without notifications.
+//            } else {
+//                // Directly ask for the permission
+//                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+//            }
+//        }
+    }
+
 
 }
 
