@@ -107,7 +107,7 @@
                         android:background="@drawable/rond_txt"
                         android:gravity="center"
                         android:text="출근일자"
-                        android:textSize="18dp"/>
+                        android:textSize="13dp"/>
                     <TextView
                         android:id="@+id/work_date"
                         android:text="22-14-30"

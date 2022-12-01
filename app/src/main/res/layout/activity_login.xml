@@ -73,7 +73,6 @@
                 android:background="@drawable/edge_round"
                 android:paddingLeft="20dp"
                 android:text="20221022"
-
                 android:textColor="@color/black" />
 
             <EditText

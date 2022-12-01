@@ -25,7 +25,7 @@
             android:padding="5dp"
             android:inputType="none"
             android:textSize="15dp"
-            android:text="부서선택" />
+            android:text="결재 상태" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

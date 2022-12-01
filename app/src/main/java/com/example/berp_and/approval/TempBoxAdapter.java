@@ -40,7 +40,7 @@ public class TempBoxAdapter extends RecyclerView.Adapter<TempBoxAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder h, @SuppressLint("RecyclerView") int i) {
 
-            h.tv_employee_name.setText(list.get(i).getName());
+            h.tv_employee_name.setText(list.get(i).getEmployee_name());
             h.tv_document_title.setText(list.get(i).getDocument_title());
             h.tv_document_date.setText(list.get(i).getDocument_date()+"");
 
