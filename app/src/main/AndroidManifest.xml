@@ -31,6 +31,13 @@
             android:name="firebase_analytics_collection_enabled"
             android:value="false" />
         <activity
+            android:name=".code.CodeModifyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".code.CodeDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".approval.ApprovalDetailActivity"
             android:name=".approval.WriteDetailActivity"
             android:exported="true" />
         <activity

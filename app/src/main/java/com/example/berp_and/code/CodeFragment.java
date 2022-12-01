@@ -76,7 +76,7 @@ public class CodeFragment extends Fragment {
                         ArrayList<CommonCodeVO> list2 = new Gson().fromJson(data, new TypeToken<ArrayList<CommonCodeVO>>() {
                         }.getType());
 
-                        recv_code.setAdapter(new CodeAdapter(getLayoutInflater(),list2));
+                        recv_code.setAdapter(new CodeAdapter(getLayoutInflater(), list2, getContext()));
                         recv_code.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
                     }
                 });
@@ -101,7 +101,7 @@ public class CodeFragment extends Fragment {
                 code_list = new Gson().fromJson(data, new TypeToken<ArrayList<CommonCodeVO>>() {
                 }.getType());
 
-                CodeAdapter adapter = new CodeAdapter(getLayoutInflater(), code_list);
+                CodeAdapter adapter = new CodeAdapter(getLayoutInflater(), code_list, getContext());
                 RecyclerView.LayoutManager manager = new LinearLayoutManager(
                         getContext(), RecyclerView.VERTICAL, false);
                 recv_code.setAdapter(adapter);

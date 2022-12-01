@@ -93,7 +93,7 @@
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="15dp"
-            android:textColor="@color/common_search"
+            android:textColor="@color/colorPrimaryDark"
 
             />
         <LinearLayout
