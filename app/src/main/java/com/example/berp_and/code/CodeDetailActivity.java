@@ -99,8 +99,8 @@ public class CodeDetailActivity extends AppCompatActivity {
                 code_detail_document.setText(dto.getCode_value());
                 code_detail_used.setText(dto.getCode_used());
                 code_detail_work.setText(dto.getCode_name());
-                code_detail_date.setText(dto.getCode_birth() + "");
-                code_detail_name.setText(dto.getCode_maker());
+                code_detail_date.setText(dto.getCode_birth().getYear() + "년" +dto.getCode_birth().getMonth()  +"월" +dto.getCode_birth().getDay() +"일");
+                code_detail_name.setText(dto.getCode_maker()+"");
             }
         });
     }
