@@ -7,22 +7,35 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpListAdapter;
 import com.example.berp_and.emp.EmpVO;
+import com.example.berp_and.login.LoginActivity;
+import com.example.berp_and.salary.DatePickerFragment;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointBackward;
+import com.google.android.material.datepicker.DateValidatorPointForward;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class WorkFragment extends Fragment {
@@ -30,7 +43,8 @@ public class WorkFragment extends Fragment {
     ArrayList<EmpVO> department_list = new ArrayList<>();
     ArrayList<String> department_list_real = new ArrayList<>();
     AutoCompleteTextView work_item_filled_exposed;
-
+    Button date_picker_work;
+    public static int i;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,6 +53,7 @@ public class WorkFragment extends Fragment {
         MainActivity.toolbar.setTitle("근태관리");
 
         recv_workList = v.findViewById(R.id.recv_workList);
+        date_picker_work = v.findViewById(R.id.date_picker_work);
         origin_list();
 
         value_add();
@@ -54,13 +69,28 @@ public class WorkFragment extends Fragment {
             }
         });
 
-        work_item_filled_exposed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                department_list_real.get(i);
 
+date_picker_work.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        MaterialDatePicker.Builder<Long> builder =
+                MaterialDatePicker.Builder.datePicker().setTheme(R.style.ThemeOverlay_MaterialComponents_MaterialCalendar);
+        builder.setTitleText("날짜를 선택해주세요");
+        Log.d("test", "onClick: " + Calendar.getInstance().getTimeInMillis());
+        builder.setCalendarConstraints(new CalendarConstraints.Builder()
+                .setValidator(DateValidatorPointBackward.now()).build());
+        MaterialDatePicker materialDatePicker = builder.build();
+        materialDatePicker.show(getChildFragmentManager(),"DATE_PICKER");
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @Override
+            public void onPositiveButtonClick(Object selection) {
+                 Long start_date = (Long) selection;
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd",Locale.KOREA);
+                Log.d("TAG", "onPositiveButtonClick: " + sdf.format(new Date(start_date)));
 
                 CommonAskTask askTask = new CommonAskTask("andWorkDeptList", getContext());
+
+                askTask.addParam("work_date", sdf.format(new Date(start_date)));
                 askTask.addParam("department_id", department_list.get(i).getDepartment_id());
                 askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                     @Override
@@ -73,6 +103,19 @@ public class WorkFragment extends Fragment {
                         recv_workList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
                     }
                 });
+            }
+        });
+    }
+});
+
+
+        work_item_filled_exposed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                department_list_real.get(i);
+
+
+
 
             }
         });

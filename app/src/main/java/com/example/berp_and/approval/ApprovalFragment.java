@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpVO;
 import com.example.berp_and.notice.NoticeListAdapter;
@@ -40,6 +41,7 @@ public class ApprovalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        MainActivity.toolbar.setTitle("결재처리함");
         View v =inflater.inflate(R.layout.fragment_approval, container, false);
         origin_list();
 

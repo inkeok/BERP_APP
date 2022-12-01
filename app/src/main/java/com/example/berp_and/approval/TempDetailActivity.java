@@ -44,7 +44,7 @@ public class TempDetailActivity extends AppCompatActivity {
 
         temp_detail_content.setText(vo.getDocument_content());
         temp_detail_title.setText(vo.getDocument_title());
-        temp_detail_writer.setText(vo.getName());
+        temp_detail_writer.setText(vo.getEmployee_name());
         temp_detail_date.setText(vo.getDocument_date());
 
 
@@ -107,7 +107,7 @@ public class TempDetailActivity extends AppCompatActivity {
 
                 temp_detail_content.setText(dto.getDocument_content());
                 temp_detail_title.setText(dto.getDocument_title());
-                temp_detail_writer.setText(dto.getName());
+                temp_detail_writer.setText(dto.getEmployee_name());
                 temp_detail_date.setText(dto.getDocument_date());
 
 
