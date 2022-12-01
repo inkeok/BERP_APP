@@ -10,7 +10,11 @@
     android:orientation="vertical">
 
 
-
+<androidx.cardview.widget.CardView
+    app:cardCornerRadius="10dp"
+    android:layout_margin="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -27,26 +31,51 @@
 
         <AutoCompleteTextView
             android:id="@+id/work_item_filled_exposed"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            android:inputType="none"
-            android:textSize="15dp"
-            android:text="부서선택" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-       <Button
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"
-            android:layout_gravity="center"
-            android:id="@+id/date_picker_work"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="날짜선택"/>
+            android:layout_height="30dp"
+            android:inputType="none"
+            android:padding="5dp"
+            android:text="부서선택"
+            android:textSize="15dp" />
 
+        <Button
+            android:id="@+id/date_picker_work"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="3dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="날짜선택" />
+    </com.google.android.material.textfield.TextInputLayout>
+       <LinearLayout
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/date_work"
+               android:layout_width="150dp"
+               android:layout_height="33dp"
+               android:layout_gravity="center_vertical"
+               android:gravity="center_vertical"
+               android:text="선택 날짜" />
+
+           <Button
+               android:layout_marginTop="5dp"
+               android:id="@+id/btn_date"
+               android:layout_width="wrap_content"
+               android:layout_height="40dp"
+               android:backgroundTint="@color/colorPrimaryDark"
+               android:gravity="center"
+               android:text="조회" />
+       </LinearLayout>
 
 </LinearLayout>
-
+</androidx.cardview.widget.CardView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="10dp"
         android:id="@+id/recv_workList"

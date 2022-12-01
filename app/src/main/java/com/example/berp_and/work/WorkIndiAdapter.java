@@ -41,8 +41,7 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder h, int i) {
         h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
         h.tv_employee_name.setText(list.get(i).getName());
-
-        h.work_date.setText(list.get(i).getWork_date()+"");
+        h.work_date.setText(list.get(i).getWork_date().substring(0,10));
         h.start_work.setText(list.get(i).getStart_work());
         h.end_work.setText(list.get(i).getEnd_work());
         h.work_code.setText(list.get(i).getWork_status());

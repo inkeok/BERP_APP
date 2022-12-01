@@ -193,7 +193,8 @@ public class HomeLoginFragment extends Fragment {
     public void work_start_input(){
         CommonAskTask askTask = new CommonAskTask("andWork_start_input", getActivity());
 
-        String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
+        String date = String.format("%02d",new Date().getHours())+":" + String.format("%02d",new Date().getMinutes())
+        +":"+ String.format("%02d",new Date().getSeconds());
 
         WorkVO dto = new WorkVO();
         dto.setDepartment_id(LoginActivity.loginInfoList.get(0).getDepartment_id());
@@ -218,7 +219,8 @@ public class HomeLoginFragment extends Fragment {
         CommonAskTask askTask = new CommonAskTask("andWork_end_input", getActivity());
 
 
-        String date = new Date().getHours() +":" +new Date().getMinutes() +":"+ new Date().getSeconds();
+        String date = String.format("%02d",new Date().getHours())+":" + String.format("%02d",new Date().getMinutes())
+                +":"+ String.format("%02d",new Date().getSeconds());
         WorkVO dto = new WorkVO();
         dto.setEmployee_id(LoginActivity.loginInfoList.get(0).getEmployee_id());
         dto.setEnd_work(date);

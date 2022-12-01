@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
@@ -39,12 +40,16 @@ import java.util.Locale;
 
 
 public class WorkFragment extends Fragment {
+    TextView date_work;
     RecyclerView recv_workList;
     ArrayList<EmpVO> department_list = new ArrayList<>();
     ArrayList<String> department_list_real = new ArrayList<>();
     AutoCompleteTextView work_item_filled_exposed;
-    Button date_picker_work;
-    public static int i;
+    Button date_picker_work, btn_date;
+    String start_date;
+     int department_id;
+    public  int num;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd",Locale.KOREA);
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +59,8 @@ public class WorkFragment extends Fragment {
 
         recv_workList = v.findViewById(R.id.recv_workList);
         date_picker_work = v.findViewById(R.id.date_picker_work);
+        date_work = v.findViewById(R.id.date_work);
+        btn_date = v.findViewById(R.id.btn_date);
         origin_list();
 
         value_add();
@@ -84,14 +91,35 @@ date_picker_work.setOnClickListener(new View.OnClickListener() {
         materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
             @Override
             public void onPositiveButtonClick(Object selection) {
-                 Long start_date = (Long) selection;
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd",Locale.KOREA);
-                Log.d("TAG", "onPositiveButtonClick: " + sdf.format(new Date(start_date)));
+                start_date = sdf.format(selection);
 
+
+                date_work.setText(start_date+"");
+
+            }
+        });
+    }
+});
+
+
+        work_item_filled_exposed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                department_list_real.get(i);
+                num = department_list.get(i).getDepartment_id();
+
+            }
+        });
+
+
+        btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 CommonAskTask askTask = new CommonAskTask("andWorkDeptList", getContext());
 
-                askTask.addParam("work_date", sdf.format(new Date(start_date)));
-                askTask.addParam("department_id", department_list.get(i).getDepartment_id());
+                askTask.addParam("work_date", date_work.getText()+"" );
+                askTask.addParam("department_id", num);
                 askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                     @Override
                     public void onResult(String data, boolean isResult) {
@@ -105,23 +133,6 @@ date_picker_work.setOnClickListener(new View.OnClickListener() {
                 });
             }
         });
-    }
-});
-
-
-        work_item_filled_exposed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                department_list_real.get(i);
-
-
-
-
-            }
-        });
-
-
-
         return v;
     }
 
