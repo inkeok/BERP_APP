@@ -164,7 +164,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
                 dialog.setContentView(R.layout.activity_commission);
 
 //                h.tv_name_commission = dialog.findViewById(R.id.tv_name_commission);
-                h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
+               // h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
 
                 h.tv_updateCommission = dialog.findViewById(R.id.tv_updateCommission);
                 h.commissionBtn_cancel = dialog.findViewById(R.id.commissionBtn_cancel);
