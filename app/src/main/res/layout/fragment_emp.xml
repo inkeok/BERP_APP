@@ -239,7 +239,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="임승진팀"
+                    android:text="감사팀"
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"

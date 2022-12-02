@@ -37,7 +37,6 @@
             android:name=".code.CodeDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".approval.ApprovalDetailActivity"
             android:name=".approval.WriteDetailActivity"
             android:exported="true" />
         <activity
