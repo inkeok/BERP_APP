@@ -111,19 +111,18 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
 
 
 
-        h.tv_commission.setOnClickListener(new View.OnClickListener() {
+        h.tv_salary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(h.tv_commission.getContext());
-                dialog.setContentView(R.layout.activity_commission);
+                Dialog dialog = new Dialog(h.tv_salary.getContext());
+                dialog.setContentView(R.layout.activity_salary);
 
-                h.tv_name_commission = dialog.findViewById(R.id.tv_name_bonus);
-                h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
+                h.tv_name_salary = dialog.findViewById(R.id.tv_name_salary);
+                h.tv_name_salary.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
 
-                h.tv_updateCommission = dialog.findViewById(R.id.tv_updateCommission);
-                h.commissionBtn_cancel = dialog.findViewById(R.id.commissionBtn_cancel);
-                h.commissionBtn_save = dialog.findViewById(R.id.commissionBtn_save);
-
+                h.tv_updateSalary = dialog.findViewById(R.id.tv_updateSalary);
+                h.salaryBtn_cancel = dialog.findViewById(R.id.salaryBtn_cancel);
+                h.salaryBtn_save = dialog.findViewById(R.id.salaryBtn_save);
 
                 dialog.show();
 
@@ -164,8 +163,8 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
                 Dialog dialog = new Dialog(h.tv_commission.getContext());
                 dialog.setContentView(R.layout.activity_commission);
 
-//                h.tv_name_commission = dialog.findViewById(R.id.tv_name_commission);
-             //   h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
+                h.tv_name_commission = dialog.findViewById(R.id.tv_name_bonus);
+                h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
 
                 h.tv_updateCommission = dialog.findViewById(R.id.tv_updateCommission);
                 h.commissionBtn_cancel = dialog.findViewById(R.id.commissionBtn_cancel);
