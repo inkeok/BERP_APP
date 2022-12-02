@@ -14,10 +14,14 @@ import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.work.CommonCodeVO;
 import com.google.gson.Gson;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CodeModifyActivity extends AppCompatActivity {
 
     EditText code_modify_title, code_modify_value, code_modify_used, code_modify_name, code_modify_maker;
     Button btn_modify_save, btn_modify_cancel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,4 +73,6 @@ public class CodeModifyActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

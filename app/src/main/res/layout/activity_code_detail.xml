@@ -228,16 +228,6 @@
                         android:backgroundTint="@color/common_min"
                         />
 
-                    <Button
-                        android:id="@+id/btn_code_delete"
-                        android:text="삭제"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="#FFFFFF"
-                        android:backgroundTint="@color/calendar_unavailable_bg"
-                        />
 
                 </LinearLayout>
             </LinearLayout>

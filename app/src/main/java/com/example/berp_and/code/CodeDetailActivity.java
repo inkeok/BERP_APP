@@ -17,10 +17,13 @@ import com.example.berp_and.R;
 import com.example.berp_and.approval.Ing_tableVO;
 import com.example.berp_and.approval.TempDetailActivity;
 import com.example.berp_and.approval.TempModifyActivity;
+import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.work.CommonCodeVO;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CodeDetailActivity extends AppCompatActivity {
 
@@ -28,10 +31,17 @@ public class CodeDetailActivity extends AppCompatActivity {
     Button btn_code_modify, btn_code_cancel, btn_code_delete;
     CommonCodeVO vo;
 
+    long mNow;
+    Date mDate;
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code_detail);
+
+
+
 
 
         vo = (CommonCodeVO) getIntent().getSerializableExtra("vo");
@@ -50,22 +60,9 @@ public class CodeDetailActivity extends AppCompatActivity {
         code_detail_document.setText(vo.getCode_value());
         code_detail_used.setText(vo.getCode_used());
         code_detail_work.setText(vo.getCode_name());
-        code_detail_date.setText(vo.getCode_birth() + "");
+        code_detail_date.setText(getTime());
         code_detail_name.setText(vo.getCode_maker_name());
 
-
-
-
-
-
-
-
-        btn_code_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
 
 
         btn_code_modify.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +74,20 @@ public class CodeDetailActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1000);
             }
         });
+
+        btn_code_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
+    private String getTime() {
+        mNow = System.currentTimeMillis();
+        mDate = new Date(mNow);
+        return mFormat.format(mDate);
     }
 
     @Override
@@ -99,8 +110,8 @@ public class CodeDetailActivity extends AppCompatActivity {
                 code_detail_document.setText(dto.getCode_value());
                 code_detail_used.setText(dto.getCode_used());
                 code_detail_work.setText(dto.getCode_name());
-                code_detail_date.setText(dto.getCode_birth().getYear() + "년" +dto.getCode_birth().getMonth()  +"월" +dto.getCode_birth().getDay() +"일");
-                code_detail_name.setText(dto.getCode_maker()+"");
+                code_detail_date.setText(getTime());/*.getYear() + "년" +dto.getCode_birth().getMonth()  +"월" +dto.getCode_birth().getDay() +"일"*/
+                code_detail_name.setText(dto.getCode_maker_name());
             }
         });
     }
