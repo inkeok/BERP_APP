@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.berp_and.CommonAskTask;
@@ -38,19 +39,28 @@ public class EmpFragment extends Fragment {
     ArrayList<String> pattern_list_real = new ArrayList<>();
     AutoCompleteTextView emp_item_filled_exposed, emp_item_filled_exposed2;
 
+    TextView tv_all_num, tv_admin_num, tv_hello_num, tv_susi_num, tv_dev_num, tv_mar_num, tv_lim_num;
+
     int first_num = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_emp, container, false);
-        MainActivity.LoginInfo = 1;
+        MainActivity.container_state = 1;
 
         recv_empList = v.findViewById(R.id.recv_empList);
         MainActivity.toolbar.setTitle("직원관리");
         origin_list();
 
+        tv_all_num = v.findViewById(R.id.tv_all_num);
+        tv_admin_num = v.findViewById(R.id.tv_admin_num);
+        tv_hello_num = v.findViewById(R.id.tv_hello_num);
+        tv_susi_num = v.findViewById(R.id.tv_susi_num);
+        tv_dev_num = v.findViewById(R.id.tv_dev_num);
+        tv_mar_num = v.findViewById(R.id.tv_mar_num);
+        tv_lim_num = v.findViewById(R.id.tv_lim_num);
 
-
+        num_db_check();
 
         value_add();
 
@@ -96,6 +106,7 @@ public class EmpFragment extends Fragment {
     public void onResume() {
         super.onResume();
         origin_list();
+        MainActivity.container_state = 1;
     }
 
     public void origin_list(){
@@ -264,4 +275,25 @@ public class EmpFragment extends Fragment {
                 pattern_list_real
         ));
     }
+
+    public void num_db_check(){
+        CommonAskTask askTask = new CommonAskTask("andNumBer.hr", getContext());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+               ArrayList<EmpCntVO> cnt_list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpCntVO>>() {
+                }.getType());
+                tv_all_num.setText(cnt_list.get(0).getTotal_cnt()+"");
+                tv_admin_num.setText(cnt_list.get(0).getTotal_dept()+"");
+                tv_hello_num.setText(cnt_list.get(1).getTotal_dept()+"");
+                tv_susi_num.setText(cnt_list.get(2).getTotal_dept()+"");
+                tv_dev_num.setText(cnt_list.get(3).getTotal_dept()+"");
+                tv_mar_num.setText(cnt_list.get(4).getTotal_dept()+"");
+                tv_lim_num.setText(cnt_list.get(5).getTotal_dept()+"");
+
+            }
+        });
+    }
+
+
 }

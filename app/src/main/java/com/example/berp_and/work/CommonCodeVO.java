@@ -1,7 +1,8 @@
 package com.example.berp_and.work;
 
-import java.io.Serializable;
+
 import java.util.Date;
+import java.io.Serializable;
 
 public class CommonCodeVO implements Serializable {
 
@@ -71,7 +72,6 @@ public class CommonCodeVO implements Serializable {
 	public void setCode_birth(Date code_birth) {
 		this.code_birth = code_birth;
 	}
-	
 	
 	
 	

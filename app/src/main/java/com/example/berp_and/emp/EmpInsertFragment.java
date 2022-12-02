@@ -43,13 +43,18 @@ public class EmpInsertFragment extends Fragment {
     int department_id;
     String company_cd, position;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.container_state =1;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View v = inflater.inflate(R.layout.fragment_emp_insert, container, false);
         MainActivity.toolbar.setTitle("신규입력");
-
+        MainActivity.container_state =1;
         edt_employee_name_insert = v.findViewById(R.id.edt_employee_name_insert);
         edt_employee_email_insert = v.findViewById(R.id.edt_employee_email_insert);
         edt_employee_phone_insert = v.findViewById(R.id.edt_employee_phone_insert);

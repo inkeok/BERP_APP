@@ -38,6 +38,8 @@ public class BonusListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_bonus_list, container, false);
 
+        MainActivity.container_state = 1;
+
         recv_bonusList = v.findViewById(R.id.recv_bonusList);
         spinner_bonus = v.findViewById(R.id.spinner_bonus);
         spinner_bonus_tv = v.findViewById(R.id.spinner_bonus_tv);

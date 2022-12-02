@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 
 import org.w3c.dom.Text;
@@ -38,6 +39,7 @@ public class BonusActivity extends AppCompatActivity implements DatePickerDialog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bonus);
+        MainActivity.container_state = 2;
 
         tv_bonus_date = findViewById(R.id.tv_bonus_date);
         tv_bonus = findViewById(R.id.tv_bonus);
@@ -81,9 +83,9 @@ public class BonusActivity extends AppCompatActivity implements DatePickerDialog
         bonusBtn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BonusActivity.this.finish();
+               finish();
             }
-        }); //h.bonusBtn_cancel.setOnClickListener(new View.OnClickListener()
+        });
 
 
 

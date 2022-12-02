@@ -28,7 +28,11 @@ public class NoticeListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        if(MainActivity.LoginInfo == 0) {
+            MainActivity.container_state = 5;
+        }else{
+            MainActivity.container_state = 1;
+        }
         View v = inflater.inflate(R.layout.fragment_notice_list, container, false);
 
         recv_notiList  = v.findViewById(R.id.recv_notiList);
