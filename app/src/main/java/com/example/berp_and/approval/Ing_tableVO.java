@@ -9,8 +9,9 @@ public class Ing_tableVO implements Serializable {
 	private int no, ing_no, employee_id, department_id, approver_id;
 	private String company_cd, file_name, file_path, document_title, 
 					document_content, document_check, document_status, document_submit,
-					email, approver, drafter, c_status, c_position, document_comment, name, employee_name, finish_date;
-	private Date document_date;
+					email, approver, drafter, c_status, c_position, document_comment, name, employee_name;
+	private Date document_date, finish_date;
+
 
 
 	public String getName() {
@@ -79,12 +80,7 @@ public class Ing_tableVO implements Serializable {
 	public void setApprover(String approver) {
 		this.approver = approver;
 	}
-	public String getFinish_date() {
-		return finish_date;
-	}
-	public void setFinish_date(String finish_date) {
-		this.finish_date = finish_date;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -158,4 +154,27 @@ public class Ing_tableVO implements Serializable {
 		this.document_submit = document_submit;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getDocument_date() {
+		return document_date;
+	}
+
+	public void setDocument_date(Date document_date) {
+		this.document_date = document_date;
+	}
+
+	public Date getFinish_date() {
+		return finish_date;
+	}
+
+	public void setFinish_date(Date finish_date) {
+		this.finish_date = finish_date;
+	}
 }

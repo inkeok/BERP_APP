@@ -1,6 +1,8 @@
 package com.example.berp_and.salary;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -87,7 +89,6 @@ public class MySalaryFragment extends Fragment {
 
             }
         });
-
 
 
 

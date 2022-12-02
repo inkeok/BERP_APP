@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".approval.RecBoxFragment">
+    tools:context=".approval.RecBoxFragment"
+    android:background="@drawable/app_background">
 
     <ImageView
         android:layout_width="match_parent"
@@ -12,22 +13,13 @@
         android:scaleType="fitXY"
         android:alpha="0.5"/>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_toEndOf="@id/txt"
-            android:background="@drawable/emp_top_background_round"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:text="수신함"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+
 
 
 

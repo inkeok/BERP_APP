@@ -36,13 +36,7 @@
             android:textColor="#8E8C8C"
             android:textSize="20dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="님"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
+
 
 
         </LinearLayout>

@@ -153,4 +153,3 @@ public class CodeDetailActivity extends AppCompatActivity {
         super.onResume();
         MainActivity.container_state = 2;
     }
-}

@@ -36,7 +36,7 @@ public class WriteBoxFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_write_box, container, false);
-
+    MainActivity.toolbar.setTitle("상신함");
         MainActivity.container_state = 1;
         recv_write = v.findViewById(R.id.recv_write);
         btn_new_doc = v.findViewById(R.id.btn_new_doc);

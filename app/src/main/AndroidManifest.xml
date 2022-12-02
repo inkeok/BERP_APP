@@ -51,7 +51,6 @@
         <activity
             android:name=".approval.ApprovalDetailActivity"
             android:exported="true" />
-
         <activity
             android:name=".approval.TempDetailActivity"
             android:exported="true" />
