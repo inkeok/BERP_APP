@@ -14,22 +14,6 @@ public class Ing_tableVO implements Serializable {
 
 
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Date getDocument_date() {
-		return document_date;
-	}
-
-	public void setDocument_date(Date document_date) {
-		this.document_date = document_date;
-	}
-
 	public String getEmployee_name() {
 		return employee_name;
 	}

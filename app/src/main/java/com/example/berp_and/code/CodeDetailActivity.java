@@ -65,7 +65,6 @@ public class CodeDetailActivity extends AppCompatActivity {
         code_detail_name.setText(vo.getCode_maker_name());
 
 
-
         btn_code_modify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,3 +152,4 @@ public class CodeDetailActivity extends AppCompatActivity {
         super.onResume();
         MainActivity.container_state = 2;
     }
+}
