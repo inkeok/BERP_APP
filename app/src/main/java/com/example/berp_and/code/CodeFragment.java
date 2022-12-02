@@ -37,7 +37,7 @@ public class CodeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_code, container, false);
-        MainActivity.container_state = 5;
+        MainActivity.container_state = 1;
 
         recv_code = v.findViewById(R.id.recv_code);
         code_check_spinner = v.findViewById(R.id.code_check_spinner);
@@ -88,7 +88,10 @@ public class CodeFragment extends Fragment {
 
     public void onResume() {
         super.onResume();
+      //  getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new CodeFragment() ).commit();
+        MainActivity.container_state = 1;
         rec_code_select();
+
     }
 
     //레트로핏 시작

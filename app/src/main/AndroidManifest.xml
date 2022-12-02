@@ -36,10 +36,9 @@
         <activity
             android:name=".code.CodeDetailActivity"
             android:exported="true" />
-        <!--<activity
-            android:name=".approval.ApprovalDetailActivity"
+        <activity
             android:name=".approval.WriteDetailActivity"
-            android:exported="true" />-->
+            android:exported="true" />
         <activity
             android:name=".approval.WriteNewActivity"
             android:exported="true" />

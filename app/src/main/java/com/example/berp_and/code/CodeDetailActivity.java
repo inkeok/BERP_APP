@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.approval.Ing_tableVO;
 import com.example.berp_and.approval.TempDetailActivity;
@@ -41,7 +42,7 @@ public class CodeDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_code_detail);
 
 
-
+        MainActivity.container_state = 2;
 
 
         vo = (CommonCodeVO) getIntent().getSerializableExtra("vo");
@@ -147,5 +148,9 @@ public class CodeDetailActivity extends AppCompatActivity {
             }
         });*/
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MainActivity.container_state = 2;
+    }
 }

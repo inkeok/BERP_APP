@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.work.CommonCodeVO;
@@ -27,6 +28,8 @@ public class CodeModifyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code_modify);
+
+        MainActivity.container_state = 2;
 
         code_modify_title = findViewById(R.id.code_modify_title);
         code_modify_value = findViewById(R.id.code_modify_value);
