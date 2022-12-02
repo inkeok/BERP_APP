@@ -42,6 +42,7 @@ public class MySalaryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_my_salary, container, false);
         MainActivity.toolbar.setTitle("나의 급여 조회");
+        MainActivity.container_state = 1;
         recv_myBonusList = v.findViewById(R.id.recv_myBonusList);
 
         tv_mySalary = v.findViewById(R.id.tv_mySalary);

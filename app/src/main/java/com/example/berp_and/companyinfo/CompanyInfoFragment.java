@@ -16,6 +16,8 @@ public class CompanyInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_company_info, container, false);
         MainActivity.toolbar.setTitle("회사소개");
+
+        MainActivity.container_state = 5;
         return v;
     }
 }

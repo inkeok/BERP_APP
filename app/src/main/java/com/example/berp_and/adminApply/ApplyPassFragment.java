@@ -36,6 +36,8 @@ public class ApplyPassFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_apply_pass, container, false);
 
+        MainActivity.container_state = 1;
+
         recv_applyCheck =v.findViewById(R.id.recv_applyCheck);
         apply_check_spinner = v.findViewById(R.id.apply_check_spinner);
         MainActivity.toolbar.setTitle("합격자 조회");
@@ -93,6 +95,13 @@ public class ApplyPassFragment extends Fragment {
 
         return v;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.container_state = 1;
+    }
+
     public void spinner_import(){
         CommonAskTask askTask = new CommonAskTask("andApplyCheckSelect.rec", getActivity());
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {

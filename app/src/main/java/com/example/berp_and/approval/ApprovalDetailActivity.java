@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 
 public class ApprovalDetailActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class ApprovalDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_approval_detail);
+        MainActivity.container_state = 2;
 
 
         approval_detail_title = findViewById(R.id.approval_detail_title);

@@ -18,7 +18,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:background="@drawable/test_background_apply"
+        android:background="@drawable/menu_bar8"
 
         android:alpha="0.7"/>
 
@@ -93,13 +93,13 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-
             android:id="@+id/btn_MyApply"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="70dp"
+            android:textColor="@color/white"
             android:background="@drawable/border_button_common_color"
             android:text="지원여부 확인하기" />
 

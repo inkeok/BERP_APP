@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
 import com.google.gson.Gson;
@@ -35,7 +36,8 @@ public class WriteBoxFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_write_box, container, false);
-
+    MainActivity.toolbar.setTitle("상신함");
+        MainActivity.container_state = 1;
         recv_write = v.findViewById(R.id.recv_write);
         btn_new_doc = v.findViewById(R.id.btn_new_doc);
 
@@ -68,4 +70,9 @@ public class WriteBoxFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.container_state = 1;
+    }
 }

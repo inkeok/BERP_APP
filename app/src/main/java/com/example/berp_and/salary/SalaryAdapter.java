@@ -163,7 +163,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
                 Dialog dialog = new Dialog(h.tv_commission.getContext());
                 dialog.setContentView(R.layout.activity_commission);
 
-                h.tv_name_commission = dialog.findViewById(R.id.tv_name_commission);
+//                h.tv_name_commission = dialog.findViewById(R.id.tv_name_commission);
                 h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
 
                 h.tv_updateCommission = dialog.findViewById(R.id.tv_updateCommission);
@@ -247,6 +247,7 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
             tv_name_bonus = v.findViewById(R.id.tv_name_bonus);
             tv_c_position = v.findViewById(R.id.tv_c_position);
             view_color = v.findViewById(R.id.view_color);
+
 
 
 

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.notice.NoticeVO;
 import com.google.gson.Gson;
@@ -29,6 +30,7 @@ public class TempDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_detail);
+        MainActivity.container_state = 2;
 
 
         temp_detail_title = findViewById(R.id.temp_detail_title);
@@ -44,8 +46,8 @@ public class TempDetailActivity extends AppCompatActivity {
 
         temp_detail_content.setText(vo.getDocument_content());
         temp_detail_title.setText(vo.getDocument_title());
-        temp_detail_writer.setText(vo.getName());
-        temp_detail_date.setText(vo.getDocument_date());
+        temp_detail_writer.setText(vo.getEmployee_name());
+        temp_detail_date.setText(vo.getDocument_date()+"");
 
 
 
@@ -83,7 +85,7 @@ public class TempDetailActivity extends AppCompatActivity {
                 intent.putExtra("vo", (Serializable) vo);
                 startActivityForResult(intent , 1000);
 
-
+                finish();
             }
         });
 
@@ -107,8 +109,8 @@ public class TempDetailActivity extends AppCompatActivity {
 
                 temp_detail_content.setText(dto.getDocument_content());
                 temp_detail_title.setText(dto.getDocument_title());
-                temp_detail_writer.setText(dto.getName());
-                temp_detail_date.setText(dto.getDocument_date());
+                temp_detail_writer.setText(dto.getEmployee_name());
+                temp_detail_date.setText(dto.getDocument_date()+"");
 
 
 

@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpVO;
 import com.example.berp_and.notice.NoticeListAdapter;
@@ -40,9 +41,10 @@ public class ApprovalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        MainActivity.toolbar.setTitle("결재처리함");
         View v =inflater.inflate(R.layout.fragment_approval, container, false);
         origin_list();
-
+        MainActivity.container_state = 1;
 
         recv_approval_box  = v.findViewById(R.id.recv_approval_box);
         approval_item_filled_exposed  = v.findViewById(R.id.approval_item_filled_exposed);
@@ -85,9 +87,11 @@ public class ApprovalFragment extends Fragment {
         return v;
     }
 
-
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.container_state = 1;
+    }
 
     public void origin_list(){
         CommonAskTask askTask = new CommonAskTask("andApproval_list", getContext());

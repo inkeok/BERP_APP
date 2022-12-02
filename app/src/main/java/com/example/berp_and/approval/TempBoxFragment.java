@@ -30,6 +30,7 @@ public class TempBoxFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v  = inflater.inflate(R.layout.fragment_temp_box, container, false);
 
+        MainActivity.container_state = 1;
         recv_temp_box  = v.findViewById(R.id.recv_temp_box);
         MainActivity.toolbar.setTitle("임시보관함");
 
@@ -39,8 +40,9 @@ public class TempBoxFragment extends Fragment {
 
     @Override
     public void onResume() {
-        origin_list();
         super.onResume();
+        origin_list();
+        MainActivity.container_state = 1;
     }
 
     public void origin_list() {

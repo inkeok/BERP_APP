@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
+import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.adminApply.ApplyVO;
 
@@ -17,6 +18,8 @@ public class NoticeDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_detail);
+
+        MainActivity.container_state= 2;
 
         notice_detail_content = findViewById(R.id.notice_detail_content);
         notice_detail_title = findViewById(R.id.notice_detail_title);
