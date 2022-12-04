@@ -64,6 +64,7 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
         }else{
             h.work_status.setText(list.get(i).getWork_status());
         }
+
     }
 
     @Override

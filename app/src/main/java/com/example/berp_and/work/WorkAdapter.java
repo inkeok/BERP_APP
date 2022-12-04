@@ -1,15 +1,20 @@
 package com.example.berp_and.work;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.Resource;
 import com.example.berp_and.R;
 
 import java.util.ArrayList;
@@ -60,6 +65,9 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.ViewHolder> {
         }else{
             h.work_status.setText(list.get(i).getWork_status());
         }
+
+
+
     }
 
     @Override
@@ -69,6 +77,7 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_employee_id, tv_employee_name, tv_employee_department,work_date, start_work,end_work, work_status;
+    LinearLayout layout_back;
 
         public ViewHolder(@NonNull View v) {
             super(v);
@@ -79,6 +88,7 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.ViewHolder> {
             start_work = v.findViewById(R.id.start_work);
             end_work = v.findViewById(R.id.end_work);
             work_status = v.findViewById(R.id.work_status);
+            layout_back = v.findViewById(R.id.layout_back);
         }
     }
 
