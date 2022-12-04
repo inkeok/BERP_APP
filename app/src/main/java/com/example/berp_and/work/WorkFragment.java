@@ -62,7 +62,7 @@ public class WorkFragment extends Fragment {
         date_picker_work = v.findViewById(R.id.date_picker_work);
         date_work = v.findViewById(R.id.date_work);
         btn_date = v.findViewById(R.id.btn_date);
-        origin_list();
+        /*origin_list();*/
 
         value_add();
         work_item_filled_exposed = v.findViewById(R.id.work_item_filled_exposed);

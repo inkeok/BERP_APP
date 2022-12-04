@@ -40,6 +40,7 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder h, int i) {
 
+
          h.tv_workDate.setText(list.get(i).getWork_date().substring(5,7)+"월 " +list.get(i).getWork_date().substring(8,10)+ "일");
 
         h.tv_work.setText(list.get(i).getWork_status()+"");
@@ -55,6 +56,7 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+
         TextView tv_workDate, tv_work, tv_workStart, tv_workEnd;
         public ViewHolder(@NonNull View v) {
             super(v);
