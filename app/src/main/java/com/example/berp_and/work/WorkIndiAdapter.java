@@ -41,10 +41,29 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder h, int i) {
         h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
         h.tv_employee_name.setText(list.get(i).getName());
-        h.work_date.setText(list.get(i).getWork_date().substring(0,10));
-        h.start_work.setText(list.get(i).getStart_work());
-        h.end_work.setText(list.get(i).getEnd_work());
-        h.work_code.setText(list.get(i).getWork_status());
+        h.tv_employee_department.setText(list.get(i).getDepartment_name());
+
+        if(list.get(i).getWork_date() == null){
+            h.work_date.setText("-");
+        }else{
+            h.work_date.setText(list.get(i).getWork_date().substring(0,10));
+        }
+        if(list.get(i).getStart_work() ==null){
+            h.start_work.setText("-");
+        }else{
+            h.start_work.setText(list.get(i).getStart_work());
+        }
+        if(list.get(i).getEnd_work() == null){
+            h.end_work.setText("-");
+        }else{
+            h.end_work.setText(list.get(i).getEnd_work());
+        }
+
+        if(list.get(i).getWork_status() == null){
+            h.work_status.setText("-");
+        }else{
+            h.work_status.setText(list.get(i).getWork_status());
+        }
     }
 
     @Override
@@ -54,7 +73,7 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_employee_id, tv_employee_name, work_date,start_work,end_work, work_code;
+        TextView tv_employee_id, tv_employee_name, work_date,start_work,end_work, work_code, work_status,tv_employee_department;
         public ViewHolder(@NonNull View v) {
             super(v);
 
@@ -64,6 +83,8 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
             start_work = v.findViewById(R.id.start_work);
             end_work = v.findViewById(R.id.end_work);
             work_code = v.findViewById(R.id.work_code);
+            work_status = v.findViewById(R.id.work_status);
+            tv_employee_department = v.findViewById(R.id.tv_employee_department);
 
 
 

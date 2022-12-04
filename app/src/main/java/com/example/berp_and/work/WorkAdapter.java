@@ -28,7 +28,7 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = inflater.inflate(R.layout.work_item,parent,false);
+        View v = inflater.inflate(R.layout.work_item_ex,parent,false);
 
         return new ViewHolder(v);
     }
@@ -38,10 +38,28 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.ViewHolder> {
         h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
         h.tv_employee_name.setText(list.get(i).getName());
         h.tv_employee_department.setText(list.get(i).getDepartment_name());
-        h.work_date.setText(list.get(i).getWork_date()+"");
+
+        if(list.get(i).getWork_date() == null){
+            h.work_date.setText("-");
+        }else{
+            h.work_date.setText(list.get(i).getWork_date()+"");
+        }
+        if(list.get(i).getStart_work() ==null){
+            h.start_work.setText("-");
+        }else{
         h.start_work.setText(list.get(i).getStart_work());
+        }
+        if(list.get(i).getEnd_work() == null){
+            h.end_work.setText("-");
+        }else{
         h.end_work.setText(list.get(i).getEnd_work());
-        h.work_status.setText(list.get(i).getWork_status());
+        }
+
+        if(list.get(i).getWork_status() == null){
+            h.work_status.setText("-");
+        }else{
+            h.work_status.setText(list.get(i).getWork_status());
+        }
     }
 
     @Override

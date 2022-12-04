@@ -151,12 +151,13 @@
 
                         <TextView
 
+                            android:id="@+id/hire_year"
 
                             android:layout_width="wrap_content"
 
                             android:layout_height="wrap_content"
 
-                            android:text="출근시간 : "
+                            android:text="연차"
 
                             android:textColor="@color/white"
 
@@ -164,15 +165,14 @@
 
 
                         <TextView
-                            android:id="@+id/start_work"
 
                             android:layout_width="76dp"
 
                             android:layout_height="wrap_content"
 
-                            android:layout_marginLeft="10dp"
 
-                            android:text=" - "
+
+                            android:text="년차"
 
                             android:textColor="@color/white"
 
@@ -190,7 +190,7 @@
 
                             android:layout_height="wrap_content"
 
-                            android:text="퇴근시간 : "
+                            android:text="연차종류 : "
 
                             android:textColor="@color/white"
 
@@ -199,7 +199,7 @@
 
                         <TextView
 
-                            android:id="@+id/end_work"
+                            android:id="@+id/work_code"
 
                             android:layout_width="79dp"
 
@@ -235,7 +235,7 @@
 
                             android:layout_height="wrap_content"
 
-                            android:text="근무 일자 : "
+                            android:text="휴가 일자 : "
 
                             android:textColor="@color/white"
 
@@ -243,7 +243,7 @@
 
 
                         <TextView
-                            android:id="@+id/work_date"
+                            android:id="@+id/holiday_date"
 
                             android:layout_width="96dp"
 
@@ -258,42 +258,7 @@
                             android:textSize="14sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
-                        <TextView
-
-                            android:layout_width="wrap_content"
-
-                            android:layout_height="wrap_content"
-
-                            android:text="근무 구분 : "
-
-                            android:textColor="@color/white"
-
-                            android:textSize="15dp" />
-
-
-                        <TextView
-
-                            android:id="@+id/work_status"
-
-                            android:layout_width="98dp"
-
-
-                            android:layout_height="wrap_content"
-
-                            android:layout_marginLeft="10dp"
-
-                            android:text=" - "
-
-
-                            android:textColor="@color/white"
-
-                            android:textSize="14sp" />
-                    </LinearLayout>
 
                 </LinearLayout>
 

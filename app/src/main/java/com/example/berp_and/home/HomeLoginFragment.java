@@ -129,7 +129,7 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Search();
-
+                Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
             }
         });
         end_work_btn.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +167,7 @@ public class HomeLoginFragment extends Fragment {
                     work_start_input();
 
                 }else{
-                    start_work_btn.isEnabled();
+
                     ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
                     }.getType());
                     start_work_text.setText(list.get(0).getStart_work());

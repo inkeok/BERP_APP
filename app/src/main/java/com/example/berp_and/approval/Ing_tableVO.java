@@ -65,29 +65,7 @@ public class Ing_tableVO implements Serializable {
 		this.approver = approver;
 	}
 
-	public Date getFinish_date() {
-		return finish_date;
-	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Date getDocument_date() {
-		return document_date;
-	}
-
-	public void setDocument_date(Date document_date) {
-		this.document_date = document_date;
-	}
-
-	public void setFinish_date(Date finish_date) {
-		this.finish_date = finish_date;
-	}
 
 	public String getEmail() {
 		return email;
