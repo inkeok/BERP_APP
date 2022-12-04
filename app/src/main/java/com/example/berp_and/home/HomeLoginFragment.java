@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.cliff.comparingperformancebar.PercentageProgressBar;
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
+import com.example.berp_and.approval.WriteBoxFragment;
 import com.example.berp_and.emp.EmpAndInsertDTO;
 import com.example.berp_and.emp.EmpVO;
 import com.example.berp_and.mypage.MyPageActivity;
@@ -33,6 +34,7 @@ import com.example.berp_and.R;
 import com.example.berp_and.login.LoginActivity;
 import com.example.berp_and.notice.NoticeAdapter;
 import com.example.berp_and.notice.NoticeVO;
+import com.example.berp_and.salary.MySalaryFragment;
 import com.example.berp_and.work.HolidayAdapter;
 import com.example.berp_and.work.HolidayInsertFragment;
 import com.example.berp_and.work.HolidayVO;
@@ -47,12 +49,12 @@ import java.util.Date;
 public class HomeLoginFragment extends Fragment {
 
     TextView tv_main_login_name;
-    ImageView img_main_login_setting;
+    ImageView img_main_login_setting, img_super1, img_super2;
     TextView start_work_text, end_work_text;
 
         Button start_work_btn, end_work_btn, holiday_submit_btn;
 
-        RecyclerView recv_notice;
+
     PercentageProgressBar valueProgressBar;
 
     public static int i = 0;
@@ -64,7 +66,7 @@ public class HomeLoginFragment extends Fragment {
 
         tv_main_login_name = v.findViewById(R.id.tv_main_login_name);
         img_main_login_setting = v.findViewById(R.id.img_main_login_setting);
-        recv_notice = v.findViewById(R.id.recv_notice);
+
 
         valueProgressBar = v.findViewById(R.id.valueProgressBar);
         valueProgressBar.setProgress((float) 23/30*100);
@@ -82,6 +84,8 @@ public class HomeLoginFragment extends Fragment {
         start_work_text = v.findViewById(R.id.start_work_text);
         end_work_text = v.findViewById(R.id.end_work_text);
         holiday_submit_btn = v.findViewById(R.id.holiday_submit_btn);
+        img_super1 = v.findViewById(R.id.img_super1);
+        img_super2 = v.findViewById(R.id.img_super2);
 
         CommonAskTask askTask = new CommonAskTask("andSearch",getActivity());
         askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
@@ -159,9 +163,21 @@ public class HomeLoginFragment extends Fragment {
 
             }
         });
-        Notice_list();
 
 
+        img_super1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new MySalaryFragment()).commit();
+            }
+        });
+        img_super2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new  WriteBoxFragment()).commit();
+
+            }
+        });
 
         return v;
     }
@@ -245,22 +261,10 @@ public class HomeLoginFragment extends Fragment {
         });
     }
 
-    public void Notice_list(){
-        CommonAskTask askTask = new CommonAskTask("notice_list", getActivity());
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-            @Override
-            public void onResult(String data, boolean isResult) {
-                Log.d("TAG", "onResult: "+data);
-                ArrayList<NoticeVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<NoticeVO>>() {
-                }.getType());
-
-                recv_notice.setAdapter(new NoticeAdapter(getLayoutInflater(),list,getContext()));
-                recv_notice.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-            }
-        });
 
 
-    }
+
+
     public void first_notion(){
         //로그인후 푸쉬알람(본인 미결재 서류)
         CommonAskTask task = new CommonAskTask("fireApproval.fi", getActivity());

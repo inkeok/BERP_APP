@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,6 +42,9 @@ public class SalaryListFragment extends Fragment {
     ArrayList<DeptVO> deptList;
     String[] items;
 
+    EditText edt_salary_nameFind;
+    Button btn_nameFind_btn;
+
     public void setInflater(LayoutInflater inflater) {
         this.inflater = inflater;
     }
@@ -55,6 +60,8 @@ public class SalaryListFragment extends Fragment {
         recv_salaryList = v.findViewById(R.id.recv_salaryList);
         spinner = v.findViewById(R.id.spinner);
         spinner_tv = v.findViewById(R.id.spinner_tv);
+        edt_salary_nameFind = v.findViewById(R.id.edt_salary_nameFind);
+        btn_nameFind_btn = v.findViewById(R.id.btn_nameFind_btn);
 
 
         CommonAskTask askTask = new CommonAskTask("andDepartments.sa", getContext());
@@ -77,6 +84,33 @@ public class SalaryListFragment extends Fragment {
                 }else{
                     Log.d("로그", "onResult: 통신 실패");
                 }
+
+            }
+        });
+
+        btn_nameFind_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonAskTask task = new CommonAskTask("andSalaryName.sa", getActivity());
+                task.addParam("name", edt_salary_nameFind.getText()+"");
+                task.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+                    @Override
+                    public void onResult(String data, boolean isResult) {
+
+                        ArrayList<SalaryVO> salaryList = new Gson().fromJson(data, new TypeToken<ArrayList<SalaryVO>>() {
+                        }.getType());
+
+                        if(salaryList != null) {
+                            SalaryAdapter adapter = new SalaryAdapter(getLayoutInflater(), getContext(), salaryList, SalaryListFragment.this);
+                            RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+
+                            recv_salaryList.setLayoutManager(manager);
+                            recv_salaryList.setAdapter(adapter);
+                        }
+                    }
+                });
+
+
 
             }
         });

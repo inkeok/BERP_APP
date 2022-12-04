@@ -282,11 +282,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tempList.add(new MainDTO("근태관리" ,subList4));
 
         ArrayList<MainDTO> subList6= new ArrayList<>();
-        subList6.add(new MainDTO("상신함", new WriteBoxFragment()));//미완
-        subList6.add(new MainDTO("임시 보관함", new TempBoxFragment()));//미완
-        subList6.add(new MainDTO("수신함", new RecBoxFragment()));//미완
-        subList6.add(new MainDTO("결재처리함", new ApprovalFragment()));//미완
-        subList6.add(new MainDTO("코드관리", new CodeFragment()));//미완
+        subList6.add(new MainDTO("상신함", new WriteBoxFragment()));
+        subList6.add(new MainDTO("수신함", new RecBoxFragment()));
+        subList6.add(new MainDTO("임시 보관함", new TempBoxFragment()));
+        subList6.add(new MainDTO("결재처리함", new ApprovalFragment()));
+        subList6.add(new MainDTO("코드관리", new CodeFragment()));
 
         tempList.add(new MainDTO("업무관리" ,subList6));
 

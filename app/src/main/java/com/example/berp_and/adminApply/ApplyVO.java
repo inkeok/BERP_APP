@@ -4,12 +4,27 @@ import java.sql.Date;
 
 public class ApplyVO implements Serializable {
     private String recruit_num, apply_email, apply_name, file_name, file_path, apply_check, apply_phone, apply_pw
-            ,company, career, salary, recruit_content, recruit_title, employee_pattern, recruit_end, recruit_start;
+            ,company, career, salary, recruit_content, recruit_title, employee_pattern, recruit_end, recruit_start, apply_pic_name, apply_pic_path;
     private int apply_num;
     private String company_name, career_name, employee_pattern_name;
     private Date apply_date;
 
 
+    public String getApply_pic_name() {
+        return apply_pic_name;
+    }
+
+    public void setApply_pic_name(String apply_pic_name) {
+        this.apply_pic_name = apply_pic_name;
+    }
+
+    public String getApply_pic_path() {
+        return apply_pic_path;
+    }
+
+    public void setApply_pic_path(String apply_pic_path) {
+        this.apply_pic_path = apply_pic_path;
+    }
 
     public String getRecruit_num() {
         return recruit_num;

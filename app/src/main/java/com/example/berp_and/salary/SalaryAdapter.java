@@ -52,6 +52,8 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
     ArrayList<SalaryVO> salaryList;
     SalaryListFragment fragment ;
 
+
+
     public SalaryAdapter(LayoutInflater layoutInflater, Context context, ArrayList<SalaryVO> salaryList , SalaryListFragment fragment) {
         this.layoutInflater = layoutInflater;
         this.context = context;
@@ -69,30 +71,12 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
 
     @Override
     public void onBindViewHolder(@NonNull SalaryHolder h, @SuppressLint("RecyclerView") int i) {
-        h.tv_name.setText(salaryList.get(i).getName());
-        h.tv_commission.setText(salaryList.get(i).getCommission_pct()+"");
-        h.tv_c_employee_parttern.setText(salaryList.get(i).getC_employee_pattern());
-        h.tv_salary.setText(salaryList.get(i).getSalary()+"");
-        h.tv_c_position.setText(salaryList.get(i).getC_position());
-
-        h.tv_hire_date.setText(salaryList.get(i).getHire_date());
-
+        h.tv_name.setText(salaryList.get(i).getC_position() + " " + salaryList.get(i).getName());
+        h.tv_commision.setText(salaryList.get(i).getCommission_pct()+" %");
+        h.tv_salary1.setText(salaryList.get(i).getSalary()+" 만원");
         h.tv_department_name.setText(salaryList.get(i).getDepartment_name());
         h.employee_id = salaryList.get(i).getEmployee_id();
 
-        if (salaryList.get(i).getDepartment_id() == 10){
-            h.view_color.setBackgroundColor(Color.parseColor("#000000"));
-        }else if(salaryList.get(i).getDepartment_id() == 20){
-            h.view_color.setBackgroundColor(Color.parseColor("#EA3737"));
-        }else if(salaryList.get(i).getDepartment_id() == 30){
-            h.view_color.setBackgroundColor(Color.parseColor("#679333"));
-        }else if(salaryList.get(i).getDepartment_id() == 40){
-            h.view_color.setBackgroundColor(Color.parseColor("#C6B203"));
-        }else if(salaryList.get(i).getDepartment_id() == 50){
-            h.view_color.setBackgroundColor(Color.parseColor("#008EFF"));
-        }else if(salaryList.get(i).getDepartment_id() == 60){
-            h.view_color.setBackgroundColor(Color.parseColor("#ED00FF"));
-        }
 
 
 
@@ -111,10 +95,10 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
 
 
 
-        h.tv_salary.setOnClickListener(new View.OnClickListener() {
+        h.tv_salary2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(h.tv_salary.getContext());
+                Dialog dialog = new Dialog(h.tv_salary1.getContext());
                 dialog.setContentView(R.layout.activity_salary);
 
                 h.tv_name_salary = dialog.findViewById(R.id.tv_name_salary);
@@ -157,16 +141,11 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
             }
         }); //h.tv_salary.setOnClickListener(new View.OnClickListener()
 
-        h.tv_commission.setOnClickListener(new View.OnClickListener() {
+        h.tv_commission2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(h.tv_commission.getContext());
+                Dialog dialog = new Dialog(h.tv_commision.getContext());
                 dialog.setContentView(R.layout.activity_commission);
-
-
-//                h.tv_name_commission = dialog.findViewById(R.id.tv_name_commission);
-
-             //   h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
 
                 h.tv_name_commission = dialog.findViewById(R.id.tv_name_bonus);
                 h.tv_name_commission.setText("("+salaryList.get(i).getDepartment_name()+" "+salaryList.get(i).getC_position()+" "+salaryList.get(i).getName()+")");
@@ -226,34 +205,28 @@ public class SalaryAdapter extends RecyclerView.Adapter<SalaryAdapter.SalaryHold
 
 
     class SalaryHolder extends RecyclerView.ViewHolder {
-        TextView tv_name,tv_c_employee_parttern, tv_c_position,
-        tv_department_name, tv_commission, tv_hire_date, tv_salary, tv_name_bonus, tv_name_salary,
-        tv_name_commission;
-
+        TextView tv_name, tv_department_name, tv_salary1, tv_commision, tv_salary2, tv_commission2, img_insert, tv_name_salary, tv_name_commission;
         int employee_id;
 
         EditText tv_updateCommission, tv_updateSalary;
 
         Button commissionBtn_cancel, commissionBtn_save, salaryBtn_cancel, salaryBtn_save;
 
-        ImageView img_insert;
 
         View view_color;
 
         public SalaryHolder(@NonNull View v) {
             super(v);
-            //tv_employee_id = v.findViewById(R.id.tv_employee_id);
+
             tv_name = v.findViewById(R.id.tv_name);
-            tv_c_employee_parttern = v.findViewById(R.id.tv_c_employee_parttern);
-            tv_c_position = v.findViewById(R.id.tv_c_position);
             tv_department_name = v.findViewById(R.id.tv_department_name);
-            tv_commission = v.findViewById(R.id.tv_commission);
-            tv_hire_date = v.findViewById(R.id.tv_hire_date);
-            tv_salary = v.findViewById(R.id.tv_salary);
+            tv_salary1 = v.findViewById(R.id.tv_salary1);
+            tv_commision = v.findViewById(R.id.tv_commision);
+            tv_salary2 = v.findViewById(R.id.tv_salary2);
+            tv_commission2 = v.findViewById(R.id.tv_commission2);
             img_insert = v.findViewById(R.id.img_insert);
-            tv_name_bonus = v.findViewById(R.id.tv_name_bonus);
-            tv_c_position = v.findViewById(R.id.tv_c_position);
-            view_color = v.findViewById(R.id.view_color);
+
+
 
 
 
