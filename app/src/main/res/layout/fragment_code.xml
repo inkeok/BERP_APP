@@ -21,11 +21,11 @@
 
         <AutoCompleteTextView
             android:id="@+id/code_check_spinner"
-            android:layout_width="match_parent"
+            android:layout_width="170dp"
             android:layout_height="40dp"
             android:padding="5dp"
             android:inputType="none"
-            android:textSize="10dp"
+            android:textSize="15dp"
             android:text="(주)YM NetWork"
             android:ellipsize="end"
             android:singleLine="true"/>
@@ -33,8 +33,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:layout_marginHorizontal="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:background="@drawable/round_code_top"
         android:orientation="horizontal">
 
         <TextView
@@ -42,54 +44,48 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
-            android:text="인사코드"/>
+            android:text="코드유형"/>
+
 
         <TextView
             android:layout_weight="0.8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
-            android:text="문서코드"/>
+            android:text="코드번호"/>
 
         <TextView
             android:layout_weight="0.8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
-            android:text="승인코드"/>
+            android:text="승인여부"/>
 
         <TextView
             android:layout_weight="0.8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:gravity="center"
-            android:text="근무코드"/>
-
-<!--        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="코드생성일"/>
-
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="코드생성자"/>-->
+            android:text="코드구분"/>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recv_code"
-        android:layout_marginTop="10dp"
+        android:background="@drawable/round_code_bottom"
+        android:layout_marginBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
