@@ -39,12 +39,13 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder h, int i) {
-        h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
-        h.tv_employee_name.setText(list.get(i).getName());
-        h.work_date.setText(list.get(i).getWork_date().substring(0,10));
-        h.start_work.setText(list.get(i).getStart_work());
-        h.end_work.setText(list.get(i).getEnd_work());
-        h.work_code.setText(list.get(i).getWork_status());
+
+         h.tv_workDate.setText(list.get(i).getWork_date().substring(5,7)+"월 " +list.get(i).getWork_date().substring(8,10)+ "일");
+
+        h.tv_work.setText(list.get(i).getWork_status()+"");
+        h.tv_workStart.setText(list.get(i).getStart_work()+"");
+        h.tv_workEnd.setText(list.get(i).getEnd_work()+"");
+
     }
 
     @Override
@@ -54,16 +55,15 @@ public class WorkIndiAdapter extends RecyclerView.Adapter<WorkIndiAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_employee_id, tv_employee_name, work_date,start_work,end_work, work_code;
+        TextView tv_workDate, tv_work, tv_workStart, tv_workEnd;
         public ViewHolder(@NonNull View v) {
             super(v);
 
-            tv_employee_id = v.findViewById(R.id.tv_employee_id);
-            tv_employee_name = v.findViewById(R.id.tv_employee_name);
-            work_date = v.findViewById(R.id.work_date);
-            start_work = v.findViewById(R.id.start_work);
-            end_work = v.findViewById(R.id.end_work);
-            work_code = v.findViewById(R.id.work_code);
+            tv_workDate = v.findViewById(R.id.tv_workDate);
+            tv_work = v.findViewById(R.id.tv_work);
+            tv_workStart = v.findViewById(R.id.tv_workStart);
+            tv_workEnd = v.findViewById(R.id.tv_workEnd);
+
 
 
 

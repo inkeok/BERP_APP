@@ -31,6 +31,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
@@ -88,5 +89,16 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:20.4.0"
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
     implementation 'com.google.firebase:firebase-messaging-directboot:20.2.0'
+
+    //QR스캐너 12.03 추가
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
+    //막대그래프 12.03
+    implementation 'io.github.cliffgr:cpbar:1.1.0'
+
+    //파이 그래프 12.04, 꺽은선 그래프
+    implementation 'com.github.PhilJay:MpAndroidChart:v3.0.2'
+
+
 
 }

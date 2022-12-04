@@ -1,98 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:layout_marginRight="1dp"
-    android:layout_marginLeft="1dp"
-    android:background="@drawable/border_apply_middle"
-    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
     android:id="@+id/linear_apply_list"
-    android:layout_marginTop="5dp">
+   >
 
 
 
-    <TextView
-        android:id="@+id/tv_myDate"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:text="날짜"
-        android:gravity="center"/>
+    <LinearLayout
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:padding="14dp"
+            android:id="@+id/tv_myDate"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="12월 5일"
+            android:background="@drawable/border_circle2"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:layout_marginLeft="20dp"/>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/tv_myComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="새천년 건강체조를 잘했음"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:singleLine="true"/>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="부장 최인혁"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/tv_myBonus"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20만원"
+                android:textColor="#3B988F"
+                android:textSize="22dp"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
     <View
-        android:layout_gravity="center_vertical"
-        android:layout_width="1.5dp"
-        android:layout_height="30dp"
-        android:background="@color/white"/>
-    <TextView
-        android:id="@+id/tv_myBonus"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:text="보너스"
-        android:gravity="center"/>
-    <View
-
-        android:layout_gravity="center_vertical"
-        android:layout_width="1.5dp"
-        android:layout_height="30dp"
-        android:background="@color/white"/>
-    <TextView
-        android:id="@+id/tv_myComment"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:text="코멘트"
-        android:gravity="center"/>
-
-
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view"/>
 </LinearLayout>
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<LinearLayout-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:orientation="vertical">-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_marginLeft="3dp"-->
-<!--        android:layout_marginBottom="3dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal">-->
-
-<!--        <View-->
-<!--            android:id="@+id/view_color"-->
-<!--            android:layout_weight="0.03"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@color/black"/>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_myDate"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"/>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_myBonus"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"/>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_myComment"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"/>-->
-
-
-
-<!--    </LinearLayout>-->
-
-
-
-<!--</LinearLayout>-->

@@ -96,18 +96,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
                         if (!task.isSuccessful()) {
-                            Log.w("왜안나와", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", task.getException());
+
                             return;
                         }
 
                         // Get new FCM registration token
                         String token = task.getResult();
-                            Log.w("왜안나와", "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"+token );
 
-                        // Log and toast
-                       // String msg = getString(R.string.msg_token_fmt, token);
-                     //  Log.d(TAG, msg);
-                      // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+                       CommonAskTask tokenAsk = new CommonAskTask("tokenAsk", MainActivity.this);
+                       tokenAsk.addParam("token", token);
+                       tokenAsk.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+                           @Override
+                           public void onResult(String data, boolean isResult) {
+
+                           }
+                       });
                     }
                 });
         askNotificationPermission();
@@ -122,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             temp_LoginInfo = LoginInfo;
             initView();
         }
+
     }
 
     public boolean isLogin(){
@@ -381,7 +386,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             LoginActivity.loginInfoList.clear();
             LoginInfo = 0 ;
-            if(drawer.isDrawerOpen(Gravity.LEFT)){
+            if(drawer.isDrawerOpen(Gravity.LEFT)) {
                 drawer.closeDrawers();
 
             }

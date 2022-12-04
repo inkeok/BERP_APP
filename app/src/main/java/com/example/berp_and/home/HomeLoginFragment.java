@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.cliff.comparingperformancebar.PercentageProgressBar;
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.emp.EmpAndInsertDTO;
@@ -52,6 +53,7 @@ public class HomeLoginFragment extends Fragment {
         Button start_work_btn, end_work_btn, holiday_submit_btn;
 
         RecyclerView recv_notice;
+    PercentageProgressBar valueProgressBar;
 
     public static int i = 0;
     @Override
@@ -63,6 +65,13 @@ public class HomeLoginFragment extends Fragment {
         tv_main_login_name = v.findViewById(R.id.tv_main_login_name);
         img_main_login_setting = v.findViewById(R.id.img_main_login_setting);
         recv_notice = v.findViewById(R.id.recv_notice);
+
+        valueProgressBar = v.findViewById(R.id.valueProgressBar);
+        valueProgressBar.setProgress((float) 23/30*100);
+
+       // first_notion();
+
+
 
 
 
@@ -251,6 +260,18 @@ public class HomeLoginFragment extends Fragment {
         });
 
 
+    }
+    public void first_notion(){
+        //로그인후 푸쉬알람(본인 미결재 서류)
+        CommonAskTask task = new CommonAskTask("fireApproval.fi", getActivity());
+        task.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+        task.addParam("name", LoginActivity.loginInfoList.get(0).getName());
+        task.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+
+            }
+        });
     }
 
 

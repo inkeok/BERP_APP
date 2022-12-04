@@ -8,6 +8,63 @@
     tools:context=".emp.EmpFragment"
     android:orientation="vertical">
 
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:id="@+id/border_cdv"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginVertical="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_face"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/test_face_image"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/view"/>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginVertical="@dimen/dp_10"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_name_emp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이가람 (20120001)"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:id="@+id/tv_dept_position2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="부장 / 마케팅팀팀 / 2012-10-01"
+                    android:textSize="16dp"/>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 <!--
 
@@ -23,17 +80,41 @@
         android:text="나의 출퇴근 조회"/>
 -->
 
-
-
-
-
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
-        android:id="@+id/recv_holIndiList"
+    <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="지난 근무 내역"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="20dp"
+            />
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="250dp"
+            android:layout_height="3dp"
+            android:background="#2d5ba0"
+            android:layout_marginLeft="17dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/recv_holIndiList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+
 </LinearLayout>
 

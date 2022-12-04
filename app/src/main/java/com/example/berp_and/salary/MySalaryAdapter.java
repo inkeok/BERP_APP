@@ -45,9 +45,9 @@ public class MySalaryAdapter extends RecyclerView.Adapter<MySalaryAdapter.MySala
 
     @Override
     public void onBindViewHolder(@NonNull MySalaryHolder h, @SuppressLint("RecyclerView") int i) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM월 dd일");
         h.tv_myDate.setText(sdf.format(myBonusList.get(i).getBonus_date()));
-        h.tv_myBonus.setText(myBonusList.get(i).getBonus()+"");
+        h.tv_myBonus.setText(myBonusList.get(i).getBonus()+"만원");
         h.tv_myComment.setText(myBonusList.get(i).getBonus_comment());
 
 //        if (myBonusList.get(i).getDepartment_id() == 10){

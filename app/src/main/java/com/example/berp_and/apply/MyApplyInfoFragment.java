@@ -58,7 +58,7 @@ public class MyApplyInfoFragment extends Fragment {
                 tv_my_rec_email.setText(list.get(0).getApply_email());
                 tv_my_rec_phone.setText(list.get(0).getApply_phone());
                 if(list.get(0).getFile_path() != null) {
-                    Glide.with(getContext()).load(list.get(0).getFile_path()).into(img_apply_img);
+                    Glide.with(getContext()).load(list.get(0).getApply_pic_path()).into(img_apply_img);
                 }
                 recv_apply_myList.setAdapter(new MyApplyInfoAdapter(getLayoutInflater(), list));
                 recv_apply_myList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
