@@ -64,7 +64,7 @@ public class BonusActivity extends AppCompatActivity implements DatePickerDialog
                 askTask.addParam("employee_id", vo.getEmployee_id());
                 askTask.addParam("bonus", tv_bonus.getText());
                 askTask.addParam("bonus_comment", tv_comment.getText());
-                askTask.addParam("bonus_date", tv_bonus_date.getText());
+                askTask.addParam("bonus_date", c.getTime());
                 askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                     @Override
                     public void onResult(String data, boolean isResult) {
@@ -100,21 +100,23 @@ public class BonusActivity extends AppCompatActivity implements DatePickerDialog
 
     }//onCreate
 
+
+    Calendar c;
+
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        //Calendar c = Calendar.getInstance();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        String currentDate = sdf.format(c.getTime());
+        c = Calendar.getInstance();
+        c.set(year,month,dayOfMonth,new Date().getHours(),new Date().getMinutes(),new Date().getSeconds());
 
-        //String currentDate = DateFormat.getDateInstance(DateFormat.MEDIUM).format(c.getTime());
+        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        //String currentDate = sdf.format(c.getTime());
+
+        String currentDate = DateFormat.getDateInstance(DateFormat.LONG).format(c.getTime());
 
         TextView tv_bonus_date = (TextView) findViewById(R.id.tv_bonus_date);
         tv_bonus_date.setText(currentDate);
-
     }
 }//BonusActivity
 
