@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
@@ -20,7 +21,8 @@ import java.util.Date;
 
 public class CodeModifyActivity extends AppCompatActivity {
 
-    EditText code_modify_title, code_modify_value, code_modify_used, code_modify_name, code_modify_maker;
+    EditText code_modify_used, code_modify_name;
+    TextView code_modify_title, code_modify_value, code_modify_maker;
     Button btn_modify_save, btn_modify_cancel;
 
 
