@@ -2,10 +2,12 @@ package com.example.berp_and.salary;
 
 import java.sql.Date;
 
+
 public class BonusVO {
 
 	private int employee_id, bonus, department_id;
-	private Date bonus_date; 
+	private Date bonus_date;
+
 	private String bonus_comment, name, c_position, c_employee_pattern, department_name;
 
 
@@ -65,6 +67,6 @@ public class BonusVO {
 	public void setBonus_comment(String bonus_comment) {
 		this.bonus_comment = bonus_comment;
 	}
-	
-	
-} 
+
+
+}

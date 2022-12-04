@@ -61,10 +61,18 @@ public class BonusActivity extends AppCompatActivity implements DatePickerDialog
             @Override
             public void onClick(View v) {
                 CommonAskTask askTask = new CommonAskTask("andInsertBonus.sa", BonusActivity.this);
-                askTask.addParam("employee_id", vo.getEmployee_id());
+               /* askTask.addParam("employee_id", vo.getEmployee_id());
                 askTask.addParam("bonus", tv_bonus.getText());
                 askTask.addParam("bonus_comment", tv_comment.getText());
                 askTask.addParam("bonus_date", c.getTime());
+                */
+                BonusVO vo = new BonusVO();
+                vo.setBonus(Integer.parseInt(tv_bonus.getText()+""));
+                vo.setEmployee_id(vo.getEmployee_id());
+                vo.setBonus_comment(tv_comment.getText()+"");
+               // vo.setBonus_date(c.getTime());
+
+                askTask.addParam("vo", vo);
                 askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
                     @Override
                     public void onResult(String data, boolean isResult) {
@@ -108,7 +116,7 @@ public class BonusActivity extends AppCompatActivity implements DatePickerDialog
         //Calendar c = Calendar.getInstance();
 
         c = Calendar.getInstance();
-        c.set(year,month,dayOfMonth,new Date().getHours(),new Date().getMinutes(),new Date().getSeconds());
+        c.set(year,month,dayOfMonth);
 
         //SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         //String currentDate = sdf.format(c.getTime());
