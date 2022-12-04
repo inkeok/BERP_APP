@@ -1,5 +1,6 @@
 package com.example.berp_and.emp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,10 +21,20 @@ import com.example.berp_and.CommonAskTask;
 import com.example.berp_and.MainActivity;
 import com.example.berp_and.R;
 import com.example.berp_and.login.LoginMemberVO;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class EmpFragment extends Fragment {
@@ -39,6 +50,13 @@ public class EmpFragment extends Fragment {
     ArrayList<String> pattern_list_real = new ArrayList<>();
     AutoCompleteTextView emp_item_filled_exposed, emp_item_filled_exposed2;
 
+    ArrayList<String> emp_picList = new ArrayList<>();
+    ArrayList<String> emp_picList2 = new ArrayList<>();
+
+    ArrayList<EmpCntVO> cnt_list = new ArrayList<>();
+    PieChart pieChart ;
+
+
     TextView tv_all_num, tv_admin_num, tv_hello_num, tv_susi_num, tv_dev_num, tv_mar_num, tv_lim_num;
 
     int first_num = 0;
@@ -53,16 +71,18 @@ public class EmpFragment extends Fragment {
         origin_list();
 
         tv_all_num = v.findViewById(R.id.tv_all_num);
-        tv_admin_num = v.findViewById(R.id.tv_admin_num);
-        tv_hello_num = v.findViewById(R.id.tv_hello_num);
-        tv_susi_num = v.findViewById(R.id.tv_susi_num);
-        tv_dev_num = v.findViewById(R.id.tv_dev_num);
-        tv_mar_num = v.findViewById(R.id.tv_mar_num);
-        tv_lim_num = v.findViewById(R.id.tv_lim_num);
+        pieChart = v.findViewById(R.id.piechart);
+
 
         num_db_check();
 
+
+
         value_add();
+
+        //어댑터에 넘길 잡사진 모음
+        emp_picList();
+        emp_picList2();
 
         String[] first_list = {"부서", "회사", "포지션", "패턴"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -117,7 +137,7 @@ public class EmpFragment extends Fragment {
                 ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                 }.getType());
 
-                recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
+                recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext(), emp_picList));
                 recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
             }
         });
@@ -145,7 +165,7 @@ public class EmpFragment extends Fragment {
                     ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                     }.getType());
 
-                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
+                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext(), emp_picList2));
                     recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
                 }
             });
@@ -158,7 +178,7 @@ public class EmpFragment extends Fragment {
                     ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                     }.getType());
 
-                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
+                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext(), emp_picList2));
                     recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
                 }
             });
@@ -171,7 +191,7 @@ public class EmpFragment extends Fragment {
                     ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                     }.getType());
 
-                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
+                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext(), emp_picList2));
                     recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
                 }
             });
@@ -184,7 +204,7 @@ public class EmpFragment extends Fragment {
                     ArrayList<EmpVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpVO>>() {
                     }.getType());
 
-                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext()));
+                    recv_empList.setAdapter(new EmpListAdapter(getLayoutInflater(),list, getContext(), emp_picList2));
                     recv_empList.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
                 }
             });
@@ -281,19 +301,76 @@ public class EmpFragment extends Fragment {
         askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
-               ArrayList<EmpCntVO> cnt_list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpCntVO>>() {
+              cnt_list = new Gson().fromJson(data, new TypeToken<ArrayList<EmpCntVO>>() {
                 }.getType());
                 tv_all_num.setText(cnt_list.get(0).getTotal_cnt()+"");
-                tv_admin_num.setText(cnt_list.get(0).getTotal_dept()+"");
+               /* tv_admin_num.setText(cnt_list.get(0).getTotal_dept()+"");
                 tv_hello_num.setText(cnt_list.get(1).getTotal_dept()+"");
                 tv_susi_num.setText(cnt_list.get(2).getTotal_dept()+"");
                 tv_dev_num.setText(cnt_list.get(3).getTotal_dept()+"");
                 tv_mar_num.setText(cnt_list.get(4).getTotal_dept()+"");
-                tv_lim_num.setText(cnt_list.get(5).getTotal_dept()+"");
+                tv_lim_num.setText(cnt_list.get(5).getTotal_dept()+"");*/
+                //파이차트
+                pie_chart();
+
 
             }
         });
     }
 
+
+    public void emp_picList(){
+        for (int i = 0; i < 9; i++) {
+            for (int ii = 0; ii < 16; ii++) {
+                emp_picList.add("http://112.164.58.181:3302/berp/upload/temp/face"+ii+".jpg");
+            }
+        }
+    }
+    public void emp_picList2(){
+        for (int j = 0; j < 9; j++) {
+            for (int jj = 0; jj < 10; jj++) {
+                emp_picList2.add("http://112.164.58.181:3302/berp/upload/temp2/face"+jj+".jpg");
+            }
+        }
+    }
+    public void pie_chart(){
+        pieChart.setUsePercentValues(false);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5,10,5,5);
+
+        pieChart.setDragDecelerationFrictionCoef(0);
+
+        pieChart.setDrawHoleEnabled(false);
+        pieChart.setHoleColor(Color.WHITE);
+        pieChart.setTransparentCircleRadius(61f);
+
+        ArrayList yValues = new ArrayList();
+
+        yValues.add(new PieEntry(cnt_list.get(0).getTotal_dept(),"관리팀"));
+        yValues.add(new PieEntry(cnt_list.get(1).getTotal_dept(),"인사팀"));
+        yValues.add(new PieEntry(cnt_list.get(2).getTotal_dept(),"회계팀"));
+        yValues.add(new PieEntry(cnt_list.get(3).getTotal_dept(),"개발팀"));
+        yValues.add(new PieEntry(cnt_list.get(4).getTotal_dept(),"마케팅팀"));
+        yValues.add(new PieEntry(cnt_list.get(5).getTotal_dept(),"감사팀"));
+
+        Description description = new Description();
+        description.setText("부서별 직원 수"); //라벨
+        description.setTextSize(10);
+        pieChart.setDescription(description);
+
+        pieChart.animateY(1000, Easing.EasingOption.EaseInOutCubic); //애니메이션
+
+        PieDataSet dataSet = new PieDataSet(yValues,"department");
+        dataSet.setSliceSpace(3f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+        PieData data = new PieData((dataSet));
+        data.setValueTextSize(10);
+
+        data.setValueTextColor(Color.BLACK);
+
+        pieChart.setData(data);
+    }
 
 }

@@ -20,7 +20,7 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="123dp"
+        android:layout_height="40dp"
         android:orientation="vertical">
         <LinearLayout
             android:layout_marginVertical="5dp"
@@ -57,214 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/view"/>
-        <LinearLayout
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="관리팀"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_admin_num"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="@color/common_plus"
-                    android:textSize="23dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="명"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="인사팀"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_hello_num"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="@color/common_plus"
-                    android:textSize="23dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="명"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="회계팀"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_susi_num"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="@color/common_plus"
-                    android:textSize="23dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="명"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
 
 
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/view"/>
-        <LinearLayout
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="개발팀"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_dev_num"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="@color/common_plus"
-                    android:textSize="23dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="명"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="마케팅팀"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_mar_num"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="@color/common_plus"
-                    android:textSize="23dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="명"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="감사팀"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_lim_num"
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7"
-                    android:textColor="@color/common_plus"
-                    android:textSize="23dp"
-                    android:layout_gravity="center_vertical"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="명"
-                    android:gravity="bottom"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
 
     </LinearLayout>
     <View
@@ -279,10 +73,27 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/border_cdv"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardUseCompatPadding="true">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/piechart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </com.github.mikephil.charting.charts.PieChart>
+        </androidx.cardview.widget.CardView>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/linear_Empsearch"
+        android:layout_below="@+id/border_cdv"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -303,6 +114,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@+id/border_cdv"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

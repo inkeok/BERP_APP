@@ -13,20 +13,25 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.berp_and.R;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListHolder> {
 
     LayoutInflater inflater;
     ArrayList<EmpVO> list;
     Context context;
+    ArrayList<String> emp_picList;
 
-    public EmpListAdapter(LayoutInflater inflater, ArrayList<EmpVO> list, Context context) {
+    public EmpListAdapter(LayoutInflater inflater, ArrayList<EmpVO> list, Context context, ArrayList<String> emp_picList) {
         this.inflater = inflater;
         this.list = list;
         this.context = context;
+        this.emp_picList = emp_picList;
     }
 
     @NonNull
@@ -39,25 +44,10 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
     @Override
     public void onBindViewHolder(@NonNull EmpListHolder h, @SuppressLint("RecyclerView") int i) {
 
-        h.tv_employee_id.setText(list.get(i).getEmployee_id()+"");
-        h.tv_employee_name.setText(list.get(i).getName());
-        h.tv_employee_department.setText(list.get(i).getDepartment_name());
-        h.tv_hire_date.setText(list.get(i).getHire_date()+"");
-        h.tv_employee_email.setText(list.get(i).getEmail());
 
-        if (list.get(i).getDepartment_id() == 10){
-            h.emp_view_color.setBackgroundColor(Color.parseColor("#000000"));
-        }else if(list.get(i).getDepartment_id() == 20){
-            h.emp_view_color.setBackgroundColor(Color.parseColor("#EA3737"));
-        }else if(list.get(i).getDepartment_id() == 30){
-            h.emp_view_color.setBackgroundColor(Color.parseColor("#679333"));
-        }else if(list.get(i).getDepartment_id() == 40){
-            h.emp_view_color.setBackgroundColor(Color.parseColor("#C6B203"));
-        }else if(list.get(i).getDepartment_id() == 50){
-            h.emp_view_color.setBackgroundColor(Color.parseColor("#008EFF"));
-        }else if(list.get(i).getDepartment_id() == 60){
-            h.emp_view_color.setBackgroundColor(Color.parseColor("#ED00FF"));
-        }
+        Glide.with(context).load(emp_picList.get(i)).into(h.img_face);
+        h.tv_name_emp.setText(list.get(i).getName()+" ("+list.get(i).getEmployee_id()+")");
+        h.tv_dept_position.setText(list.get(i).getPosition_name()+" / "+list.get(i).getDepartment_name()+" / "+list.get(i).getHire_date());
 
         h.img_empSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +66,6 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
                 intent.putExtra("admin", list.get(i).getAdmin());
                 context.startActivity(intent);
 
-
             }
         });
     }
@@ -87,20 +76,18 @@ public class EmpListAdapter extends RecyclerView.Adapter<EmpListAdapter.EmpListH
     }
 
     public class EmpListHolder extends RecyclerView.ViewHolder{
-
-        TextView tv_employee_id, tv_employee_name, tv_employee_department, tv_hire_date, tv_employee_email;
+        CircleImageView img_face;
         ImageView img_empSearch;
-        View emp_view_color;
+        TextView tv_name_emp, tv_dept_position;
+
         public EmpListHolder(@NonNull View v) {
             super(v);
 
-            tv_employee_id = v.findViewById(R.id.tv_employee_id);
-            tv_employee_name = v.findViewById(R.id.tv_employee_name);
-            tv_employee_department = v.findViewById(R.id.tv_employee_department);
-            tv_hire_date = v.findViewById(R.id.tv_hire_date);
-            tv_employee_email = v.findViewById(R.id.tv_employee_email);
             img_empSearch = v.findViewById(R.id.img_empSearch);
-            emp_view_color = v.findViewById(R.id.emp_view_color);
+            img_face = v.findViewById(R.id.img_face);
+            tv_name_emp = v.findViewById(R.id.tv_name_emp);
+            tv_dept_position = v.findViewById(R.id.tv_dept_position);
+
         }
     }
 }
