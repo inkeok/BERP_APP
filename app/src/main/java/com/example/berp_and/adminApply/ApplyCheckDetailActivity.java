@@ -34,7 +34,7 @@ public class ApplyCheckDetailActivity extends AppCompatActivity {
         tv_apply_detail_phone = findViewById(R.id.tv_apply_detail_phone);
         tv_apply_detail_title = findViewById(R.id.tv_apply_detail_title);
         tv_apply_detail_content = findViewById(R.id.tv_apply_detail_content);
-        tv_apply_detail_company = findViewById(R.id.tv_apply_detail_company);
+
         tv_apply_detail_salary = findViewById(R.id.tv_apply_detail_salary);
         tv_apply_detail_position = findViewById(R.id.tv_apply_detail_position);
         btn_pass = findViewById(R.id.btn_pass);
@@ -42,14 +42,14 @@ public class ApplyCheckDetailActivity extends AppCompatActivity {
 
         ApplyVO vo = (ApplyVO) getIntent().getSerializableExtra("vo");
 
-        Glide.with(this).load(vo.getFile_path()).into(img_apply_detail);
+        Glide.with(this).load(vo.getApply_pic_path()).into(img_apply_detail);
 
         tv_apply_detail_name.setText(vo.getApply_name());
         tv_apply_detail_email.setText(vo.getApply_email());
         tv_apply_detail_phone.setText(vo.getApply_phone());
         tv_apply_detail_title.setText(vo.getRecruit_title());
         tv_apply_detail_content.setText(vo.getRecruit_content());
-        tv_apply_detail_company.setText(vo.getCompany_name());
+
         tv_apply_detail_salary.setText("[연봉] " + vo.getSalary() + "만원");
         tv_apply_detail_position.setText(vo.getCareer_name()+ " / " + vo.getEmployee_pattern_name());
 
