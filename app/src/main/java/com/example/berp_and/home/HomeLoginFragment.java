@@ -98,9 +98,8 @@ public class HomeLoginFragment extends Fragment {
                     }.getType());
                     start_work_text.setText(list.get(0).getStart_work());
 
-
                 }else{
-                    Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
+
                 }
             }
         });
@@ -142,7 +141,7 @@ public class HomeLoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Search();
-                Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
+
             }
         });
         end_work_btn.setOnClickListener(new View.OnClickListener() {
@@ -190,13 +189,13 @@ public class HomeLoginFragment extends Fragment {
             public void onResult(String data, boolean isResult) {
                 if(data.equals("[]")){
                     work_start_input();
-
+                    Toast.makeText(getContext(),"출근되었습니다.",1000*2).show();
                 }else{
-
                     ArrayList<WorkVO> list = new Gson().fromJson(data, new TypeToken<ArrayList<WorkVO>>() {
                     }.getType());
                     start_work_text.setText(list.get(0).getStart_work());
-
+                    start_work_btn.isEnabled();
+                    Toast.makeText(getContext(),"출근은 한 번만 가능합니다.",1000*2).show();
                 }
             }
         });
@@ -235,7 +234,7 @@ public class HomeLoginFragment extends Fragment {
                     start_work_text.setText(date);
                     i++;
                 }else {
-                    Toast.makeText(getContext(),"출근은 한 번만 돼요",1000*2).show();
+
                 }
 
             }
