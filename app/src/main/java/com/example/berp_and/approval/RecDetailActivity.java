@@ -92,9 +92,9 @@ public class RecDetailActivity extends AppCompatActivity {
                   @Override
                   public void onResult(String data, boolean isResult) {
                         if (data.equals("1")){
-                            Toast.makeText(RecDetailActivity.this, data, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(RecDetailActivity.this, data, Toast.LENGTH_SHORT).show();
                         }else if(data.equals("응안돼")){
-                            Toast.makeText(RecDetailActivity.this, data, Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(RecDetailActivity.this, data, Toast.LENGTH_SHORT).show();
                         }
                         finish();
                   }

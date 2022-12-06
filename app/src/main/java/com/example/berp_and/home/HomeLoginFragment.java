@@ -72,6 +72,7 @@ public class HomeLoginFragment extends Fragment {
         valueProgressBar.setProgress((float) 23/30*100);
 
        // first_notion();
+        MainActivity.toolbar.setTitle("YM NetWork");
 
 
 

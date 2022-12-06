@@ -42,18 +42,7 @@ public class WriteBoxFragment extends Fragment {
         btn_new_doc = v.findViewById(R.id.btn_new_doc);
 
 
-        CommonAskTask askTask = new CommonAskTask("andWrite.ap", getContext());
-        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-            @Override
-            public void onResult(String data, boolean isResult) {
-                list = new Gson().fromJson(data, new TypeToken<ArrayList<And_Ing_tableVO>>() {
-                }.getType());
-
-                recv_write.setAdapter(new WriteAdapter(getLayoutInflater(), list, getContext()));
-                recv_write.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
-            }
-        });
+        function();
 
         btn_new_doc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +63,20 @@ public class WriteBoxFragment extends Fragment {
     public void onResume() {
         super.onResume();
         MainActivity.container_state = 1;
+        function();
+    }
+    public void function(){
+        CommonAskTask askTask = new CommonAskTask("andWrite.ap", getContext());
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                list = new Gson().fromJson(data, new TypeToken<ArrayList<And_Ing_tableVO>>() {
+                }.getType());
+
+                recv_write.setAdapter(new WriteAdapter(getLayoutInflater(), list, getContext()));
+                recv_write.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
+            }
+        });
     }
 }

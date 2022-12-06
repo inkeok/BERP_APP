@@ -27,7 +27,7 @@ public class EmpDetailActivity extends AppCompatActivity {
     RadioGroup rdg_emp_admin, rdg_emp_pattern;
     Button btn_emp_close, btn_emp_delete, btn_emp_modify;
 
-    int department_id;
+    int department_id, employee_id;
     String company_cd, position;
 
 
@@ -71,6 +71,8 @@ public class EmpDetailActivity extends AppCompatActivity {
         }else{
             rdg_emp_pattern.check(R.id.emp_pattern_H102);
         }
+        employee_id = intent.getIntExtra("employee_id",0);
+
         department_id = intent.getIntExtra("department_id",0);
         spinner_emp_department.setText(intent.getStringExtra("department_name"));
         company_cd = intent.getStringExtra("company");
@@ -170,6 +172,21 @@ public class EmpDetailActivity extends AppCompatActivity {
                         }else {
                             Toast.makeText(EmpDetailActivity.this, "사원 등록 실패", Toast.LENGTH_SHORT).show();
                         }
+                    }
+                });
+            }
+        });
+        btn_emp_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonAskTask askTask = new CommonAskTask("andDeleteEmployee.hr", EmpDetailActivity.this);
+                askTask.addParam("employee_id",employee_id);
+                askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+                    @Override
+                    public void onResult(String data, boolean isResult) {
+
+                            finish();
+
                     }
                 });
             }

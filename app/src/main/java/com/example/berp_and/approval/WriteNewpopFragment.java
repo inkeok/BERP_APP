@@ -47,7 +47,7 @@ public class WriteNewpopFragment extends BottomSheetDialogFragment implements Vi
                 @Override
                 public void onResult(String data, boolean isResult) {
 
-                        Toast.makeText(getActivity(), "참잘했어요", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getActivity(), "등록이 완료되었습니다.", Toast.LENGTH_SHORT).show();
 
                 }
             });

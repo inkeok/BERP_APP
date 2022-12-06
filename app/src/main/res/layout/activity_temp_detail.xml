@@ -106,9 +106,9 @@
             android:layout_alignBottom="@+id/border_cdv"
             android:layout_marginEnd="33dp"
             android:layout_marginBottom="-55dp"
-            android:textColor="@color/white"
             android:backgroundTint="#DD1B0D"
-            android:text="삭제" />
+            android:text="삭제"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/temp_btn_modify"

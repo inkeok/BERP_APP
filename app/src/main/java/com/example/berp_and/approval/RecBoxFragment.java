@@ -33,18 +33,8 @@ public class RecBoxFragment extends Fragment {
                     MainActivity.container_state = 1;
                     recv_recbox = v.findViewById(R.id.recv_recbox);
 
-                    CommonAskTask askTask = new CommonAskTask("andRec.ap", getContext());
-                    askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
-                    askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-                        @Override
-                        public void onResult(String data, boolean isResult) {
-                            list = new Gson().fromJson(data, new TypeToken<ArrayList<And_Ing_tableVO>>() {
-                            }.getType());
-
-                recv_recbox.setAdapter(new RecAdapter(getLayoutInflater(),list, getContext()));
-                recv_recbox.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL, false));
-            }
-        });
+                    MainActivity.toolbar.setTitle("수신함");
+                    function();
 
         return v;
     }
@@ -53,5 +43,20 @@ public class RecBoxFragment extends Fragment {
     public void onResume() {
         super.onResume();
         MainActivity.container_state = 1;
+        function();
+    }
+    public void function(){
+        CommonAskTask askTask = new CommonAskTask("andRec.ap", getContext());
+        askTask.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                list = new Gson().fromJson(data, new TypeToken<ArrayList<And_Ing_tableVO>>() {
+                }.getType());
+
+                recv_recbox.setAdapter(new RecAdapter(getLayoutInflater(),list, getContext()));
+                recv_recbox.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL, false));
+            }
+        });
     }
 }

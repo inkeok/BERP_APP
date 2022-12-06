@@ -42,6 +42,51 @@ public class ApplyCheckFragment extends Fragment {
         recv_applyCheck =v.findViewById(R.id.recv_applyCheck);
         apply_check_spinner = v.findViewById(R.id.apply_check_spinner);
 
+
+
+
+
+        function();
+
+        spinner_import();
+
+
+
+
+
+        return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        function();
+        MainActivity.container_state = 1;
+    }
+
+    public void spinner_import(){
+        CommonAskTask askTask = new CommonAskTask("andApplyCheckSelect.rec", getActivity());
+        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                apply_title_list_real.clear();
+                apply_title_list = new Gson().fromJson(data, new TypeToken<ArrayList<RecruitVO>>() {
+                }.getType());
+                apply_check_spinner.setText("전체");
+                apply_title_list_real.add("전체");
+                for (int i = 0; i < apply_title_list.size(); i++) {
+                    apply_title_list_real.add(apply_title_list.get(i).getRecruit_title());
+                }
+                apply_check_spinner.setAdapter(new ArrayAdapter<>(
+                        getActivity().getApplicationContext(), R.layout.emp_drop_down_item,
+                        apply_title_list_real
+                ));
+
+
+            }
+        });
+    }
+    public void function(){
         CommonAskTask askTask_list = new CommonAskTask("andApplyCheckSelectList.rec" ,getActivity());
         askTask_list.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
@@ -53,12 +98,6 @@ public class ApplyCheckFragment extends Fragment {
                 recv_applyCheck.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false));
             }
         });
-
-
-
-
-
-        spinner_import();
 
         apply_check_spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,39 +128,6 @@ public class ApplyCheckFragment extends Fragment {
                         }
                     });
                 }
-            }
-        });
-
-
-
-        return v;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        MainActivity.container_state = 1;
-    }
-
-    public void spinner_import(){
-        CommonAskTask askTask = new CommonAskTask("andApplyCheckSelect.rec", getActivity());
-        askTask.executeAsk(new CommonAskTask.AsynkTaskCallback() {
-            @Override
-            public void onResult(String data, boolean isResult) {
-                apply_title_list_real.clear();
-                apply_title_list = new Gson().fromJson(data, new TypeToken<ArrayList<RecruitVO>>() {
-                }.getType());
-                apply_check_spinner.setText("전체");
-                apply_title_list_real.add("전체");
-                for (int i = 0; i < apply_title_list.size(); i++) {
-                    apply_title_list_real.add(apply_title_list.get(i).getRecruit_title());
-                }
-                apply_check_spinner.setAdapter(new ArrayAdapter<>(
-                        getActivity().getApplicationContext(), R.layout.emp_drop_down_item,
-                        apply_title_list_real
-                ));
-
-
             }
         });
     }
