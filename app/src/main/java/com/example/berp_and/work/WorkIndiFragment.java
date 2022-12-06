@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 
 public class WorkIndiFragment extends Fragment {
-    TextView tv_name_emp2,tv_dept_position2;
+    TextView tv_name_emp2,tv_dept_position2, tv_today_workStart, tv_today_workEnd;
     RecyclerView recv_holIndiList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,10 +33,12 @@ public class WorkIndiFragment extends Fragment {
         recv_holIndiList = v.findViewById(R.id.recv_holIndiList);
         tv_name_emp2 = v.findViewById(R.id.tv_name_emp2);
         tv_dept_position2 = v.findViewById(R.id.tv_dept_position2);
+        tv_today_workStart = v.findViewById(R.id.tv_today_workStart);
+        tv_today_workEnd = v.findViewById(R.id.tv_today_workEnd);
 
 
         origin_list();
-
+        find_today();
         MainActivity.toolbar.setTitle("나의 출퇴근 조회");
 
         tv_name_emp2.setText(LoginActivity.loginInfoList.get(0).getName() + " ("+ LoginActivity.loginInfoList.get(0).getEmployee_id()+")");
@@ -58,6 +60,25 @@ public class WorkIndiFragment extends Fragment {
 
                 recv_holIndiList.setAdapter(new WorkIndiAdapter(getLayoutInflater(), list, getContext()));
                 recv_holIndiList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+            }
+        });
+    }
+    public void find_today(){
+        CommonAskTask task = new CommonAskTask("findToday", getContext());
+        task.addParam("employee_id", LoginActivity.loginInfoList.get(0).getEmployee_id());
+        task.executeAsk(new CommonAskTask.AsynkTaskCallback() {
+            @Override
+            public void onResult(String data, boolean isResult) {
+                WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
+                }.getType());
+
+                if(list.getStart_work() != null && list.getEnd_work() != null){
+                    tv_today_workStart.setText(list.getStart_work());
+                    tv_today_workEnd.setText(list.getEnd_work());
+                }else if(list.getEnd_work() == null) {
+                    tv_today_workStart.setText(list.getStart_work());
+                }
+
             }
         });
     }

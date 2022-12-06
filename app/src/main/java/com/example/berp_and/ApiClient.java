@@ -8,7 +8,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ApiClient {
 
-    private static final String BASEURL = "http://192.168.0.113/berp/";
+    private static final String BASEURL = "http://112.164.58.181:3302/berp/";
 
 
     private static Retrofit retrofit;
