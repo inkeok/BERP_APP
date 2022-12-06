@@ -114,6 +114,7 @@ public class HolidayInsertFragment extends BottomSheetDialogFragment {
                         holiday_start.setText("휴가 시작일 : " + vo.getStart_holiday());
                         holiday_end.setText("휴가 종료일 : " +vo.getEnd_holiday());
                         if(vo.getStart_holiday() == null || vo.getEnd_holiday() ==null){
+
                             holiday_insert_btn.isEnabled();
                         }else {
                             insert_btn();
@@ -142,7 +143,6 @@ public class HolidayInsertFragment extends BottomSheetDialogFragment {
                 public void onResult(String data, boolean isResult) {
                     Log.d("TAG", "onResult: "+data);
                     if(data.equals("1")){
-
                         Toast.makeText(getContext(),"이미 신청된 휴가일 입니다.",1000*3).show();
                     }else {
                         Toast.makeText(getContext(),"휴가 신청완료 ^3^",1000*3).show();
