@@ -112,7 +112,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/rond_txt"
                     android:gravity="center"
-                    android:text="승인여부"
+                    android:text="사용여부"
                     android:textSize="18dp"/>
                 <TextView
                     android:textColor="@color/black"

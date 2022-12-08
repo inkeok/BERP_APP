@@ -68,7 +68,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center"
-            android:text="승인여부"/>
+            android:text="사용여부"/>
 
         <TextView
             android:layout_weight="0.8"
