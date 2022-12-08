@@ -69,6 +69,7 @@ public class WorkIndiFragment extends Fragment {
         task.executeAsk(new CommonAskTask.AsynkTaskCallback() {
             @Override
             public void onResult(String data, boolean isResult) {
+                if(data !=null){
                 WorkVO list = new Gson().fromJson(data, new TypeToken<WorkVO>() {
                 }.getType());
 
@@ -77,6 +78,8 @@ public class WorkIndiFragment extends Fragment {
                     tv_today_workEnd.setText(list.getEnd_work());
                 }else if(list.getEnd_work() == null) {
                     tv_today_workStart.setText(list.getStart_work());
+                }
+
                 }
 
             }
