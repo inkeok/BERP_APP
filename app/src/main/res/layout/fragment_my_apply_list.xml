@@ -86,7 +86,8 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/edge_round"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:inputType="numberPassword"/>
 
 
             </LinearLayout>

@@ -70,7 +70,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                app:percentage="75"
+                app:percentage="31"
                 app:progressLeftColor="#77B9C1"
                 app:progressRightColor="#45718B"
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginRight="20dp"
-            android:text="23일 / 30일 근무"
+            android:text="7일 / 22일 근무"
             android:textStyle="bold" />
 
         <LinearLayout
