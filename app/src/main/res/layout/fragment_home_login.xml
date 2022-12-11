@@ -97,9 +97,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:textColor="@color/white"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:text="출근" />
+                android:text="출근"
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/end_work_btn"
